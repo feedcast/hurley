@@ -1,0 +1,70 @@
+*:root {
+  --lighter-blue : #036DA7;
+  --darker-blue : #03407D;
+  --darker-gray : #333;
+  --lighter-gray : #dedede;
+  --lighter-gray2 : #cecece;
+  --orange : #E8490F;
+  --channel-list-size: 200px;
+}
+html, body {
+  background-color: var(--lighter-gray)
+}
+
+.feedcast__logo-wrapper {
+  float: left;
+}
+.feedcast__logo {
+  height: 30px;
+  background-color: var(--darker-blue);
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.feedcast__header {
+  background-color: var(--lighter-blue);
+  min-height: 10px;
+  padding: 10px;
+  color: white;
+  display: block;
+  box-sizing: border-box;
+  border-bottom: 2px solid var(--darker-blue);
+}
+
+.feedcast__navbar {
+  padding : 0px 10px;
+  background-color: var(--darker-gray);
+  box-sizing: border-box;
+}
+.feedcast__navbar a {
+  display: inline-block;
+  text-decoration: none !important;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+.feedcast__navbar a:hover,
+.feedcast__navbar a.active {
+  background-color: #222
+}
+
+@media ( max-width: 500px){
+  .feedcast__navbar {
+    padding:0px;
+  }
+  .feedcast__navbar a {
+    display: block;
+    text-decoration: none !important;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+
+.feedcast__container {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
