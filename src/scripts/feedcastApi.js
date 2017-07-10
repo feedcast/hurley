@@ -29,11 +29,36 @@ class FeedcastApi extends EventEmitter {
     })
   }
 
+
+
   getChannelInfo({uuid = null}){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
       req.open('GET', `${this.apiUrl}/channels/${uuid}`, true);
+
+      req.onload = () => {
+        let result = JSON.parse(req.response)
+        complete(result);
+      };
+
+      req.onerror = () => {
+        reject(Error(req.statusText));
+      };
+
+      req.send();
+    })
+  }
+
+
+
+  getChannelEpisodes({ uuid = null, page = 1, per_page = 10}){
+    return new Promise((complete, reject) => {
+      const req = new XMLHttpRequest();
+
+      const url = `${this.apiUrl}/channels/${uuid}/episodes`;
+
+      req.open('GET',`${url}?page=${page}&per_page=${per_page}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)

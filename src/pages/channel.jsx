@@ -4,6 +4,8 @@ import { Link } from 'react-router';
 import feedcastApi from './../scripts/feedcastApi'
 
 import './../styles/channel.css'
+import ChannelEpisodes from './../components/ChannelEpisodes.jsx'
+
 
 class Channel extends Component {
   constructor(){
@@ -37,18 +39,10 @@ class Channel extends Component {
 
 
   render() {
-    let {
-      categories,
-      description,
-      feed_url,
-      image_url,
-      listed,
-      slug,
-      synchronization_status,
-      synchronization_status_message,
-      title,
-      uuid
-    } = this.state
+    let { categories, description,
+      image_url, title, uuid } = this.state
+
+    let { page } = this.props.params
 
     categories = categories.map( (i,n) => (
       <Link key={n} to={`categories/${i.slug}`}>
@@ -67,6 +61,7 @@ class Channel extends Component {
             <p className="feedcast__channelInfo-description">{description}</p>
             <div className="feedcast__channelInfo-categories">{categories}</div>
           </div>
+          <ChannelEpisodes data={{uuid, page}}/>
         </div>
       </div>
     );

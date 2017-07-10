@@ -24,7 +24,9 @@ ReactDOM.render(
       <Route path="/categoriesList" component={CategoriesList}></Route>
       <Route path="/lastEpisodes" component={LastEpisodes}></Route>
       <Route path="/channel" component={Channel}>
-        <Route path=":uuid"></Route>
+        <Route path=":uuid">
+          <Route path=":page"></Route>
+        </Route>
       </Route>
     </Route>
 	</Router>,
