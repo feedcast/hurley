@@ -22,7 +22,7 @@ class FeedcastApi extends EventEmitter {
       };
 
       req.onerror = () => {
-        reject(Error(req.statusText));
+        reject(req.statusText);
       };
 
       req.send();
@@ -43,7 +43,7 @@ class FeedcastApi extends EventEmitter {
       };
 
       req.onerror = () => {
-        reject(Error(req.statusText));
+        reject(req.statusText);
       };
 
       req.send();
@@ -61,12 +61,15 @@ class FeedcastApi extends EventEmitter {
       req.open('GET',`${url}?page=${page}&per_page=${per_page}`, true);
 
       req.onload = () => {
-        let result = JSON.parse(req.response)
+        let result = JSON.parse(req.response);
+        //TODO: get total from responseHeaders
+        // when it is allowed by server
+        result.total = 500
         complete(result);
       };
 
       req.onerror = () => {
-        reject(Error(req.statusText));
+        reject(req.statusText);
       };
 
       req.send();

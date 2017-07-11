@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router';
 import feedcastApi from './../scripts/feedcastApi'
+
+import ChannelEpisode from './ChannelEpisode.jsx'
 
 class ChannelEpisodes extends Component {
 
@@ -8,8 +11,10 @@ class ChannelEpisodes extends Component {
 
     this.state = {
       episodes : [],
+      per_page: 10,
       page : 1,
-      uuid: null
+      uuid: null,
+      total: 50
     }
   }
 
@@ -19,34 +24,84 @@ class ChannelEpisodes extends Component {
     feedcastApi
       .getChannelEpisodes(data)
       .then( res => {
-        console.log(res.episodes)
         this.setState({
           episodes : res.episodes,
           page : data.page,
-          uuid : data.uuid
+          uuid : data.uuid,
+          total: res.total
         })
       })
   }
 
 
   listEpisodes(){
-    let list = this.state.episodes.map( (i, n) =>(
-      <div key={n}>
-        <h4>{i.title}</h4>
-        <p>{i.summary}</p>
-      </div>
-    ))
+    let list = this.state.episodes.map( (i, n) =>
+      <ChannelEpisode key={n} episode={i}/> )
     return this.state.episodes.length > 0 ? list : '';
   }
 
 
 
+    navigation(){
+    //TODO: Abstract this method to a component
+    //used in other places to
+    let { episodes, total, per_page, page} = this.state;
+    let totalPages = parseInt(total / per_page);
+
+    if(total % per_page > 0)
+      totalPages++;
+
+    let pages = []
+
+    pages[1] = 1
+    pages[page - 1] = page - 1
+    pages[page] = page
+    pages[page + 1] = page + 1
+    pages[totalPages] = totalPages
+
+    let buttons = pages
+                    .filter(i => i > 0 && i <= totalPages)
+                    .map(i=>(
+        <Link
+          key={i}
+          to={`channel/${this.state.uuid}/${i}`}
+          className={i == page ? 'active':''}>
+          <button>{i}</button>
+        </Link>
+      ))
+
+    return totalPages > 0 ? (
+      <div className="feedcast__channel-navigation">
+        <Link to={`channel/${this.state.uuid}/${
+          this.state.page > 1?
+          (this.state.page - 1) : 1}`} >
+          <button>
+            <i className="fa fa-angle-double-left"></i>
+          </button>
+        </Link>
+        {buttons}
+        <Link to={`channel/${this.state.uuid}/${
+          this.state.page < totalPages?
+          (this.state.page + 1) : totalPages}`}>
+          <button>
+            <i className="fa fa-angle-double-right"></i>
+          </button>
+        </Link>
+      </div>
+    ) : ''
+  }
+
+
+
   render(){
-    let list = this.listEpisodes();
+    const list = this.listEpisodes();
+    const navButtons = this.navigation();
+
     return (
-      <div>
+      <div className="feedcast__channelEpisodes">
         <h1>Lista de Episódios</h1>
         {list}
+        {navButtons}
       </div>
     )
   }

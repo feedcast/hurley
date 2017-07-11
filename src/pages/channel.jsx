@@ -61,8 +61,8 @@ class Channel extends Component {
             <p className="feedcast__channelInfo-description">{description}</p>
             <div className="feedcast__channelInfo-categories">{categories}</div>
           </div>
-          <ChannelEpisodes data={{uuid, page}}/>
         </div>
+        <ChannelEpisodes data={{uuid, page}}/>
       </div>
     );
   }
