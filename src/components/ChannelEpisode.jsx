@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import helpers from './../scripts/helpers'
 
+import feedcastApi from './../scripts/feedcastApi'
+
 class ChannelEpisode extends Component {
 
   constructor(){
@@ -9,6 +11,10 @@ class ChannelEpisode extends Component {
     this.state = {
       seeMore: false
     }
+  }
+
+  playEpisode(episode){
+    feedcastApi.emit('play:episode', episode)
   }
 
   render(){
@@ -36,7 +42,9 @@ class ChannelEpisode extends Component {
     return (
       <div className="feedcast__channelEpisode">
         <div className="feedcast__channelEpisode-button-wrapper">
-          <button className="feedcast__channelEpisode-play-button">
+          <button
+            onClick={() => this.playEpisode(this.props.episode)}
+            className="feedcast__channelEpisode-play-button">
             <i className="fa fa-play"></i>
           </button>
         </div>

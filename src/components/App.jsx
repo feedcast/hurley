@@ -6,6 +6,7 @@ import './../styles/App.css';
 
 import feedcastApi from './../scripts/feedcastApi'
 import Search from './Search.jsx'
+import PlayerFooter from './PlayerFooter.jsx'
 
 class App extends Component {
 
@@ -27,7 +28,9 @@ class App extends Component {
         <div className="feedcast__container">
           {this.props.children}
         </div>
-        <div className="feedcast__footer"></div>
+        <div className="feedcast__footer">
+          <PlayerFooter />
+        </div>
       </div>
     );
   }
