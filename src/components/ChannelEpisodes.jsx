@@ -20,13 +20,13 @@ class ChannelEpisodes extends Component {
 
   componentWillReceiveProps(nextProps){
     const {data} = nextProps
-
+    let page = typeof data.page === 'string' ? parseInt(data.page) : 1
     feedcastApi
       .getChannelEpisodes(data)
       .then( res => {
         this.setState({
           episodes : res.episodes,
-          page : parseInt(data.page),
+          page,
           uuid : data.uuid,
           total: res.total
         })

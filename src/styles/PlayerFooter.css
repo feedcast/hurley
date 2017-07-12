@@ -17,12 +17,12 @@
 }
 
 
-.feedcast__playerFooter--mobile audio {
+.feedcast__playerFooter audio {
   width: 100%;
 }
 
 
-.feedcast__playerFooter--mobile h5 {
+.feedcast__playerFooter h5 {
   margin : 10px 15px;
   margin-bottom: 0px;
   font-weight: bolder;

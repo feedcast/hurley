@@ -45,8 +45,7 @@ class PlayerFooter extends Component {
     }
 
     return (
-      <div className={`feedcast__footer feedcast__footer--
-        ${episodes.length > 0 ? 'show':'hide'}`}>
+      <div className={`feedcast__footer feedcast__footer--${episodes.length > 0 ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
           <div className="feedcast__playerFooter-top">
             <h5>{titleEpisode}</h5>

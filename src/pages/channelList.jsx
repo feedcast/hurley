@@ -26,6 +26,7 @@ class ChannelList extends Component {
       .getChannels({page, per_page})
       .then(data => {
       this.setState({
+        page: parseInt(page),
         channels: data.channels,
         total: data.total
       });
@@ -83,6 +84,7 @@ class ChannelList extends Component {
       totalPages++;
 
     let pages = []
+
 
     pages[1] = 1
     pages[page - 1] = page - 1
