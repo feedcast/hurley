@@ -26,7 +26,7 @@ class ChannelEpisodes extends Component {
       .then( res => {
         this.setState({
           episodes : res.episodes,
-          page : data.page,
+          page : parseInt(data.page),
           uuid : data.uuid,
           total: res.total
         })
@@ -70,8 +70,9 @@ class ChannelEpisodes extends Component {
         </Link>
       ))
 
-    return totalPages > 0 ? (
-      <div className="feedcast__channel-navigation">
+    return episodes.length > 0 && totalPages > 0 ? (
+      <div className="feedcast__channel-navigation
+      feedcast__channel-navigation--episodes">
         <Link to={`channel/${this.state.uuid}/${
           this.state.page > 1?
           (this.state.page - 1) : 1}`} >
