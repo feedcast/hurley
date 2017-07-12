@@ -28,9 +28,7 @@ class App extends Component {
         <div className="feedcast__container">
           {this.props.children}
         </div>
-        <div className="feedcast__footer">
-          <PlayerFooter />
-        </div>
+        <PlayerFooter />
       </div>
     );
   }
