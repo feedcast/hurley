@@ -146,11 +146,3 @@
   color: var(--lighter-blue);
   cursor: pointer;
 }
-.feedcast__channel-navigation--episodes a button {
-  background-color: white;
-  border: 1px solid var(--lighter-blue);
-  color: var(--lighter-blue);
-}
-.feedcast__channel-navigation--episodes a.active button {
-  color: white;
-}

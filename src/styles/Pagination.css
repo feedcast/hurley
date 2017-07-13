@@ -1,0 +1,31 @@
+.feedcast__pagination{
+  display: block;
+  width: 100%;
+  text-align: center
+}
+.feedcast__pagination button{
+  border: 0px;
+  margin-right: 2px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+/* Blue Theme */
+.feedcast__pagination--blue button{
+  background: var(--lighter-blue);
+  color: white;
+}
+.feedcast__pagination--blue a.active button{
+  background-color: var(--darker-blue);
+}
+
+/* White Theme */
+.feedcast__pagination--white button{
+  background: white;
+  color: var(--lighter-blue);
+  border: 1px solid var(--lighter-blue);
+}
+.feedcast__pagination--white a.active button{
+  background-color: var(--lighter-blue);
+  color: white;
+}
