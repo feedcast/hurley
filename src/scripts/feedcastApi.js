@@ -15,9 +15,7 @@ class FeedcastApi extends EventEmitter {
 
       req.onload = () => {
         let result = JSON.parse(req.response)
-        //TODO: get total from responseHeaders
-        // when it is allowed by server
-        result.total = 178
+        result.total = req.getResponseHeader('total')
         complete(result);
       };
 
@@ -62,9 +60,7 @@ class FeedcastApi extends EventEmitter {
 
       req.onload = () => {
         let result = JSON.parse(req.response);
-        //TODO: get total from responseHeaders
-        // when it is allowed by server
-        result.total = 500
+        result.total = req.getResponseHeader('total')
         complete(result);
       };
 
