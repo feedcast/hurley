@@ -15,7 +15,7 @@ class ChannelEpisodes extends Component {
       per_page: 10,
       page : 1,
       uuid: null,
-      total: 50
+      total: null
     }
   }
 
