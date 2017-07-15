@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from "react-router"
+import { Router, Route, IndexRoute, browserHistory } from "react-router"
 
 import './styles/index.css';
 import App from './components/App.jsx';
@@ -15,7 +15,7 @@ import Channel from './pages/channel.jsx'
 
 
 ReactDOM.render(
-	<Router history={ hashHistory }>
+	<Router history={ browserHistory }>
     <Route path="/" component={App}>
       <IndexRoute component={Featured}></IndexRoute>
       <Route path="/channels" component={ChannelList}>
