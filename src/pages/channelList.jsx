@@ -5,6 +5,9 @@ import './../styles/channelList.css';
 import feedcastApi from './../scripts/feedcastApi'
 
 import Pagination from './../components/Pagination'
+import ChannelCard from './../components/ChannelCard'
+
+
 
 class ChannelList extends Component {
 
@@ -79,17 +82,9 @@ class ChannelList extends Component {
 
 
   listChannels(){
-    let { channels, total, per_page} = this.state;
-    return channels.map( c => (
-      <Link key={c.uuid} to={`channel/${c.uuid}`}>
-        <div className="feedcast__channel" id={c.uuid}>
-          <div className="feedcast__channel-title">
-            <h3>{c.title}</h3>
-          </div>
-          <img src={c.image_url} className="feedcast__channel-img" />
-          <div className="feedcast__channel-overlay"></div>
-        </div>
-      </Link> ));
+    let { channels } = this.state;
+    return channels.map( (c, n) => (
+      <ChannelCard key={n} data={c}/> ));
   }
 
 
@@ -99,7 +94,7 @@ class ChannelList extends Component {
       <div className="feedcast__channel-list">
         {channelList}
         <Pagination
-          url="channels/"
+          url="/channels/"
           page={this.state.page}
           total={this.state.total}
           per_page={this.state.per_page}/>

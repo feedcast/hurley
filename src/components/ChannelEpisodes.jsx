@@ -51,7 +51,7 @@ class ChannelEpisodes extends Component {
         <h1>Lista de Episódios</h1>
         {list}
         <Pagination
-          url={`channel/${this.state.uuid}/`}
+          url={`/channel/${this.state.uuid}/`}
           page={this.state.page}
           per_page={this.state.per_page}
           total={this.state.total}

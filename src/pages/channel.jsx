@@ -45,7 +45,7 @@ class Channel extends Component {
     let { page } = this.props.params
 
     categories = categories.map( (i,n) => (
-      <Link key={n} to={`categories/${i.slug}`}>
+      <Link key={n} to={`/categories/${i.slug}`}>
         <i className={`fa fa-${i.icon}`}></i> {i.title}
       </Link>
     ))

@@ -23,15 +23,12 @@
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-.feedcast__channel-img:before {
-  content:"\f2ce";
-  position: absolute;
+.feedcast__channel-thumbnail {
   width: var(--channel-list-size);
   height: var(--channel-list-size);
   display: block;
   background-color: var(--lighter-blue);
   color: white;
-  font-family: FontAwesome;
   font-size: 60px;
   text-align: center;
   line-height: var(--channel-list-size);
