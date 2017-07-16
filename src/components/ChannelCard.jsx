@@ -19,10 +19,10 @@ export default class ChannelCard extends Component {
   }
 
 
-  componentDidUpdate(prevProps) {
+  componentWillReceiveProps(nextProps) {
     if(this.props.data.image_url !==
-        prevProps.data.image_url){
-      this.checkImage(this.props)
+        nextProps.data.image_url){
+      this.checkImage(nextProps)
     }
   }
 
