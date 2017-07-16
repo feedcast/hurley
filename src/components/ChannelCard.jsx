@@ -15,6 +15,7 @@ export default class ChannelCard extends Component {
 
 
   componentDidMount() {
+    this._isMounted = true
     this.checkImage(this.props)
   }
 
@@ -27,17 +28,24 @@ export default class ChannelCard extends Component {
   }
 
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
+
   checkImage(props){
     let c = props.data
     helpers
       .testImage(c.image_url, 5000)
       .then(e => {
+        if(this._isMounted)
         this.setState({
-          imageStatus: true })
+          imageStatus: true });
       })
       .catch(e => {
+        if(this._isMounted)
         this.setState({
-          imageStatus: false })
+          imageStatus: false });
       })
   }
 
