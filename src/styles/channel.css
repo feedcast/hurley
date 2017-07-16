@@ -146,3 +146,20 @@
   color: var(--lighter-blue);
   cursor: pointer;
 }
+
+@media ( min-width: 960px){
+  .feedcast__channelInfo,
+  .feedcast__channelEpisodes {
+    display: inline-block;
+    float: left;
+    margin:0px;
+  }
+  .feedcast__channelInfo{
+    width: 400px;
+    position: fixed;
+  }
+  .feedcast__channelEpisodes {
+    width: calc(100% - 410px);
+    margin-left: 410px;
+  }
+}

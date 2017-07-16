@@ -43,6 +43,18 @@ html, body {
   background-color: var(--darker-gray);
   box-sizing: border-box;
 }
+
+@media(min-width: 500px){
+  .feedcast__navbar {
+    position: fixed;
+    top:67px;
+    width: 100%;
+    z-index: 100;
+  }
+  html, body {
+    padding-top: 53px;
+  }
+}
 .feedcast__navbar a {
   display: inline-block;
   text-decoration: none !important;
