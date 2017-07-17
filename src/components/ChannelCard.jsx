@@ -36,7 +36,7 @@ export default class ChannelCard extends Component {
   checkImage(props){
     let c = props.data
     helpers
-      .testImage(c.image_url, 5000)
+      .testImage(c.image_url, 10000)
       .then(e => {
         if(this._isMounted)
         this.setState({
