@@ -21,7 +21,8 @@ class Channel extends Component {
       synchronization_status: '',
       synchronization_status_message: '',
       title: '',
-      uuid: ''
+      uuid: '',
+      completed: false
     }
   }
 
@@ -32,6 +33,7 @@ class Channel extends Component {
     feedcastApi
       .getChannelInfo({ uuid })
       .then(data => {
+        data.completed = true
         this.setState(data)
       })
   }
@@ -48,10 +50,9 @@ class Channel extends Component {
       <Link key={n} to={`/categories/${i.slug}`}>
         <i className={`fa fa-${i.icon}`}></i> {i.title}
       </Link>
-    ))
+    ));
 
-    return (
-      <div className="feedcast__channelPage">
+    let channelInfo = this.state.completed ? (
         <div className="feedcast__channelInfo">
           <div className="feedcast__channelInfo-header">
             <img className="feedcast__channelInfo-img" src={image_url}/>
@@ -62,7 +63,16 @@ class Channel extends Component {
             <div className="feedcast__channelInfo-categories">{categories}</div>
           </div>
         </div>
+    ) : (
+        <div className="feedcast__channelInfo">
+        </div>
+    );
+
+    return (
+      <div className="feedcast__channelPage">
+        {channelInfo}
         <ChannelEpisodes data={{uuid, page}}/>
+        }
       </div>
     );
   }
