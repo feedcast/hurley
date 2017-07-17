@@ -83,8 +83,9 @@ class ChannelList extends Component {
 
   listChannels(){
     let { channels } = this.state;
-    return channels.map( (c, n) => (
-      <ChannelCard key={n} data={c}/> ));
+    return channels
+            .filter(c => c.listed)
+            .map( (c, n) => (<ChannelCard key={n} data={c}/>));
   }
 
 
