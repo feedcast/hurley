@@ -27,8 +27,8 @@
   width: var(--channel-list-size);
   height: var(--channel-list-size);
   display: block;
-  background-color: var(--lighter-blue);
-  color: white;
+  color: var(--lighter-blue);
+  background-color: white;
   font-size: 60px;
   text-align: center;
   line-height: var(--channel-list-size);

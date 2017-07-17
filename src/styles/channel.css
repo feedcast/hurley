@@ -49,6 +49,7 @@
   position: absolute;
   bottom:5px;
   left:120px;
+  font-size: 1.3em;
 }
 .feedcast__channelInfo-categories a {
   text-decoration: none;
