@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Helmet from 'react-helmet';
 import './../styles/channelList.css';
 
 import feedcastApi from './../scripts/feedcastApi'
@@ -93,6 +94,12 @@ class ChannelList extends Component {
     let channelList = this.listChannels()
     return (
       <div className="feedcast__channel-list">
+        <Helmet
+          title={`Feedcast | Canais`}
+          meta={[
+            {property: 'og:title',
+            content: `Feedcast | Canais`},
+          ]} />
         {channelList}
         <Pagination
           url="/channels/"

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Helmet from 'react-helmet';
 
 import feedcastApi from './../scripts/feedcastApi'
 
@@ -22,7 +23,7 @@ class Channel extends Component {
       synchronization_status_message: '',
       title: '',
       uuid: '',
-      completed: false
+      populated: false
     }
   }
 
@@ -33,7 +34,7 @@ class Channel extends Component {
     feedcastApi
       .getChannelInfo({ uuid })
       .then(data => {
-        data.completed = true
+        data.populated = true
         this.setState(data)
       })
   }
@@ -52,7 +53,7 @@ class Channel extends Component {
       </Link>
     ));
 
-    let channelInfo = this.state.completed ? (
+    let channelInfo = this.state.populated ? (
         <div className="feedcast__channelInfo">
           <div className="feedcast__channelInfo-header">
             <img className="feedcast__channelInfo-img" src={image_url}/>
@@ -68,11 +69,18 @@ class Channel extends Component {
         </div>
     );
 
+    let metaTitle = this.state.populated ? `| ${this.state.title}` : ``
+
     return (
       <div className="feedcast__channelPage">
+        <Helmet
+          title={`Feedcast ${metaTitle}`}
+          meta={[
+            {property: 'og:title',
+            content: `Feedcast ${metaTitle}`},
+          ]} />
         {channelInfo}
         <ChannelEpisodes data={{uuid, page}}/>
-        }
       </div>
     );
   }
