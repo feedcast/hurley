@@ -1,0 +1,77 @@
+@import 'constants'
+
+html, body
+  background-color: $lighter-gray;
+  padding-bottom: 40px;
+  padding-top: 33px;
+
+.feedcast__container
+  padding: 10px;
+  box-sizing: border-box;
+
+.feedcast__logo-wrapper
+  float: left;
+
+.feedcast__logo
+  height: 30px;
+  background-color: $darker-blue;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+
+
+.feedcast__header
+  background-color: $lighter-blue;
+  min-height: 10px;
+  padding: 10px;
+  color: white;
+  display: block;
+  box-sizing: border-box;
+  border-bottom: 2px solid $darker-blue;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+
+
+.feedcast__navbar
+  padding : 0px 10px;
+  background-color: $darker-gray;
+  box-sizing: border-box;
+
+  a
+    display: inline-block;
+    text-decoration: none !important;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    &:hover,
+    &.active
+      background-color: #222
+
+
+
+//Min Width 500px
+@media(min-width: 500px)
+  .feedcast__navbar
+    position: fixed;
+    top: 67px;
+    width: 100%;
+    z-index: 100;
+
+  html, body
+    padding-top: 53px;
+
+
+
+//Max Width 500px
+@media ( max-width: 500px)
+  .feedcast__navbar
+    padding: 0px;
+
+    a
+      display: block;
+      text-decoration: none !important;
+      color: white;
+      padding: 10px;
+      text-align: center;

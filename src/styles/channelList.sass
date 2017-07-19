@@ -1,0 +1,68 @@
+@import 'constants'
+
+.feedcast__channel-list
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+
+  a
+    text-decoration: none;
+
+.feedcast__channel
+  position: relative;
+  width: $channel-list-size;
+  margin-bottom: 20px;
+  background-color: $lighter-gray2;
+  border-radius: 5px;
+
+.feedcast__channel-img
+  position: relative;
+  width: $channel-list-size;
+  height: $channel-list-size;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+.feedcast__channel-thumbnail
+  width: $channel-list-size;
+  height: $channel-list-size;
+  display: block;
+  color: $lighter-blue;
+  background-color: white;
+  font-size: 60px;
+  text-align: center;
+  line-height: $channel-list-size;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+
+
+.feedcast__channel-title
+  text-align: center;
+  background-color: $darker-blue;
+  color: white;
+  height: 50px;
+  display: table;
+  width: $channel-list-size;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+
+  h3
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    display: table-cell;
+    vertical-align: middle;
+
+.feedcast__channel-overlay
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover
+    background-color: rgba(255,255,255,.2)
+

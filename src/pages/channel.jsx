@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 
 import feedcastApi from './../scripts/feedcastApi'
 
-import './../styles/channel.css'
+import './../styles/channel.sass'
 import ChannelEpisodes from './../components/ChannelEpisodes.jsx'
 
 

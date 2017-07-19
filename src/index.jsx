@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from "react-router"
 
-import './styles/index.css';
+import './styles/index.sass';
 import App from './components/App.jsx';
 import registerServiceWorker from './scripts/registerServiceWorker';
 

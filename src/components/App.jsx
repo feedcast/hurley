@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import logo from './../images/logo.svg';
 
-import './../styles/App.css';
+import './../styles/App.sass';
 
 import feedcastApi from './../scripts/feedcastApi'
 import Search from './Search.jsx'

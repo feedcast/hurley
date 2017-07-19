@@ -1,0 +1,31 @@
+@import 'constants'
+
+.feedcast__pagination
+  display: block;
+  width: 100%;
+  text-align: center
+
+  button
+    border: 0px;
+    margin-right: 2px;
+    padding: 10px 15px;
+    cursor: pointer;
+
+  /* Blue Theme */
+  &--blue
+    button
+      background: $lighter-blue;
+      color: white;
+    a.active button
+      background-color: $darker-blue;
+
+  /* White Theme */
+  &--white
+    button
+      background: white;
+      color: $lighter-blue;
+      border: 1px solid $lighter-blue;
+    a.active button
+      background-color: $lighter-blue;
+      color: white;
+

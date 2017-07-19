@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import './../styles/Pagination.css'
+import './../styles/Pagination.sass'
 
 class Pagination extends Component {
   constructor(props) {
