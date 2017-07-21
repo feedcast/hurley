@@ -43,13 +43,11 @@
     "webpack": "2.6.1",
     "webpack-dev-server": "2.5.0",
     "webpack-manifest-plugin": "1.1.0",
-    "whatwg-fetch": "2.0.3"
-  },
-  "devDependencies": {
+    "sass-loader": "^6.0.6",
     "css-loader": "^0.28.4",
     "node-sass": "^4.5.3",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.18.2"
+    "style-loader": "^0.18.2",
+    "whatwg-fetch": "2.0.3"
   },
   "scripts": {
     "start": "node scripts/start.js",
