@@ -1,0 +1,34 @@
+=multiline-ellipsis($height, $line-height, $ellipsis-width)
+
+  $ellipsis-width: 3em !default
+
+  .ellipsis
+    height: $height
+    line-height: $line-height
+    overflow: hidden
+    &:before
+      content: ""
+      float: left
+      height: $height
+      width: 5px
+    &:after
+      background: white
+      background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(white), color-stop(50%, white))
+      background: -moz-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
+      background: -o-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
+      background: -ms-linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
+      background: linear-gradient(to right, rgba(255, 255, 255, 0), white 50%, white)
+      content: "\02026"
+      float: right
+      left: 100%
+      margin-left: -$ellipsis-width
+      padding-right: 5px
+      position: relative
+      text-align: right
+      top: -25px
+      width: $ellipsis-width
+
+  .ellipsis > *:first-child
+     float: right
+     margin-left: -5px
+     width: 100%

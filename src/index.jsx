@@ -17,12 +17,14 @@ import Channel from './pages/channel.jsx'
 ReactDOM.render(
 	<Router history={ browserHistory }>
     <Route path="/" component={App}>
-      <IndexRoute component={Featured}></IndexRoute>
+      <IndexRoute component={LastEpisodes}></IndexRoute>
       <Route path="/channels" component={ChannelList}>
         <Route path=":page"></Route>
       </Route>
       <Route path="/categoriesList" component={CategoriesList}></Route>
-      <Route path="/lastEpisodes" component={LastEpisodes}></Route>
+      <Route path="/lastEpisodes" component={LastEpisodes}>
+        <Route path=":page"></Route>
+      </Route>
       <Route path="/channel" component={Channel}>
         <Route path=":uuid">
           <Route path=":page"></Route>

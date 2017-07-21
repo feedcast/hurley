@@ -28,6 +28,27 @@ class FeedcastApi extends EventEmitter {
   }
 
 
+  getEpisodes({page = 1, per_page = 30}){
+    return new Promise((complete, reject) => {
+      const req = new XMLHttpRequest();
+
+      req.open('GET', `${this.apiUrl}/episodes?page=${page}&per_page=${per_page}`, true);
+
+      req.onload = () => {
+        let result = JSON.parse(req.response)
+        result.total = req.getResponseHeader('total')
+        complete(result);
+      };
+
+      req.onerror = () => {
+        reject(req.statusText);
+      };
+
+      req.send();
+    })
+  }
+
+
 
   getChannelInfo({uuid = null}){
     return new Promise((complete, reject) => {

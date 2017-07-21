@@ -1,0 +1,46 @@
+@import 'constants'
+@import 'mixins'
+
+$font-size: 13px
+$line-height: 1.4
+$lines-to-show: 2
+
+.feedcast__episode-card-wrapper
+  width: $channel-list-size;
+  margin-bottom: 20px;
+  cursor: pointer
+
+  p
+    font-weight: bold
+    color: $darker-blue
+    width: 100%
+    height: 50px
+    display: block
+    display: -webkit-box
+    height: $font-size*$line-height*$lines-to-show
+    text-align: left
+    font-size: $font-size
+    line-height: $line-height
+    -webkit-line-clamp: $lines-to-show
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis;
+    margin-top: 5px
+
+.feedcast__episode-card
+  position: relative;
+  width: 100%;
+  height: 150px;
+  background-color: white !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 0px;
+
+.feedcast__episode-duration
+  position: absolute
+  bottom: 0px
+  right: 0px
+  background-color: rgba(0,0,0,0.8)
+  color: white
+  padding: 0px 10px
