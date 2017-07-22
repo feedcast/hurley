@@ -15,7 +15,7 @@ import Channel from './pages/channel.jsx'
 
 
 ReactDOM.render(
-	<Router history={ browserHistory }>
+	<Router onUpdate={() => window.scrollTo(0, 0)} history={ browserHistory }>
     <Route path="/" component={App}>
       <IndexRoute component={LastEpisodes}></IndexRoute>
       <Route path="/channels" component={ChannelList}>
