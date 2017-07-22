@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import feedcastApi from './../scripts/feedcastApi'
+import Helmet from 'react-helmet';
 
 import Pagination from './Pagination'
 import EpisodeCard from './EpisodeCard'
+import FeedcastLoader from './FeedcastLoader'
 
 import './../styles/EpisodesList.sass'
 
@@ -19,7 +21,7 @@ export default class EpisodesList extends Component {
       populated: false,
       total: null,
       episodes: [],
-      isMounted: false
+      populated: false
     }
   }
 
@@ -60,13 +62,15 @@ export default class EpisodesList extends Component {
         uuid : '3ef4ed00-b7e6-0134-a084-324e5ee31c7c'
       })
       .then(data => {
-        if ( this._isMounted )
-        this.setState({
-          page,
-          populated: true,
-          total: data.total,
-          episodes: data.episodes
-        });
+        if ( this._isMounted ){
+          this.setState({
+            page,
+            populated: true,
+            total: data.total,
+            episodes: data.episodes
+          });
+          feedcastApi.emit('episodeslist:populated')
+        }
       })
   }
 
@@ -79,18 +83,31 @@ export default class EpisodesList extends Component {
             (<h1>Nenhum episódio!</h1>)
   }
 
+
+
   render(){
     const episodes = this.cards();
-    return (
-      <div className="feedcast__episodes-list">
-        {episodes}
-        <Pagination
-          url={`/lastEpisodes/`}
-          page={this.state.page}
-          per_page={this.state.per_page}
-          total={this.state.total}
-          theme="white" />
+    return this.state.populated ? (
+      <div className="feedcast__last-episodes">
+        <Helmet
+          title={`Feedcast | Últimos Episódios`}
+          meta={[
+            {property: 'og:title',
+            content: `Feedcast | Últimos Episódios`},
+          ]} />
+        <h4> Últimos episódios </h4>
+        <div className="feedcast__episodes-list">
+          {episodes}
+          <Pagination
+            url={`/lastEpisodes/`}
+            page={this.state.page}
+            per_page={this.state.per_page}
+            total={this.state.total}
+            theme="white" />
+        </div>
       </div>
+    ) : (
+      <FeedcastLoader />
     )
   }
 }

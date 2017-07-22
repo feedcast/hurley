@@ -32,3 +32,14 @@
      float: right
      margin-left: -5px
      width: 100%
+
+// keyframes mixin
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content

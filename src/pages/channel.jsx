@@ -6,6 +6,7 @@ import feedcastApi from './../scripts/feedcastApi'
 
 import './../styles/channel.sass'
 import ChannelEpisodes from './../components/ChannelEpisodes.jsx'
+import FeedcastLoader from './../components/FeedcastLoader.jsx'
 
 
 class Channel extends Component {
@@ -53,7 +54,16 @@ class Channel extends Component {
       </Link>
     ));
 
-    let channelInfo = this.state.populated ? (
+    let metaTitle = this.state.populated ? `| ${this.state.title}` : ``
+
+    return this.state.populated ? (
+      <div className="feedcast__channelPage">
+        <Helmet
+          title={`Feedcast ${metaTitle}`}
+          meta={[
+            {property: 'og:title',
+            content: `Feedcast ${metaTitle}`},
+          ]} />
         <div className="feedcast__channelInfo">
           <div className="feedcast__channelInfo-header">
             <img className="feedcast__channelInfo-img" src={image_url}/>
@@ -64,24 +74,10 @@ class Channel extends Component {
             <div className="feedcast__channelInfo-categories">{categories}</div>
           </div>
         </div>
-    ) : (
-        <div className="feedcast__channelInfo">
-        </div>
-    );
-
-    let metaTitle = this.state.populated ? `| ${this.state.title}` : ``
-
-    return (
-      <div className="feedcast__channelPage">
-        <Helmet
-          title={`Feedcast ${metaTitle}`}
-          meta={[
-            {property: 'og:title',
-            content: `Feedcast ${metaTitle}`},
-          ]} />
-        {channelInfo}
         <ChannelEpisodes data={{uuid, page}}/>
       </div>
+    ) : (
+      <FeedcastLoader />
     );
   }
 }

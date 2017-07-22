@@ -7,6 +7,7 @@ import feedcastApi from './../scripts/feedcastApi'
 
 import Pagination from './../components/Pagination'
 import ChannelCard from './../components/ChannelCard'
+import FeedcastLoader from './../components/FeedcastLoader'
 
 
 
@@ -19,7 +20,8 @@ class ChannelList extends Component {
       total:null,
       page: 1,
       per_page: 24,
-      channels: []
+      channels: [],
+      populated: false
     }
 
   }
@@ -34,8 +36,9 @@ class ChannelList extends Component {
       this.setState({
         page: parseInt(page),
         channels: data.channels,
-        total: data.total
-      });
+        total: data.total,
+        populated: true
+      })
     })
   }
 
@@ -44,7 +47,6 @@ class ChannelList extends Component {
     if( this.props.params.page != nextProps.params.page)
       this.updatePage(nextProps);
   }
-
 
   componentWillMount(){
     this.updatePage(this.props)
@@ -92,7 +94,7 @@ class ChannelList extends Component {
 
   render() {
     let channelList = this.listChannels()
-    return (
+    return this.state.populated ? (
       <div className="feedcast__channel-list">
         <Helmet
           title={`Feedcast | Canais`}
@@ -107,6 +109,8 @@ class ChannelList extends Component {
           total={this.state.total}
           per_page={this.state.per_page}/>
       </div>
+    ) : (
+      <FeedcastLoader/>
     );
   }
 }

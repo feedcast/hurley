@@ -19,8 +19,17 @@ class ChannelEpisodes extends Component {
     }
   }
 
+  componentDidMount() {
+    this.updateList(this.props)
+  }
+
   componentWillReceiveProps(nextProps){
-    const {data} = nextProps
+    this.updateList(nextProps)
+  }
+
+
+  updateList(props){
+    const {data} = props
     const page = typeof data.page === 'string' ?
                 parseInt(data.page) : 1;
     feedcastApi
@@ -35,7 +44,6 @@ class ChannelEpisodes extends Component {
       })
   }
 
-
   listEpisodes(){
     let list = this.state.episodes.map( (i, n) =>
       <ChannelEpisode key={n} episode={i}/> )
@@ -45,6 +53,7 @@ class ChannelEpisodes extends Component {
 
   render(){
     const list = this.listEpisodes();
+
 
     return (
       <div className="feedcast__channelEpisodes">
