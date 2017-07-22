@@ -8,9 +8,9 @@ $lines-to-show: 2
 .feedcast__episode-card-wrapper
   width: $channel-list-size;
   margin-bottom: 20px;
-  cursor: pointer
 
-  p
+  h3
+    cursor: pointer
     font-weight: bold
     color: $darker-blue
     width: 100%
@@ -26,8 +26,22 @@ $lines-to-show: 2
     overflow: hidden
     text-overflow: ellipsis;
     margin-top: 5px
+    margin-bottom: 0px
+
+  h5
+    margin: 0px
+    font-weight: lighter
+    a
+      text-decoration: none
+      &:focus,
+      &:visited
+        color: #333 !important
+      &:hover
+        color: $darker-blue !important
+        text-decoration: underline !important
 
 .feedcast__episode-card
+  cursor: pointer
   position: relative;
   width: 100%;
   height: 150px;
@@ -43,4 +57,5 @@ $lines-to-show: 2
   right: 0px
   background-color: rgba(0,0,0,0.8)
   color: white
-  padding: 0px 10px
+  padding: 0px 5px
+  font-size: 12px

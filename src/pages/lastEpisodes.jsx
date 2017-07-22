@@ -10,14 +10,14 @@ class LastEpisodes extends Component {
   render() {
     const {params} = this.props
     return (
-      <div>
+      <div className="feedcast__last-episodes">
         <Helmet
           title={`Feedcast | Últimos Episódios`}
           meta={[
             {property: 'og:title',
             content: `Feedcast | Últimos Episódios`},
           ]} />
-        <h1> Lista de últimos episódios </h1>
+        <h4> Últimos episódios </h4>
         <EpisodesList params={params}/>
       </div>
     );
