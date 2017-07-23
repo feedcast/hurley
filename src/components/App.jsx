@@ -21,8 +21,8 @@ class App extends Component {
           <Search/>
         </div>
         <div className="feedcast__navbar">
+          <Link activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Episódios</Link>
           <Link activeClassName="active" to="/channels"><i className="fa fa-rss"></i> Canais</Link>
-          <Link activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Últimos Episódios</Link>
           <Link activeClassName="active" to="/categoriesList"><i className="fa fa-th-large"></i> Categorias</Link>
         </div>
         <div className="feedcast__container">
