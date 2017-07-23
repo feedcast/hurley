@@ -52,14 +52,10 @@ export default class EpisodesList extends Component {
 
     const page = params.page !== undefined ? parseInt(params.page) : 1;
 
-    //TODO: replace for getEpisodes
-    //      when API timeout is fixed
-
     feedcastApi
-      .getChannelEpisodes({
+      .getEpisodes({
         page,
-        per_page,
-        uuid : '3ef4ed00-b7e6-0134-a084-324e5ee31c7c'
+        per_page
       })
       .then(data => {
         if ( this._isMounted ){
