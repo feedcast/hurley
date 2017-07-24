@@ -17,12 +17,13 @@ export default class EpisodesList extends Component {
 
     this.state = {
       page: 1,
-      per_page: 30,
+      per_page: 12,
       populated: false,
       total: null,
       episodes: [],
       populated: false
     }
+
   }
 
 

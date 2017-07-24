@@ -7,9 +7,10 @@ import App from './components/App.jsx';
 import registerServiceWorker from './scripts/registerServiceWorker';
 
 import ChannelList from './pages/channelList.jsx'
-import CategoriesList from './pages/categoriesList.jsx'
+import Category from './pages/category.jsx'
 import Featured from './pages/featured.jsx'
 import Channel from './pages/channel.jsx'
+import Home from './pages/home.jsx'
 
 import EpisodesList from './components/EpisodesList.jsx'
 
@@ -17,11 +18,13 @@ import EpisodesList from './components/EpisodesList.jsx'
 ReactDOM.render(
 	<Router onUpdate={() => window.scrollTo(0, 0)} history={ browserHistory }>
     <Route path="/" component={App}>
-      <IndexRoute component={EpisodesList}></IndexRoute>
+      <IndexRoute component={Home}></IndexRoute>
       <Route path="/channels" component={ChannelList}>
         <Route path=":page"></Route>
       </Route>
-      <Route path="/categoriesList" component={CategoriesList}></Route>
+      <Route path="/category" component={Category}>
+        <Route path=":page"></Route>
+      </Route>
       <Route path="/lastEpisodes" component={EpisodesList}>
         <Route path=":page"></Route>
       </Route>
