@@ -1,0 +1,29 @@
+@import 'constants'
+
+
+.feedcast__home
+
+  .feedcast__last-episodes,
+  .feedcast__categories-sidebar
+    display: inline-block
+
+  .feedcast__last-episodes
+    float: right
+    width: calc(100% - 215px)
+
+  .feedcast__categories-sidebar
+    float: left
+    background-color: white
+    width: 200px
+
+    a
+      display: inline-block;
+      width: 100%;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: $darker-gray;
+      box-sizing: border-box
+
+      &:hover
+        color: white;
+        background-color: $darker-gray
