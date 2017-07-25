@@ -28,11 +28,33 @@ class FeedcastApi extends EventEmitter {
   }
 
 
+  getEpisodesByCategory({page = 1, per_page = 100, slug = ''}){
+    return new Promise((complete, reject) => {
+      const req = new XMLHttpRequest();
+
+      req.open('GET', `${this.apiUrl}/categories/${slug}?page=${page}&per_page=${per_page}`, true);
+
+      req.onload = () => {
+        let result = JSON.parse(req.response)
+        complete(result);
+      };
+
+      req.onerror = () => {
+        reject(req.statusText);
+      };
+
+      req.send();
+    })
+  }
+
+
+
+
   getCategories(){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/categories?`, true);
+      req.open('GET', `${this.apiUrl}/categories`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)

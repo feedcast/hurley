@@ -1,20 +1,66 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
+import ChannelCard from './../components/ChannelCard'
+import FeedcastLoader from './../components/FeedcastLoader'
+import feedcastApi from './../scripts/feedcastApi'
 
 class Category extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      channels : [],
+      icon: null,
+      slug: null,
+      title: null,
+      populated: false
+    }
+  }
+
+
+
+  componentDidMount() {
+    const { page } = this.props.params
+    const slug = page && page.length > 0 ? page : ''
+    feedcastApi
+      .getEpisodesByCategory({slug})
+      .then( data => {
+        this.setState({
+          populated: true,
+          ...data
+        });
+      })
+  }
+
+
+  listChannels(){
+    let { channels } = this.state;
+    return channels
+            .filter(c => c.listed)
+            .map( (c, n) => (<ChannelCard key={n} data={c}/>));
+  }
+
+
+
   render() {
-    return (
+    const channelList = this.listChannels()
+
+    return this.state.populated ? (
       <div>
-      <Helmet
+        <Helmet
           title={`Feedcast`}
           meta={[
             {property: 'og:title',
-            content: `Feedcast`},
+            content: `Feedcast ${ this.state.populated ? '| ' + this.state.title : '' }`},
           ]} />
-        <h1> Página da Categoria {this.props.params.page} </h1>
+        <h1>{this.state.title} </h1>
+        <div className="feedcast__channel-list feedcast__channel-list--byCategory">
+          {channelList}
+        </div>
       </div>
-    );
+    ) : (<FeedcastLoader/>);
   }
 }
 
