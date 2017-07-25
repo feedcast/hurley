@@ -21,7 +21,7 @@ class App extends Component {
           <Search/>
         </div>
         <div className="feedcast__navbar">
-          <Link activeClassName="active" to="/"><i className="fa fa-home"></i> Home</Link>
+          <Link to="/"><i className="fa fa-home"></i> Home</Link>
           <Link activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Episódios</Link>
           <Link activeClassName="active" to="/channels"><i className="fa fa-rss"></i> Canais</Link>
         </div>
