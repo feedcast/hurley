@@ -20,8 +20,7 @@ export default class EpisodesList extends Component {
       per_page: 12,
       populated: false,
       total: null,
-      episodes: [],
-      populated: false
+      episodes: []
     }
 
   }

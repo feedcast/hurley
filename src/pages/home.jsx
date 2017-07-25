@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import EpisodesList from './../components/EpisodesList'
+import Episodes from './../components/home/episodes'
 import CategoriesSidebar from './../components/categoriesSidebar'
 import './../styles/home.sass'
 
@@ -13,7 +13,7 @@ class Home extends Component {
       <div className="feedcast__home">
         <CategoriesSidebar />
         <div className="feedcast__home-content-wrapper">
-          <EpisodesList params={params}/>
+          <Episodes params={params}/>
         </div>
       </div>
     );
