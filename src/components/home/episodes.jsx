@@ -96,7 +96,7 @@ export default class Episodes extends Component {
 
 
     return (
-      <div className="feedcast__last-episodes">
+      <div className="feedcast__last-episodes feedcast__section">
         <h4> Últimos episódios </h4>
         <div className="feedcast__episodes-list">
           {episodes}
