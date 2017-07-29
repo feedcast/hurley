@@ -84,7 +84,7 @@ export default class EpisodesList extends Component {
   render(){
     const episodes = this.cards();
     return this.state.populated ? (
-      <div className="feedcast__last-episodes">
+      <div className="feedcast__last-episodes feedcast__section">
         <Helmet
           title={`Feedcast | Últimos Episódios`}
           meta={[
