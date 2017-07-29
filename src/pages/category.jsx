@@ -22,17 +22,25 @@ class Category extends Component {
 
 
   componentDidMount() {
-    const { page } = this.props.params
-    const slug = page && page.length > 0 ? page : ''
-    feedcastApi
-      .getEpisodesByCategory({slug})
-      .then( data => {
-        this.setState({
-          populated: true,
-          ...data
-        });
-      })
+    this.updatePage(this.props)
   }
+
+
+  updatePage(props){
+    const { page } = props.params
+    const slug = page && page.length > 0 ? page : ''
+    this.setState({ populated: false }, ()=>{
+      feedcastApi
+        .getEpisodesByCategory({slug})
+        .then( data => {
+          this.setState({
+            populated: true,
+            ...data
+          });
+        })
+    });
+  }
+
 
 
   listChannels(){
@@ -40,6 +48,12 @@ class Category extends Component {
     return channels
             .filter(c => c.listed)
             .map( (c, n) => (<ChannelCard key={n} data={c}/>));
+  }
+
+
+  componentWillUpdate(nextProps) {
+    if( this.props.params.page != nextProps.params.page)
+      this.updatePage(nextProps);
   }
 
 
