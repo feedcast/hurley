@@ -7,7 +7,7 @@ export default class ChannelCard extends Component {
     return (
       <div className="feedcast__categories-channel-card">
         <Link to={`/channel/${uuid}`}>
-          <img src={image_url}/>
+          <img alt={title} src={image_url}/>
           <h5>{title}</h5>
         </Link>
       </div>

@@ -8,7 +8,6 @@ import registerServiceWorker from './scripts/registerServiceWorker';
 
 import ChannelList from './pages/channelList.jsx'
 import Category from './pages/category.jsx'
-import Featured from './pages/featured.jsx'
 import Channel from './pages/channel.jsx'
 import Home from './pages/home.jsx'
 

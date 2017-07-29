@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   toggleSidebar(bol){
-    if(bol && Boolean == typeof bol){
+    if(bol && Boolean === typeof bol){
       this.setState({ showSidebar: bol })
     } else {
       this.setState({ showSidebar: ! this.state.showSidebar});

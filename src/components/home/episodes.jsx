@@ -71,8 +71,6 @@ export default class Episodes extends Component {
   cards(){
     const { episodes } = this.state
 
-    console.log(episodes)
-
     return episodes.length > 0 ?
             episodes.map((e, i) => <EpisodeCard key={i} episode={e}/>):''
   }
