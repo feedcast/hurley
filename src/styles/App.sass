@@ -62,16 +62,78 @@ html, body
   html, body
     padding-top: 53px;
 
-
+  .feedcast__sidebar,
+  .feedcast__sidebar-overlay,
+  .feedcast__sidebar-toggle
+    display: none
 
 //Max Width 500px
 @media ( max-width: 500px)
   .feedcast__navbar
-    padding: 0px;
+    display: none;
 
-    a
-      display: block;
-      text-decoration: none !important;
+  .feedcast__categories-sidebar
+    display: none !important
+  .feedcast__home-content-wrapper
+    width: 100% !important;
+
+  .feedcast__sidebar-toggle
+    background-color: transparent
+    border: none
+    display: inline-block
+    float: left
+    color: white
+    height: 40px
+    width: 40px
+    transform: translatex(-10px)
+    line-height: 40px
+    font-size: 25px
+    cursor: pointer
+
+  .feedcast__sidebar-overlay
+    position: fixed
+    top: 0px
+    left: 0px
+    height: 100%
+    width: 100%
+    background-color: rgba(0,0,0,.4)
+    z-index: 400
+    &--show
+      display: block
+    &--hide
+      display: none
+
+  .feedcast__sidebar,
+  .feedcast__sidebar-overlay
+    transition: all .2s ease-in-out
+
+  .feedcast__sidebar-wrapper
+    overflow: scroll
+    height: 100vh
+  .feedcast__sidebar
+    position: fixed
+    top: 0px
+    left: 0px
+    height: 100%
+    background-color: white
+    z-index: 500
+    width: calc(70vw)
+    &--hide
+      transform: translateX(-70vw)
+
+    h5
+      width: 100%
+      background-color: $darker-gray
       color: white;
-      padding: 10px;
-      text-align: center;
+      margin: 0px
+      padding: 10px
+      box-sizing: border-box
+      text-align: center
+    a
+      display: inline-block;
+      width: 100%;
+      padding: 10px 15px;
+      text-decoration: none;
+      color: $darker-gray;
+      box-sizing: border-box
+      text-align: center
