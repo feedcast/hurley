@@ -5,6 +5,7 @@ import logo from './../images/logo.svg';
 import './../styles/App.sass';
 
 import feedcastApi from './../scripts/feedcastApi'
+import helpers from './../scripts/helpers'
 import Search from './Search.jsx'
 import PlayerFooter from './PlayerFooter.jsx'
 
@@ -14,7 +15,7 @@ class App extends Component {
     this.state = {
       categories: [],
       populated: false,
-      showSidebar: false
+      showSidebar: window.innerWidth >= 500
     }
   }
 
@@ -31,21 +32,27 @@ class App extends Component {
     })
   }
 
-  toggleSidebar(bol){
-    if(bol && Boolean === typeof bol){
-      this.setState({ showSidebar: bol })
+  toggleSidebar(bol, ifMobile){
+    if('boolean' === typeof ifMobile){
+      if(ifMobile && window.innerWidth <= 500){
+        this.setState({ showSidebar: bol })
+      }
     } else {
-      this.setState({ showSidebar: ! this.state.showSidebar});
+      if(bol && 'boolean' === typeof bol){
+        this.setState({ showSidebar: bol })
+      } else {
+        this.setState({ showSidebar: ! this.state.showSidebar});
+      }
     }
   }
 
   render() {
 
     return (
-      <div className="feedcast">
+      <div className={`feedcast feedcast--sidebar-${this.state.showSidebar?'active':'inactive'}`}>
         <div className="feedcast__header">
           <button
-            onClick={()=>{this.toggleSidebar(true)}}
+            onClick={()=>{this.toggleSidebar()}}
             className="feedcast__sidebar-toggle">
             <i className="fa fa-bars"></i>
           </button>
@@ -54,12 +61,7 @@ class App extends Component {
           </Link>
           <Search/>
         </div>
-        <div className="feedcast__navbar">
-          <Link to="/"><i className="fa fa-home"></i> Home</Link>
-          <Link activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Episódios</Link>
-          <Link activeClassName="active" to="/channels"><i className="fa fa-rss"></i> Canais</Link>
-        </div>
-        <div className="feedcast__container">
+        <div className={`feedcast__container feedcast__sidebar--${this.state.showSidebar?'active':'inactive'}`}>
           {this.props.children}
         </div>
         <div
@@ -68,13 +70,13 @@ class App extends Component {
         <div className={`feedcast__sidebar feedcast__sidebar--${this.state.showSidebar ? 'show':'hide'}`}>
           <div className="feedcast__sidebar-wrapper">
             <h5>Links Importantes</h5>
-            <Link onClick={()=>{this.toggleSidebar(false)}} to="/"><i className="fa fa-home"></i> Home</Link>
-            <Link onClick={()=>{this.toggleSidebar(false)}} activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Episódios</Link>
-            <Link onClick={()=>{this.toggleSidebar(false)}} activeClassName="active" to="/channels"><i className="fa fa-rss"></i> Canais</Link>
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/"><i className="fa fa-home"></i> Home</Link>
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> Episódios</Link>
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/channels"><i className="fa fa-rss"></i> Canais</Link>
             <h5>Categorias</h5>
             { this.state.categories.map((c, i)=>(
-            <Link onClick={()=>{this.toggleSidebar(false)}} key={i} to={`/category/${c.slug}`}>
-              <i className={`fa fa-${c.icon}`}></i> {c.title}
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} key={i} to={`/category/${c.slug}`}>
+              <i className={`fa fa-${c.icon}`}></i> {c.title} <span>{c.channels.length}</span>
             </Link>))}
           </div>
         </div>

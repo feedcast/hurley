@@ -37,8 +37,7 @@ class Home extends Component {
     const {params} = this.props
     return this.state.populated ? (
       <div className="feedcast__home">
-        <CategoriesSidebar categories={this.state.categories} />
-        <div className="feedcast__home-content-wrapper feedcast__section">
+        <div className="feedcast__section">
           <Episodes params={params}/>
           <CategoriesChannelList categories={this.state.categories}/>
         </div>

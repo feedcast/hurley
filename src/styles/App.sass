@@ -1,94 +1,134 @@
 @import 'constants'
 
+*:focus
+  outline: 0
+
+@media(min-width: 500px)
+  .feedcast__sidebar--active
+    width: calc(100% - 230px)
+    margin-left: 230px
+
+
 html, body
   background-color: $lighter-gray;
-  padding-bottom: 40px;
+  padding-bottom: 88px;
   padding-top: 33px;
 
 .feedcast__container
   padding: 18px;
   box-sizing: border-box;
 
+
 .feedcast__logo-wrapper
   float: left;
 
 .feedcast__logo
   height: 30px;
-  background-color: $darker-blue;
+  background-color: $lighter-blue;
   padding: 5px;
   border-radius: 5px;
   display: inline-block;
 
 
 .feedcast__header
-  background-color: $lighter-blue;
+  background-color: white;
   min-height: 10px;
   padding: 10px;
   color: white;
   display: block;
   box-sizing: border-box;
-  border-bottom: 2px solid $darker-blue;
   position: fixed;
   top: 0px;
   width: 100%;
   z-index: 100;
 
+.feedcast__sidebar-toggle
+  background-color: transparent
+  border: none
+  display: inline-block
+  float: left
+  color: $lighter-blue
+  height: 40px
+  width: 40px
+  transform: translatex(-10px)
+  line-height: 40px
+  font-size: 25px
+  cursor: pointer
 
-.feedcast__navbar
-  padding : 0px 10px;
-  background-color: $darker-gray;
-  box-sizing: border-box;
 
+.feedcast__categories-sidebar
+  display: none !important
+.feedcast__home-content-wrapper
+  width: 100% !important;
+
+
+.feedcast__sidebar-wrapper
+  overflow: scroll
+  height: calc(100vh - 65px)
+  padding: 0px 10px
+
+  &::-webkit-scrollbar-track
+    background-color: #fff;
+
+  &::-webkit-scrollbar
+    width: 10px;
+    background-color: #F5F5F5;
+
+  &::-webkit-scrollbar-thumb
+    background-color: #fff;
+
+  &:hover
+    &::-webkit-scrollbar-thumb
+      background-color: #ccc !important;
+
+.feedcast__sidebar
+  position: fixed
+  top: 65px
+  left: 0px
+  height: calc(100vh - 65px)
+  background-color: white
+  z-index: 500
+  width: 230px
+  &--hide
+    transform: translateX(-230px)
+
+  h5
+    width: 100%
+    background-color: $lighter-blue
+    color: white;
+    margin: 0px
+    padding: 10px
+    box-sizing: border-box
+    text-align: center
   a
     display: inline-block;
-    text-decoration: none !important;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    &:hover,
-    &.active
-      background-color: #222
-
-
-
-//Min Width 500px
-@media(min-width: 500px)
-  .feedcast__navbar
-    position: fixed;
-    top: 67px;
     width: 100%;
-    z-index: 100;
+    padding: 9px 15px;
+    text-decoration: none;
+    color: $darker-gray;
+    box-sizing: border-box
+    font-size: 12px
+    span
+      float: right
+      color: #ccc
+    &:hover
+      background-color: #fafafa
 
-  html, body
-    padding-top: 53px;
+
+
+@media ( max-width: 500px)
+  .feedcast__sidebar-wrapper
+    height: 100vh
+  .feedcast__sidebar
+    top: 0px
+    height: 100vh
+    width: 70vw
+    &--hide
+      transform: translateX(-70vw)
 
   .feedcast__sidebar,
-  .feedcast__sidebar-overlay,
-  .feedcast__sidebar-toggle
-    display: none
-
-//Max Width 500px
-@media ( max-width: 500px)
-  .feedcast__navbar
-    display: none;
-
-  .feedcast__categories-sidebar
-    display: none !important
-  .feedcast__home-content-wrapper
-    width: 100% !important;
-
-  .feedcast__sidebar-toggle
-    background-color: transparent
-    border: none
-    display: inline-block
-    float: left
-    color: white
-    height: 40px
-    width: 40px
-    transform: translatex(-10px)
-    line-height: 40px
-    font-size: 25px
-    cursor: pointer
+  .feedcast__sidebar-overlay
+    transition: all .2s ease-in-out
 
   .feedcast__sidebar-overlay
     position: fixed
@@ -102,38 +142,3 @@ html, body
       display: block
     &--hide
       display: none
-
-  .feedcast__sidebar,
-  .feedcast__sidebar-overlay
-    transition: all .2s ease-in-out
-
-  .feedcast__sidebar-wrapper
-    overflow: scroll
-    height: 100vh
-  .feedcast__sidebar
-    position: fixed
-    top: 0px
-    left: 0px
-    height: 100%
-    background-color: white
-    z-index: 500
-    width: calc(70vw)
-    &--hide
-      transform: translateX(-70vw)
-
-    h5
-      width: 100%
-      background-color: $darker-gray
-      color: white;
-      margin: 0px
-      padding: 10px
-      box-sizing: border-box
-      text-align: center
-    a
-      display: inline-block;
-      width: 100%;
-      padding: 10px 15px;
-      text-decoration: none;
-      color: $darker-gray;
-      box-sizing: border-box
-      text-align: center

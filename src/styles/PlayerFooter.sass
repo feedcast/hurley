@@ -8,7 +8,6 @@
   padding: 0px 10px;
   box-sizing: border-box;
   border-top: 1px solid $lighter-gray;
-  transition: 1s ease all;
 
   &--show
     bottom: 0px;
@@ -28,3 +27,9 @@
     height: 17px;
     color: #4285f4;
 
+
+@media(min-width: 500px)
+  .feedcast--sidebar-active
+    .feedcast__footer
+      width: calc(100% - 230px)
+      right: 0px
