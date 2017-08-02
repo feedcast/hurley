@@ -118,12 +118,18 @@ class PlayerFooter extends Component {
     this.audioPlayer.playbackRate = newRate
   }
 
+  getPerc(){
+    let {duration, currentTime} = this.audioPlayer
+    return ( currentTime * 100 ) / duration
+  }
+
 
   webPlayer(){
 
     const {episodes, playingUuid} = this.state
     const currentEpisode = episodes[playingUuid]
 
+    console.log(this.getPerc())
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
@@ -146,6 +152,15 @@ class PlayerFooter extends Component {
               onClick={e=>{this.forwardTime()}}>
               <i className="fa fa-forward"></i>
             </button>
+            <div className="feedcast__player-time">
+              <div
+                style={{
+                  width: `${this.getPerc()}%`
+                }}
+                className="feedcast__player-time-bar">
+              </div>
+              <span>{`${this.state.currentTime} / ${this.state.duration}`}</span>
+            </div>
             <a href={this.audioPlayer.src} download>
             <button className="feedcast__player-download">
               <i className="fa fa-download"></i>
@@ -156,9 +171,6 @@ class PlayerFooter extends Component {
               onClick={ e => this.changeRate() }>
               {parseFloat(this.state.playbackRate).toFixed(1)}x
             </button>
-            <div className="feedcast__player-time">
-              {`${this.state.currentTime} / ${this.state.duration}`}
-            </div>
           </div>
         </div>
       </div>

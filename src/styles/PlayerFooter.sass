@@ -57,9 +57,24 @@
       color: white
       height: 30px
       line-height: 30px
-      width: 120px
       text-align: center
       margin-left: 10px
+      position: absolute
+      width: calc(100% - 230px)
+      transform: translateY(5px)
+      span
+        position: absolute
+        z-index: 200
+        width: 100%
+        left: 0
+    &-time-bar
+      position: absolute
+      height: 100%
+      background-color: $lighter-blue
+      z-index: 100
+    &-download, &-playback-rate
+      float: right
+      transform: translateY(5px)
 
   audio
     width: 100%;
