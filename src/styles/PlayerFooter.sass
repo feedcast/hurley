@@ -18,14 +18,60 @@
 
 
 .feedcast__playerFooter
+  .feedcast__player
+    &-play-pause,
+    &-forward,
+    &-backward,
+    &-download,
+    &-playback-rate
+      display: inline-block
+      box-sizing: border-box
+      border: 1px solid $lighter-blue
+      cursor: pointer
+      color: $lighter-blue
+      margin: 0px 2px
+      background-color: transparent
+
+    &-play-pause
+      $ppsize : 40px
+      line-height: $ppsize / 1.2
+      height: $ppsize
+      min-width: $ppsize
+      text-align: center
+      font-size: $ppsize / 3
+      border-radius: $ppsize / 2
+    &-forward, &-backward, &-download, &-playback-rate
+      $ppsize : 30px
+      line-height: 1em
+      height: $ppsize
+      min-width: $ppsize
+      text-align: center
+      font-size: $ppsize / 2.5
+      border-radius: $ppsize / 2
+    &-download
+      margin-left: 10px
+    &-time
+      display: inline-block
+      font-size: 12px
+      background-color: $darker-gray
+      color: white
+      height: 30px
+      line-height: 30px
+      width: 120px
+      text-align: center
+      margin-left: 10px
+
   audio
     width: 100%;
   h5
-    margin : 10px 15px;
-    margin-bottom: 0px;
+    margin : 10px 0px;
+    margin-bottom: 5px;
     font-weight: bolder;
     height: 17px;
     color: #4285f4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 
 @media(min-width: 500px)
