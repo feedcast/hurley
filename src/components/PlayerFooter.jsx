@@ -16,6 +16,8 @@ class PlayerFooter extends Component {
       isPaused: this.audioPlayer.paused,
       canPlay: false,
       loadedData: false,
+      isError: false,
+      errorMessage: `Error: Failed to load this media`,
       duration: '00:00:00',
       currentTime:'00:00:00',
       title:'',
@@ -44,11 +46,11 @@ class PlayerFooter extends Component {
     }
     this.audioPlayer.oncanplay = e => {
         console.log(`${t} - ${e.type}:`, e);
-        this.setState({canPlay: true})
+        this.setState({canPlay: true, isError: false})
     }
     this.audioPlayer.onloadeddata = e => {
         console.log(`${t} - ${e.type}:`, e);
-        this.setState({loadedData: true})
+        this.setState({loadedData: true, isError: false})
         console.log('duration', this.audioPlayer.duration)
     }
 
@@ -59,19 +61,27 @@ class PlayerFooter extends Component {
       })
     }
 
-    //ERROR HANDLING
-    const err = {
-      canPlay: false,
-      isPaused: true,
-      loadedData: false
-    }
 
     this.audioPlayer.onabort = e => {
         console.log(`${t} - ${e.type}:`, e);
-        this.setState(err)
+        //ABORT HANDLING
+        const abt = {
+          canPlay: false,
+          isPaused: true,
+          isError: false,
+          loadedData: true
+        }
+        this.setState(abt)
     }
     this.audioPlayer.onerror = e => {
         console.log(`${t} - ${e.type}:`, e);
+        //ERROR HANDLING
+        const err = {
+          canPlay: false,
+          isPaused: false,
+          isError: true,
+          loadedData: true
+        }
         this.setState(err)
     }
   }
@@ -170,7 +180,7 @@ class PlayerFooter extends Component {
               <i className="fa fa-forward"></i>
             </button>
             <div
-              className="feedcast__player-time"
+              className={`feedcast__player-time ${this.state.isError ? 'feedcast__player-time--error':''}`}
               onClick={ e => { this.handleTimeClick(e)} }>
               <div
                 style={{
@@ -178,7 +188,10 @@ class PlayerFooter extends Component {
                 }}
                 className="feedcast__player-time-bar">
               </div>
-              <span>{`${this.state.currentTime} / ${this.state.duration}`}</span>
+              <span>
+                { this.state.isError ? this.state.errorMessage :
+                `${this.state.currentTime} / ${this.state.duration}`}
+              </span>
             </div>
             <a href={this.audioPlayer.src} download>
             <button className="feedcast__player-download">

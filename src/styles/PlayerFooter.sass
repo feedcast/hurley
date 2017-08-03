@@ -55,7 +55,7 @@
       font-size: 12px
       color: white
       font-weight: bolder
-      border: 1px solid $lighter-blue
+      border: 1px solid $darker-gray
       height: 30px
       line-height: 30px
       text-align: center
@@ -64,7 +64,13 @@
       width: calc(100% - 230px)
       transform: translateY(5px)
       background-color: $darker-gray
+      &--error span
+        background-color: #fafafa
+        color: red
       span
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         position: absolute
         z-index: 200
         width: 100%
