@@ -10,8 +10,6 @@ class PlayerFooter extends Component {
 
     this.audioPlayer = document.createElement('AUDIO')
 
-    console.log(this.audioPlayer)
-    console.dir(this.audioPlayer)
     this.state = {
       episodes : [],
       playingUuid : null,
@@ -104,7 +102,6 @@ class PlayerFooter extends Component {
   }
 
   changeRate(val){
-    console.log('changeRate')
     let {playbackRate : r } = this.state
     let newRate = r >= 2? 1 : r+.5
 
@@ -124,12 +121,28 @@ class PlayerFooter extends Component {
   }
 
 
+  handleTimeClick(event){
+    if(!this.state.canPlay)
+      return false;
+
+    let { clientX : x } = event
+    let { left : min , width : total } = event.target.getBoundingClientRect()
+
+    x = x - min
+
+    //Percent where user has clicked
+    let percent = parseInt((x * 100) / total)
+
+    let { duration } = this.audioPlayer
+
+    this.audioPlayer.currentTime =  (percent * duration) / 100
+  }
+
   webPlayer(){
 
     const {episodes, playingUuid} = this.state
     const currentEpisode = episodes[playingUuid]
 
-    console.log(this.getPerc())
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
@@ -145,14 +158,20 @@ class PlayerFooter extends Component {
             <button
               className="feedcast__player-play-pause"
               onClick={e=>{this.audioPlayer[`${this.state.isPaused?'play':'pause'}`]()}}>
-              <i className={`fa fa-${this.state.isPaused?'play':'pause'}`}></i>
+              {this.state.loadedData === false ? (
+                <i className="fa fa-spinner fa-pulse fa-fw"></i>
+              ):(
+                <i className={`fa fa-${this.state.isPaused?'play':'pause'}`}></i>
+              )}
             </button>
             <button
               className="feedcast__player-forward"
               onClick={e=>{this.forwardTime()}}>
               <i className="fa fa-forward"></i>
             </button>
-            <div className="feedcast__player-time">
+            <div
+              className="feedcast__player-time"
+              onClick={ e => { this.handleTimeClick(e)} }>
               <div
                 style={{
                   width: `${this.getPerc()}%`
