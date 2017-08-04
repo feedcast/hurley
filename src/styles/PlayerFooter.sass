@@ -18,14 +18,85 @@
 
 
 .feedcast__playerFooter
+  .feedcast__player
+    &-play-pause,
+    &-forward,
+    &-backward,
+    &-download,
+    &-playback-rate
+      display: inline-block
+      box-sizing: border-box
+      border: 1px solid $lighter-blue
+      cursor: pointer
+      color: $lighter-blue
+      margin: 0px 2px
+      background-color: transparent
+
+    &-play-pause
+      $ppsize : 40px
+      line-height: $ppsize / 1.2
+      height: $ppsize
+      min-width: $ppsize
+      text-align: center
+      font-size: $ppsize / 3
+      border-radius: $ppsize / 2
+    &-forward, &-backward, &-download, &-playback-rate
+      $ppsize : 30px
+      line-height: 1em
+      height: $ppsize
+      min-width: $ppsize
+      text-align: center
+      font-size: $ppsize / 2.5
+      border-radius: $ppsize / 2
+    &-download
+      margin-left: 10px
+    &-time
+      display: inline-block
+      font-size: 12px
+      color: white
+      font-weight: bolder
+      border: 1px solid $darker-gray
+      height: 30px
+      line-height: 30px
+      text-align: center
+      margin-left: 10px
+      position: absolute
+      width: calc(100% - 230px)
+      transform: translateY(5px)
+      background-color: $darker-gray
+      &--error
+        border: 1px solid red
+      &--error span
+        background-color: #fafafa
+        color: red
+      span
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: absolute
+        z-index: 200
+        width: 100%
+        left: 0
+    &-time-bar
+      position: absolute
+      height: 100%
+      background-color: $lighter-blue
+      z-index: 100
+    &-download, &-playback-rate
+      float: right
+      transform: translateY(5px)
+
   audio
     width: 100%;
   h5
-    margin : 10px 15px;
-    margin-bottom: 0px;
+    margin : 10px 0px;
+    margin-bottom: 5px;
     font-weight: bolder;
     height: 17px;
     color: #4285f4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
 
 @media(min-width: 500px)
