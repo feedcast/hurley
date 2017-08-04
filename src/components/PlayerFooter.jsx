@@ -55,10 +55,12 @@ class PlayerFooter extends Component {
     }
 
     this.audioPlayer.ontimeupdate = e => {
-      this.setState({
-        duration: helpers.secondsToHms(this.audioPlayer.duration),
-        currentTime: helpers.secondsToHms(this.audioPlayer.currentTime)
-      })
+      if(this.state.loadedData){
+        this.setState({
+          duration: helpers.secondsToHms(this.audioPlayer.duration),
+          currentTime: helpers.secondsToHms(this.audioPlayer.currentTime)
+        });
+      }
     }
 
 
@@ -69,7 +71,7 @@ class PlayerFooter extends Component {
           canPlay: false,
           isPaused: true,
           isError: false,
-          loadedData: true
+          loadedData: false
         }
         this.setState(abt)
     }
