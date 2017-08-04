@@ -212,9 +212,27 @@ class PlayerFooter extends Component {
   }
 
 
+  mobilePlayer(){
+    const {episodes, playingUuid} = this.state
+
+    return (
+      <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
+        <div className="feedcast__playerFooter">
+          <div className="feedcast__playerFooter-top">
+            <h5>{this.state.title}</h5>
+          </div>
+          <div className="feedcast__playerFooter-bottom">
+            <audio ref={ (el) => { this.audioPlayer = el } } controls></audio>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+
 
   render(){
-    return this.webPlayer()
+    return !helpers.mobilecheck() ? this.webPlayer() : this.mobilePlayer()
   }
 }
 
