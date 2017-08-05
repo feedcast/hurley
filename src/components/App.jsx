@@ -59,7 +59,6 @@ class App extends Component {
           <Link to="/" className="feedcast__logo-wrapper">
             <img src={logo} className="feedcast__logo" alt="logo" />
           </Link>
-          <Search/>
         </div>
         <div className={`feedcast__container feedcast__sidebar--${this.state.showSidebar?'active':'inactive'}`}>
           {this.props.children}
