@@ -109,3 +109,14 @@
 @media(max-width: 360px)
   .feedcast__player-time span
     font-size: 9px
+
+
+
+//IOS HACK
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px)
+  .feedcast__player-time
+    width: calc(100% - 210px) !important
+
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px)
+  .feedcast__player-time
+    width: calc(100% - 210px) !important
