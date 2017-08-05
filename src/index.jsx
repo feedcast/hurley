@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from "react-router"
 
+
+
+
 import './styles/index.sass';
 import App from './components/App.jsx';
 import registerServiceWorker from './scripts/registerServiceWorker';
@@ -14,8 +17,21 @@ import Home from './pages/home.jsx'
 import EpisodesList from './components/EpisodesList.jsx'
 
 
+
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-89900950-1');
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname + window.location.search });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
+
+
+
 ReactDOM.render(
-	<Router onUpdate={() => window.scrollTo(0, 0)} history={ browserHistory }>
+	<Router onUpdate={(e) => { window.scrollTo(0, 0); logPageView(e)} } history={ browserHistory }>
     <Route path="/" component={App}>
       <IndexRoute component={Home}></IndexRoute>
       <Route path="/channels" component={ChannelList}>
