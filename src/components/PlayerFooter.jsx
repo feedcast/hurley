@@ -195,11 +195,6 @@ class PlayerFooter extends Component {
                 `${this.state.currentTime} / ${this.state.duration}`}
               </span>
             </div>
-            <a href={this.audioPlayer.src} download>
-            <button className="feedcast__player-download">
-              <i className="fa fa-download"></i>
-            </button>
-            </a>
             <button
               className="feedcast__player-playback-rate"
               onClick={ e => this.changeRate() }>
@@ -232,7 +227,7 @@ class PlayerFooter extends Component {
 
 
   render(){
-    return !helpers.mobilecheck() ? this.webPlayer() : this.mobilePlayer()
+    return this.webPlayer()
   }
 }
 

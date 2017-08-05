@@ -3,7 +3,7 @@ import EventEmitter from 'events'
 class FeedcastApi extends EventEmitter {
   constructor(){
     super();
-    this.apiUrl = 'https://www.feedcast.com.br/api'
+    this.apiUrl = 'https://api.feedcast.com.br/api'
   }
 
 
