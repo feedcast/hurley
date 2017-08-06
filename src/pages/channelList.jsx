@@ -57,6 +57,15 @@ class ChannelList extends Component {
   }
 
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+
   updatePage(props){
     const { params } = props
     switch(!0){

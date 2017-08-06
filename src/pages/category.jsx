@@ -24,8 +24,12 @@ class Category extends Component {
   }
 
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
 
   componentDidMount() {
+    this._isMounted = true
     this.updatePage(this.props)
   }
 

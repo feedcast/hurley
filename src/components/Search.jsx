@@ -12,6 +12,14 @@ class Search extends Component {
     this.state = { lc }
   }
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
   render() {
     let { lc } = this.state
     return (

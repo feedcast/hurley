@@ -30,9 +30,12 @@ class App extends Component {
     })
   }
 
-
+  componentWillUnmount(){
+    this._isMounted = false
+  }
 
   componentDidMount() {
+    this._isMounted = true
     feedcastApi
     .getCategories()
     .then( data => {

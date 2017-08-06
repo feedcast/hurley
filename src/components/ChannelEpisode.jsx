@@ -16,6 +16,14 @@ class ChannelEpisode extends Component {
     }
   }
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
+  componentDidMount() {
+    this._isMounted = true
+  }
+
   playEpisode(episode){
     feedcastApi.emit('play:episode', episode)
   }

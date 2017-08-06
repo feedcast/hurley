@@ -27,6 +27,7 @@ class Home extends Component {
 
 
   componentDidMount() {
+    this._isMounted = true
     feedcastApi
     .getCategories()
     .then( data => {
@@ -38,6 +39,9 @@ class Home extends Component {
   }
 
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
 
   render() {
     const {params} = this.props

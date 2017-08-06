@@ -10,6 +10,14 @@ export default class CategoriesChannelList extends Component {
     this.state = { lc }
   }
 
+  componentDidMount() {
+    this._isMounted = true
+  }
+
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
   render(){
 
     let { categories } = this.props

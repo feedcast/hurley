@@ -29,9 +29,12 @@ class Channel extends Component {
     }
   }
 
-
+  componentDidMount() {
+    this._isMounted = true
+  }
 
   componentWillMount() {
+    this._isMounted = false
     const { uuid } = this.props.params
     feedcastApi
       .getChannelInfo({ uuid })
