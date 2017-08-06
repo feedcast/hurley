@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import helpers from './../scripts/helpers'
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import { Link } from 'react-router'
 import './../styles/EpisodeCard.sass'
 

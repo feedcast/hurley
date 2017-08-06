@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import ChannelCard from './../components/ChannelCard'
 import FeedcastLoader from './../components/FeedcastLoader'
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 class Category extends Component {

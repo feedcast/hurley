@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import helpers from './../scripts/helpers'
 
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 
 class ChannelEpisode extends Component {
 

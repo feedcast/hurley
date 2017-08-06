@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 import './../styles/channel.sass'

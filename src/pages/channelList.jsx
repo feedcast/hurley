@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import './../styles/channelList.sass';
 
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 import Pagination from './../components/Pagination'

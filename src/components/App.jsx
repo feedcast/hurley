@@ -4,7 +4,7 @@ import logo from './../images/logo.svg';
 
 import './../styles/App.sass';
 
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 import dictionary from './../scripts/helpers/dictionary'
 
