@@ -79,7 +79,9 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "moduleNameMapper": {
-      "^react-native$": "react-native-web"
+      "^react-native$": "react-native-web",
+      "^feedcast-client(.*)$": "<rootDir>src/scripts/feedcast-client$1",
+      "^app(.*)$": "<rootDir>src$1"
     },
     "moduleFileExtensions": [
       "web.js",

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 import FeedcastLoader from './../components/FeedcastLoader'

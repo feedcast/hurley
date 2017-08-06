@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router';
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 import ChannelEpisode from './ChannelEpisode.jsx'

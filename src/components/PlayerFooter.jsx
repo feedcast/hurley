@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import feedcastApi from './../scripts/feedcastApi'
+import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 import './../styles/PlayerFooter.sass'
 
