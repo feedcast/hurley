@@ -11,12 +11,15 @@
 
 html, body
   background-color: $lighter-gray;
-  padding-bottom: 88px;
+  padding-bottom: 0px;
   padding-top: 33px;
 
 .feedcast__container
   padding: 18px;
   box-sizing: border-box;
+  position: relative
+  padding-bottom: 120px;
+  min-height: calc(100vh - 66px)
 
 
 .feedcast__logo-wrapper
@@ -142,3 +145,46 @@ html, body
       display: block
     &--hide
       display: none
+
+
+
+
+.feedcast__container.player-active
+  padding-bottom: 200px
+.feedcast__container-footer
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: $darker-gray;
+  &--active
+    bottom: 80px;
+  p.feedcast__select-language
+    position: relative
+    i
+      position: absolute
+      transform: translate(5px, 6px)
+      font-size: 10px
+    select
+      width: 100px
+      padding-left: 15px
+      background-color: transparent
+      color: white
+      cursor: pointer
+      option
+        color: black
+  p
+    text-align: center
+    color: white
+    a, a:visited, a:link
+      font-size: 20px
+      display: inline-block
+      width: 35px
+      height: 35px
+      line-height: 35px
+      text-align: center
+      border: 1px solid rgb(169, 169, 169)
+      margin: 0px 5px
+      color: white
+      text-decoration: none

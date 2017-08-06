@@ -11,12 +11,15 @@ class Category extends Component {
   constructor(props) {
     super(props);
 
+    let { lc } = helpers.localize(this)
+
     this.state = {
       channels : [],
       icon: null,
       slug: null,
       title: null,
-      populated: false
+      populated: false,
+      lc
     }
   }
 

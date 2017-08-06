@@ -6,6 +6,8 @@ import './../styles/App.sass';
 
 import feedcastApi from './../scripts/feedcastApi'
 import helpers from './../scripts/helpers'
+import dictionary from './../scripts/helpers/dictionary'
+
 import Search from './Search.jsx'
 import PlayerFooter from './PlayerFooter.jsx'
 
@@ -19,8 +21,13 @@ class App extends Component {
       categories: [],
       populated: false,
       showSidebar: window.innerWidth >= 500,
+      activePlayer: false,
       lc
     }
+
+    feedcastApi.on('play:episode', (e)=>{
+      this.setState({activePlayer: true})
+    })
   }
 
 
@@ -66,8 +73,30 @@ class App extends Component {
             <img src={logo} className="feedcast__logo" alt="logo" />
           </Link>
         </div>
-        <div className={`feedcast__container feedcast__sidebar--${this.state.showSidebar?'active':'inactive'}`}>
+        <div className={`feedcast__container
+            feedcast__sidebar--${this.state.showSidebar?'active':'inactive'}
+            ${this.state.activePlayer ? 'player-active':'player-inactive'}`}>
           {this.props.children}
+          <div className={`feedcast__container-footer feedcast__container-footer--${this.state.activePlayer ? 'active':'inactive'}`}>
+            <p className="feedcast__select-language">
+              <i className="fa fa-globe"></i>
+              <select
+                onChange={(e)=>{helpers.setLanguage(e.target.value)}}
+                value={helpers.language.lang}>
+              {Object.keys(dictionary).map((i, n) => {
+                  return (<option key={n} value={i}>{dictionary[i].alias}</option>)
+              })}
+              </select>
+            </p>
+            <p>
+              <a href="https://facebook.com/feedcast" target="_blank">
+                <i className="fa fa-facebook"></i>
+              </a>
+              <a href="https://github.com/feedcast" target="_blank">
+                <i className="fa fa-github"></i>
+              </a>
+            </p>
+          </div>
         </div>
         <div
           onClick={()=>{this.toggleSidebar(false)}}
