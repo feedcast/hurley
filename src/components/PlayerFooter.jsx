@@ -10,7 +10,7 @@ class PlayerFooter extends Component {
 
     this.audioPlayer = document.createElement('AUDIO')
 
-    let { lc } = helpers.localize(this)
+    let lc = helpers.language.words
 
     this.state = {
       episodes : [],
