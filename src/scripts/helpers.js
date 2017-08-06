@@ -1,6 +1,6 @@
 import EventEmitter from 'events'
 import dictionary from './helpers/dictionary'
-
+import Cookies from 'cookies-js'
 
 
 class Helpers extends EventEmitter {
@@ -62,8 +62,12 @@ class Helpers extends EventEmitter {
   localize(ReactDOM){
     this.on('set-language', lang => {
       ReactDOM.setState(this.getWords(lang))
+      Cookies.set('feedcast-language', lang)
     })
 
+    if(typeof Cookies.get('feedcast-language') !== 'undefined'){
+      return this.getWords(Cookies.get('feedcast-language'));
+    }
     return this.getWords(this.userLang);
   }
 
@@ -80,10 +84,26 @@ class Helpers extends EventEmitter {
     return { lc : this.language.words }
   }
 
+  translate(wordString){
+    let dc = dictionary,
+        dcKeys = Object.keys(dc);
+
+    for( let i in dcKeys ){
+      let {words} = dc[dcKeys[i]],
+          wordsList = Object.keys(words)
+      for(let ii in wordsList){
+        if(words[wordsList[ii]].toLowerCase() === wordString.toLowerCase()){
+          return dc[this.language.lang].words[wordsList[ii]]
+        }
+      }
+    }
+    return wordString
+  }
+
 }
 
 const helpers = new Helpers();
-
+helpers.setMaxListeners(100)
 window.helpers = helpers
 
 export default helpers

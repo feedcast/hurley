@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import ChannelCard from './../components/ChannelCard'
 import FeedcastLoader from './../components/FeedcastLoader'
 import feedcastApi from './../scripts/feedcastApi'
+import helpers from './../scripts/helpers'
 
 class Category extends Component {
 
@@ -69,7 +70,7 @@ class Category extends Component {
             {property: 'og:title',
             content: `Feedcast ${ this.state.populated ? '| ' + this.state.title : '' }`},
           ]} />
-        <h1>{this.state.title} </h1>
+        <h1>{helpers.translate(this.state.title)} </h1>
         <div className="feedcast__channel-list feedcast__channel-list--byCategory">
           {channelList}
         </div>

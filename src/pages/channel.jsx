@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 
 import feedcastApi from './../scripts/feedcastApi'
+import helpers from './../scripts/helpers'
 
 import './../styles/channel.sass'
 import ChannelEpisodes from './../components/ChannelEpisodes.jsx'
@@ -50,7 +51,7 @@ class Channel extends Component {
 
     categories = categories.map( (i,n) => (
       <Link key={n} to={`/category/${i.slug}`}>
-        <i className={`fa fa-${i.icon}`}></i> {i.title}
+        <i className={`fa fa-${i.icon}`}></i> {helpers.translate(i.title)}
       </Link>
     ));
 

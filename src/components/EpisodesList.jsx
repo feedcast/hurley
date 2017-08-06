@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import feedcastApi from './../scripts/feedcastApi'
+import helpers from './../scripts/helpers'
 import Helmet from 'react-helmet';
 
 import Pagination from './Pagination'
@@ -14,13 +15,15 @@ export default class EpisodesList extends Component {
   constructor(props) {
     super(props);
 
+    let {lc} = helpers.localize(this)
 
     this.state = {
       page: 1,
       per_page: 30,
       populated: false,
       total: null,
-      episodes: []
+      episodes: [],
+      lc
     }
 
   }
@@ -72,17 +75,18 @@ export default class EpisodesList extends Component {
 
 
   cards(){
-    const { episodes } = this.state
+    const { episodes, lc } = this.state
 
     return episodes.length > 0 ?
             episodes.map(e => <EpisodeCard key={e.uuid} episode={e}/>):
-            (<h1>Nenhum episódio!</h1>)
+            (<h1>{lc.noEpisodesFound}</h1>)
   }
 
 
 
   render(){
     const episodes = this.cards();
+    const { lc } = this.state
     return this.state.populated ? (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
@@ -91,7 +95,7 @@ export default class EpisodesList extends Component {
             {property: 'og:title',
             content: `Feedcast | Últimos Episódios`},
           ]} />
-        <h4> Últimos episódios </h4>
+        <h4> {lc.recentEpisodes} </h4>
         <div className="feedcast__episodes-list">
           {episodes}
           <Pagination

@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import './../styles/channelList.sass';
 
 import feedcastApi from './../scripts/feedcastApi'
+import helpers from './../scripts/helpers'
 
 import Pagination from './../components/Pagination'
 import ChannelCard from './../components/ChannelCard'
@@ -16,12 +17,15 @@ class ChannelList extends Component {
   constructor(){
     super();
 
+    let { lc } = helpers.localize(this)
+
     this.state = {
       total:null,
       page: 1,
       per_page: 24,
       channels: [],
-      populated: false
+      populated: false,
+      lc
     }
 
   }
@@ -93,14 +97,15 @@ class ChannelList extends Component {
 
 
   render() {
+    let { lc } = this.state
     let channelList = this.listChannels()
     return this.state.populated ? (
       <div className="feedcast__channel-list">
         <Helmet
-          title={`Feedcast | Canais`}
+          title={`Feedcast | ${lc.channels}`}
           meta={[
             {property: 'og:title',
-            content: `Feedcast | Canais`},
+            content: `Feedcast | ${lc.channels}`},
           ]} />
         {channelList}
         <Pagination

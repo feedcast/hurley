@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import feedcastApi from './../../scripts/feedcastApi'
+import helpers from './../../scripts/helpers'
 import Helmet from 'react-helmet';
 
 import EpisodeCard from './../EpisodeCard'
@@ -12,6 +13,7 @@ export default class Episodes extends Component {
   constructor(props) {
     super(props);
 
+    let { lc } = helpers.localize(this)
 
     this.state = {
       page: 1,
@@ -19,7 +21,8 @@ export default class Episodes extends Component {
       populated: false,
       total: null,
       episodes: [],
-      loading: false
+      loading: false,
+      lc
     }
 
   }
@@ -84,18 +87,19 @@ export default class Episodes extends Component {
 
 
   render(){
+    const { lc } = this.state
     const episodes = this.cards();
     const loadMoreBtn = this.state.loading ?
-      (<h5>Carregando...</h5>):
+      (<h5>{lc.loading}...</h5>):
       (<button
         onClick={()=>this.loadMore()}>
-        load more
+        {lc.loadMore}
       </button>)
 
 
     return (
       <div className="feedcast__last-episodes">
-        <h3> Últimos episódios </h3>
+        <h3> {lc.recentEpisodes} </h3>
         <div className="feedcast__episodes-list">
           {episodes}
           <div className="feedcast__load-more">

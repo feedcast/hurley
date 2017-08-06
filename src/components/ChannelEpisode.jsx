@@ -8,8 +8,11 @@ class ChannelEpisode extends Component {
   constructor(){
     super();
 
+    let { lc } = helpers.localize(this)
+
     this.state = {
-      seeMore: false
+      seeMore: false,
+      lc
     }
   }
 
@@ -18,7 +21,7 @@ class ChannelEpisode extends Component {
   }
 
   render(){
-
+    const { lc } = this.state
     const { title, summary, audio, description } = this.props.episode
     const descText = summary && summary.length > 0 ? summary : description;
 
@@ -35,7 +38,7 @@ class ChannelEpisode extends Component {
         className="feedcast__channelEpisode-btn-see-more"
         onClick={()=> this.setState(
           { seeMore: !this.state.seeMore})}>
-        {this.state.seeMore ? 'Ver Menos' : 'Ver Mais'}
+        {this.state.seeMore ? lc.seeLess : lc.seeMore}
       </button>
     ) : '';
 

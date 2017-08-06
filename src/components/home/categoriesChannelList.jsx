@@ -1,10 +1,19 @@
 import React, {Component} from 'react'
 import ChannelCard from './channelCard'
+import helpers from './../../scripts/helpers'
 
 export default class CategoriesChannelList extends Component {
+
+  constructor(props) {
+    super(props);
+    let { lc } = helpers.localize(this)
+    this.state = { lc }
+  }
+
   render(){
 
     let { categories } = this.props
+    let { lc } = this.state
 
     let catEl = categories
       .filter(e => e.channels.length >= 5)
@@ -14,7 +23,7 @@ export default class CategoriesChannelList extends Component {
         .map((ec, i) => (<ChannelCard key={i} channel={ec}/>))
         return (
           <div className="feedcast__ccl-item" key={catI}>
-            <h4>{e.title}</h4>
+            <h4>{helpers.translate(e.title)}</h4>
             {tempCards}
           </div>
         )
@@ -22,7 +31,7 @@ export default class CategoriesChannelList extends Component {
 
     return (
       <div className="feedcast__categories-channel-list">
-        <h3>Você pode gostar</h3>
+        <h3>{lc.youMightEnjoy}</h3>
         {catEl}
       </div>
     )

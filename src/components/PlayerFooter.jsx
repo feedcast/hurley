@@ -10,6 +10,8 @@ class PlayerFooter extends Component {
 
     this.audioPlayer = document.createElement('AUDIO')
 
+    let { lc } = helpers.localize(this)
+
     this.state = {
       episodes : [],
       playingUuid : null,
@@ -17,11 +19,11 @@ class PlayerFooter extends Component {
       canPlay: false,
       loadedData: false,
       isError: false,
-      errorMessage: `Error: Failed to load this media`,
       duration: '00:00:00',
       currentTime:'00:00:00',
       title:'',
-      playbackRate: 1
+      playbackRate: 1,
+      lc
     }
 
 
@@ -152,7 +154,7 @@ class PlayerFooter extends Component {
 
   webPlayer(){
 
-    const {episodes, playingUuid} = this.state
+    const {episodes, playingUuid, lc} = this.state
     const currentEpisode = episodes[playingUuid]
 
     return (
@@ -191,7 +193,7 @@ class PlayerFooter extends Component {
                 className="feedcast__player-time-bar">
               </div>
               <span>
-                { this.state.isError ? this.state.errorMessage :
+                { this.state.isError ? lc.failLoadMedia :
                 `${this.state.currentTime} / ${this.state.duration}`}
               </span>
             </div>

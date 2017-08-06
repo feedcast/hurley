@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
+import helpers from './../scripts/helpers'
 
 import './../styles/search.sass';
 
 class Search extends Component {
 
-  render() {
+  constructor(props) {
+    super(props);
+    let { lc } = helpers.localize(this)
 
+    this.state = { lc }
+  }
+
+  render() {
+    let { lc } = this.state
     return (
       <div className="feedcast__search">
-        <input type="text" className="feedcast__search-input" placeholder="Pesquise por um canal ou episódio"/>
+        <input type="text" className="feedcast__search-input" placeholder={lc.searchPlaceholder}/>
         <button className="feedcast__search-button">
           <i className="fa fa-search"></i>
         </button>
