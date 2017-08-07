@@ -1,4 +1,4 @@
-# Hurley
+# Hurley [![Build Status](https://travis-ci.org/feedcast/hurley.svg?branch=master)](https://travis-ci.org/feedcast/hurley)
 
 ![Dude](http://i.imgur.com/mmDOAgm.jpg)
 
