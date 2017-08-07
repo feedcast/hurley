@@ -6,8 +6,8 @@ import feedcastApi from 'feedcast-client';
 import helpers from './../scripts/helpers'
 
 import './../styles/channel.sass'
-import ChannelEpisodes from './../components/ChannelEpisodes.jsx'
-import FeedcastLoader from './../components/FeedcastLoader.jsx'
+import ChannelEpisodes from './../components/ChannelEpisodes'
+import FeedcastLoader from './../components/FeedcastLoader'
 
 
 class Channel extends Component {

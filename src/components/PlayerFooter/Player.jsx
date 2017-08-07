@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import feedcastApi from 'feedcast-client';
-import helpers from './../scripts/helpers'
-import './../styles/PlayerFooter.sass'
+import { connect } from  'react-redux';
 
+import helpers from 'app/scripts/helpers'
+import 'app/styles/PlayerFooter.sass'
+
+let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
   constructor(props) {
     super(props);
 
     this.audioPlayer = document.createElement('AUDIO')
-
-    let lc = helpers.language.words
 
     this.state = {
       episodes : [],
@@ -26,35 +26,24 @@ class PlayerFooter extends Component {
       lc
     }
 
-
     this.bindEvents()
   }
-
-
 
   onPlay(){
     this.setState({isPaused: false})
   }
 
-
-
   onPause(){
     this.setState({isPaused: true})
   }
-
-
 
   onCanPlay(){
     this.setState({canPlay: true, isError: false})
   }
 
-
-
   onLoadedData(){
     this.setState({loadedData: true, isError: false})
   }
-
-
 
   onTimeUpdate(){
     if(this.state.loadedData){
@@ -64,7 +53,6 @@ class PlayerFooter extends Component {
       });
     }
   }
-
 
 
   _onAbort(){
@@ -110,17 +98,15 @@ class PlayerFooter extends Component {
 
 
   playEpisode(episode){
-    let episodes = this.state.episodes
-    episodes[episode.uuid] = episode
+    if (!episode) return;
 
-    this.setState({ episodes, playingUuid: episode.uuid, title: episode.title })
+    let episodes = this.state.episodes;
+    episodes[episode.uuid] = episode;
 
-
-    this.audioPlayer.src = episode.audio.url
-
-    this.changeRate(1)
-
-    this.audioPlayer.play()
+    if (this.audioPlayer.src !== episode.audio.url) {
+      this.audioPlayer.src = episode.audio.url;
+      this.audioPlayer.play();
+    }
   }
 
 
@@ -138,10 +124,6 @@ class PlayerFooter extends Component {
 
     if(typeof val !== 'undefined')
       newRate = val
-
-    this.setState({
-      playbackRate: newRate
-    });
 
     this.audioPlayer.playbackRate = newRate
   }
@@ -171,14 +153,15 @@ class PlayerFooter extends Component {
 
   webPlayer(){
 
-    const {episodes, playingUuid, lc} = this.state
-    const currentEpisode = episodes[playingUuid]
+    const {episodes, episode} = this.props;
+    const playingUuid = episode? episode.uui: null;
+    const currentEpisode = episodes[playingUuid];
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
           <div className="feedcast__playerFooter-top">
-            <h5>{this.state.title}</h5>
+            <h5>{this.props.title}</h5>
           </div>
           <div className="feedcast__playerFooter-bottom">
             <button
@@ -246,9 +229,9 @@ class PlayerFooter extends Component {
 
 
   render(){
+    this.playEpisode(this.props.episode);
     return this.webPlayer()
   }
 }
 
-
-export default PlayerFooter
+export default connect(state => state.player)(PlayerFooter)

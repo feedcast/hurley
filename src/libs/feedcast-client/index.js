@@ -1,17 +1,13 @@
 import EventEmitter from 'events'
 
+const API_URL = process.env.FEEDCAST_API_HOST;
+
 class FeedcastApi extends EventEmitter {
-  constructor(){
-    super();
-    this.apiUrl = process.env.REACT_APP_API_HOST
-  }
-
-
   getChannels({page = 1, per_page = 24}){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/channels?page=${page}&per_page=${per_page}`, true);
+      req.open('GET', `${API_URL}/channels?page=${page}&per_page=${per_page}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -32,7 +28,7 @@ class FeedcastApi extends EventEmitter {
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/categories/${slug}?page=${page}&per_page=${per_page}`, true);
+      req.open('GET', `${API_URL}/categories/${slug}?page=${page}&per_page=${per_page}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -54,7 +50,7 @@ class FeedcastApi extends EventEmitter {
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/categories`, true);
+      req.open('GET', `${API_URL}/categories`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -71,11 +67,12 @@ class FeedcastApi extends EventEmitter {
   }
 
 
-  getEpisodes({page = 1, per_page = 30}){
+  getEpisodes(params){
+    let {page , per_page} = params || { page: 1, per_page: 30 };
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/episodes?page=${page}&per_page=${per_page}`, true);
+      req.open('GET', `${API_URL}/episodes?page=${page}&per_page=${per_page}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -97,7 +94,7 @@ class FeedcastApi extends EventEmitter {
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${this.apiUrl}/channels/${uuid}`, true);
+      req.open('GET', `${API_URL}/channels/${uuid}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -118,7 +115,7 @@ class FeedcastApi extends EventEmitter {
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      const url = `${this.apiUrl}/channels/${uuid}/episodes`;
+      const url = `${API_URL}/channels/${uuid}/episodes`;
 
       req.open('GET',`${url}?page=${page}&per_page=${per_page}`, true);
 

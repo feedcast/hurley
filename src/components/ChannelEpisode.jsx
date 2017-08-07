@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import helpers from './../scripts/helpers'
+import { connect } from 'react-redux';
 
-import feedcastApi from 'feedcast-client';
+import helpers from './../scripts/helpers'
+import { playEpisode } from 'app/actions/player';
 
 class ChannelEpisode extends Component {
 
@@ -25,7 +26,7 @@ class ChannelEpisode extends Component {
   }
 
   playEpisode(episode){
-    feedcastApi.emit('play:episode', episode)
+    this.props.dispatch(playEpisode(episode));
   }
 
   render(){
@@ -71,4 +72,4 @@ class ChannelEpisode extends Component {
 }
 
 
-export default ChannelEpisode
+export default connect()(ChannelEpisode)

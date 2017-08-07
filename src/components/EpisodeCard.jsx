@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+
+import { playEpisode } from 'app/actions/player';
 import helpers from './../scripts/helpers'
-import feedcastApi from 'feedcast-client';
 import { Link } from 'react-router'
 import './../styles/EpisodeCard.sass'
 
 
-
-export default class EspisodeCard extends Component {
-
+class EpisodeCard extends Component {
 
   playEpisode(episode){
-    //sucks redux
-    feedcastApi.emit('play:episode', episode)
+    this.props.dispatch(playEpisode(episode));
   }
 
   render(){
@@ -35,7 +34,6 @@ export default class EspisodeCard extends Component {
       </div>
     )
   }
-
-
-
 }
+
+export default connect()(EpisodeCard);

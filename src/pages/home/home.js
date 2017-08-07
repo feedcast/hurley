@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 
 import feedcastApi from 'feedcast-client';
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers'
 
-import FeedcastLoader from './../components/FeedcastLoader'
-import Episodes from './../components/home/episodes'
-import CategoriesSidebar from './../components/home/categoriesSidebar'
-import CategoriesChannelList from './../components/home/categoriesChannelList'
-import './../styles/home.sass'
+import Page from 'app/pages/Page';
+import FeedcastLoader from 'app/components/FeedcastLoader'
+import Episodes from 'app/components/home/episodes'
+import CategoriesSidebar from 'app/components/home/categoriesSidebar'
+import CategoriesChannelList from 'app/components/home/categoriesChannelList'
+import 'app/styles/home.sass'
 
 
 class Home extends Component {

@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import logo from './../images/logo.svg';
+import logo from 'app/images/logo.svg';
 
-import './../styles/App.sass';
+import 'app/styles/App.sass';
 
 import feedcastApi from 'feedcast-client';
-import helpers from './../scripts/helpers'
-import dictionary from './../scripts/helpers/dictionary'
+import helpers from 'app/scripts/helpers'
+import dictionary from 'app/scripts/helpers/dictionary'
 
-import Search from './Search.jsx'
-import PlayerFooter from './PlayerFooter.jsx'
+import Search from 'app/components/Search';
+import PlayerFooter from 'app/components/PlayerFooter';
 
-class App extends Component {
+class Page extends Component {
   constructor(props) {
     super(props);
 
@@ -24,10 +24,6 @@ class App extends Component {
       activePlayer: false,
       lc
     }
-
-    feedcastApi.on('play:episode', (e)=>{
-      this.setState({activePlayer: true})
-    })
   }
 
   componentWillUnmount(){
@@ -123,4 +119,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Page;
