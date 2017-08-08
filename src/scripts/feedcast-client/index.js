@@ -3,7 +3,7 @@ import EventEmitter from 'events'
 class FeedcastApi extends EventEmitter {
   constructor(){
     super();
-    this.apiUrl = process.env.FEEDCAST_API_HOST
+    this.apiUrl = process.env.REACT_APP_API_HOST
   }
 
 

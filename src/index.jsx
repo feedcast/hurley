@@ -20,7 +20,7 @@ import EpisodesList from './components/EpisodesList.jsx'
 
 import ReactGA from 'react-ga';
 
-ReactGA.initialize(process.env.FEEDCAST_GA);
+ReactGA.initialize(process.env.REACT_APP_GA);
 
 function logPageView() {
   ReactGA.set({ page: window.location.pathname + window.location.search });
