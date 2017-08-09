@@ -98,5 +98,9 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "enzyme": "^2.9.1",
+    "react-addons-test-utils": "^15.6.0"
   }
 }
