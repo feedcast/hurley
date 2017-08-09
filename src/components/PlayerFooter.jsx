@@ -32,62 +32,79 @@ class PlayerFooter extends Component {
 
 
 
+  onPlay(){
+    this.setState({isPaused: false})
+  }
+
+
+
+  onPause(){
+    this.setState({isPaused: true})
+  }
+
+
+
+  onCanPlay(){
+    this.setState({canPlay: true, isError: false})
+  }
+
+
+
+  onLoadedData(){
+    this.setState({loadedData: true, isError: false})
+  }
+
+
+
+  onTimeUpdate(){
+    if(this.state.loadedData){
+      this.setState({
+        duration: helpers.secondsToHms(this.audioPlayer.duration),
+        currentTime: helpers.secondsToHms(this.audioPlayer.currentTime)
+      });
+    }
+  }
+
+
+
+  _onAbort(){
+    const abt = {
+      canPlay: false,
+      isPaused: true,
+      isError: false,
+      loadedData: false
+    }
+    this.setState(abt)
+  }
+
+
+
+  _onError(){
+    const err = {
+      canPlay: false,
+      isPaused: false,
+      isError: true,
+      loadedData: true
+    }
+    this.setState(err)
+  }
+
+
+
   bindEvents(){
     feedcastApi.on('play:episode', this.playEpisode.bind(this))
 
-    const t = 'AUDIOPLAYER'
-
     //Player changing state
-    this.audioPlayer.onplay = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        this.setState({isPaused: false})
-    }
-    this.audioPlayer.onpause = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        this.setState({isPaused: true})
-    }
-    this.audioPlayer.oncanplay = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        this.setState({canPlay: true, isError: false})
-    }
-    this.audioPlayer.onloadeddata = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        this.setState({loadedData: true, isError: false})
-        console.log('duration', this.audioPlayer.duration)
-    }
+    this.audioPlayer.onplay = e => this.onPlay(e)
+    this.audioPlayer.onpause = e => this.onPause(e)
+    this.audioPlayer.oncanplay = e => this.onCanPlay(e)
+    this.audioPlayer.onloadeddata = e => this.onLoadedData(e)
 
-    this.audioPlayer.ontimeupdate = e => {
-      if(this.state.loadedData){
-        this.setState({
-          duration: helpers.secondsToHms(this.audioPlayer.duration),
-          currentTime: helpers.secondsToHms(this.audioPlayer.currentTime)
-        });
-      }
-    }
+    this.audioPlayer.ontimeupdate = e => this.onTimeUpdate(e)
 
 
-    this.audioPlayer.onabort = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        //ABORT HANDLING
-        const abt = {
-          canPlay: false,
-          isPaused: true,
-          isError: false,
-          loadedData: false
-        }
-        this.setState(abt)
-    }
-    this.audioPlayer.onerror = e => {
-        console.log(`${t} - ${e.type}:`, e);
-        //ERROR HANDLING
-        const err = {
-          canPlay: false,
-          isPaused: false,
-          isError: true,
-          loadedData: true
-        }
-        this.setState(err)
-    }
+    this.audioPlayer.onabort = e => this._onAbort(e)
+    this.audioPlayer.onerror = e => this._onError(e)
   }
 
 
