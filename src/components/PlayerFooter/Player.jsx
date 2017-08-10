@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from  'react-redux';
+import PropTypes from 'prop-types';
 
 import helpers from 'app/scripts/helpers'
 import 'app/styles/PlayerFooter.sass'
@@ -7,6 +7,17 @@ import 'app/styles/PlayerFooter.sass'
 let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
+
+  static propTypes = {
+    episode: PropTypes.object,
+    episodes: PropTypes.array,
+  }
+
+  static defaultProps = {
+    episode: null,
+    episodes: [],
+  }
+
   constructor(props) {
     super(props);
 
@@ -206,7 +217,6 @@ class PlayerFooter extends Component {
     )
   }
 
-
   mobilePlayer(){
     const {episodes, playingUuid} = this.state
 
@@ -224,12 +234,12 @@ class PlayerFooter extends Component {
     )
   }
 
-
-
   render(){
+    if (!this.props.episode) { return null; }
+
     this.playEpisode(this.props.episode);
     return this.webPlayer()
   }
 }
 
-export default connect(state => state.player)(PlayerFooter)
+export default PlayerFooter

@@ -84,7 +84,7 @@
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^feedcast-client(.*)$": "<rootDir>src/scripts/feedcast-client$1",
+      "^feedcast-client(.*)$": "<rootDir>src/libs/feedcast-client$1",
       "^app(.*)$": "<rootDir>src$1"
     },
     "moduleFileExtensions": [
@@ -105,6 +105,6 @@
   },
   "devDependencies": {
     "enzyme": "^2.9.1",
-    "react-addons-test-utils": "^15.6.0"
+    "react-test-renderer": "^15.6.1"
   }
 }

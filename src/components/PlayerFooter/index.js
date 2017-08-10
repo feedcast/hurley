@@ -4,8 +4,10 @@ import { connect } from  'react-redux';
 
 import Player from './Player';
 
-function PlayerContainer({...props}) {
-  return <Player {...props} />;
+function PlayerContainer(state) {
+  return <Player {...state} />;
 }
 
-export default connect(({player})=> { return {player} })(PlayerContainer);
+export { Player };
+
+export default connect(state => state.player)(PlayerContainer);
