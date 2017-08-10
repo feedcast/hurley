@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types';
-import feedcastApi from 'feedcast-client';
 
 import helpers from 'app/scripts/helpers';
 import Helmet from 'react-helmet';
@@ -28,19 +27,11 @@ export default class EpisodesList extends PureComponent {
     episodes: [],
   }
 
-  constructor(props) {
-    super(props);
-  }
-
   renderEpisodeCards(){
     let { episodes } = this.props;
     return episodes.length > 0 ?
             episodes.map(e => <EpisodeCard key={e.uuid} episode={e}/>):
             (<h1>No Episode found</h1>)
-  }
-
-  hasEpisodes() {
-    return this.props.episodes.length > 0;
   }
 
   render(){
