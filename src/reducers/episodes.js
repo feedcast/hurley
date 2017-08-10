@@ -14,6 +14,7 @@ export default function episodes(state=initialState, action) {
         ...state,
         page: action.payload.page,
       };
+
     case actions.EPISODES_FETCH_SUCCESS:
       let { episodes, total } = action.payload;
       return {

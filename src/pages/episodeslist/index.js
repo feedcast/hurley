@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 
 import { requestAllEpisodes, changeEpisodesForPage } from 'app/actions/episodes';
+import FeedcastLoader from 'app/components/FeedcastLoader';
 import EpisodesList from './EpisodesList';
 
 class EpisodesListContainer extends PureComponent {
@@ -22,7 +23,7 @@ class EpisodesListContainer extends PureComponent {
     let page = parseInt(this.props.params.page || "1");
     if (page !== this.props.page) {
       this.fetchEpisodes(page);
-      this.props.dispatch(changeEpisodesForPage(page))
+      return <FeedcastLoader />;
     }
 
     return <EpisodesList {...this.props} />;

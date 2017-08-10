@@ -53,18 +53,24 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
 </div>
 `;
 
-exports[`EpisodesList when has no data renders the feedcast loader 1`] = `
+exports[`EpisodesList when has no data renders the no episode 1`] = `
 <div
-  className="feedcast__loader"
+  className="feedcast__last-episodes feedcast__section"
 >
+  <h4>
+     Recent Episodes 
+  </h4>
   <div
-    className="feedcast__loader--top"
-  />
-  <div
-    className="feedcast__loader--middle"
-  />
-  <div
-    className="feedcast__loader--bottom"
-  />
+    className="feedcast__episodes-list"
+  >
+    <h1>
+      No Episode found
+    </h1>
+    <div
+      className="feedcast__pagination feedcast__pagination--white"
+    >
+      
+    </div>
+  </div>
 </div>
 `;

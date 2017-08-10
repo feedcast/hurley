@@ -6,7 +6,7 @@ import { EpisodesList } from 'app/pages/episodeslist';
 
 describe('EpisodesList', () => {
   describe('when has no data', () => {
-    it("renders the feedcast loader", () => {
+    it("renders the no episode", () => {
       const component = renderer.create(<EpisodesList />);
       expect(component).toMatchSnapshot();
     })

@@ -7,7 +7,6 @@ import Helmet from 'react-helmet';
 
 import Pagination from 'app/components/Pagination';
 import EpisodeCard from 'app/components/EpisodeCard';
-import FeedcastLoader from 'app/components/FeedcastLoader';
 
 import 'app/styles/EpisodesList.sass';
 
@@ -45,7 +44,7 @@ export default class EpisodesList extends PureComponent {
   }
 
   render(){
-    return this.hasEpisodes() ? (
+    return (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
           title={`Feedcast | Últimos Episódios`}
@@ -64,8 +63,6 @@ export default class EpisodesList extends PureComponent {
             theme="white" />
         </div>
       </div>
-    ) : (
-      <FeedcastLoader />
     )
   }
 }
