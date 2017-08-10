@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from "react-router"
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
-
 import './styles/index.sass';
 import registerServiceWorker from './scripts/registerServiceWorker';
 
@@ -12,9 +11,8 @@ import ChannelList from './pages/channelList';
 import Category from './pages/category';
 import Channel from './pages/channel';
 import Home from './pages/home';
+import EpisodesList from './pages/episodeslist';
 import store from './store';
-
-import EpisodesList from './components/EpisodesList'
 
 ReactGA.initialize(process.env.REACT_APP_GA);
 

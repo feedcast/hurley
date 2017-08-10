@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import feedcastApi from 'feedcast-client';
 
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers';
 import Helmet from 'react-helmet';
 
-import Pagination from './Pagination'
-import EpisodeCard from './EpisodeCard'
-import FeedcastLoader from './FeedcastLoader'
+import Pagination from 'app/components/Pagination';
+import EpisodeCard from 'app/components/EpisodeCard';
+import FeedcastLoader from 'app/components/FeedcastLoader';
 
-import './../styles/EpisodesList.sass'
+import 'app/styles/EpisodesList.sass';
 
 export default class EpisodesList extends Component {
 

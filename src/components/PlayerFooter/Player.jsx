@@ -104,8 +104,6 @@ class PlayerFooter extends Component {
     this.audioPlayer.onerror = e => this._onError(e)
   }
 
-
-
   playEpisode(episode){
     if (!episode) return;
 
@@ -117,7 +115,6 @@ class PlayerFooter extends Component {
       this.audioPlayer.play();
     }
   }
-
 
   forwardTime(){
     this.audioPlayer.currentTime += 15
@@ -141,7 +138,6 @@ class PlayerFooter extends Component {
     let {duration, currentTime} = this.audioPlayer
     return ( currentTime * 100 ) / duration
   }
-
 
   handleTimeClick(event){
     if(!this.state.canPlay)
