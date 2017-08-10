@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
+<div
+  className="feedcast__last-episodes feedcast__section"
+>
+  <h4>
+     Recent Episodes 
+  </h4>
+  <div
+    className="feedcast__episodes-list"
+  >
+    <div
+      className="feedcast__episode-card-wrapper"
+    >
+      <div
+        className="feedcast__episode-card"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "url(https://img.feedcast.io/http%3A%2F%2Fi.imgur.com%2FmYRfJk7.png/300/300)",
+          }
+        }
+      >
+        <span
+          className="feedcast__episode-duration"
+        >
+          00:12:40
+        </span>
+      </div>
+      <h3
+        onClick={[Function]}
+      >
+         
+        Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
+         
+      </h3>
+      <h5>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Pensando RPG
+        </a>
+      </h5>
+    </div>
+    <div
+      className="feedcast__pagination feedcast__pagination--white"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EpisodesList when has no data renders the feedcast loader 1`] = `
+<div
+  className="feedcast__loader"
+>
+  <div
+    className="feedcast__loader--top"
+  />
+  <div
+    className="feedcast__loader--middle"
+  />
+  <div
+    className="feedcast__loader--bottom"
+  />
+</div>
+`;
