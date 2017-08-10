@@ -1,8 +1,6 @@
-import EventEmitter from 'events'
-
 const API_URL = process.env.FEEDCAST_API_HOST;
 
-class FeedcastApi extends EventEmitter {
+class FeedcastApi {
   getChannels({page = 1, per_page = 24}){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();

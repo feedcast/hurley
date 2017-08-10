@@ -69,7 +69,6 @@ export default class EpisodesList extends Component {
             total: data.total,
             episodes: data.episodes
           });
-          feedcastApi.emit('episodeslist:populated')
         }
       })
   }

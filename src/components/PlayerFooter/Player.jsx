@@ -80,8 +80,6 @@ class PlayerFooter extends Component {
 
 
   bindEvents(){
-    feedcastApi.on('play:episode', this.playEpisode.bind(this))
-
     //Player changing state
     this.audioPlayer.onplay = e => this.onPlay(e)
     this.audioPlayer.onpause = e => this.onPause(e)
