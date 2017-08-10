@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 import feedcastApi from 'feedcast-client';
 
 import helpers from 'app/scripts/helpers';
@@ -10,84 +11,41 @@ import FeedcastLoader from 'app/components/FeedcastLoader';
 
 import 'app/styles/EpisodesList.sass';
 
-export default class EpisodesList extends Component {
+let lc = helpers.language.words;
 
+export default class EpisodesList extends PureComponent {
+
+  static propTypes = {
+    page: PropTypes.number.isRequired,
+    perPage: PropTypes.number.isRequired,
+    total: PropTypes.number,
+    episodes: PropTypes.array,
+  }
+
+  static defaultProps = {
+    page: 1,
+    perPage: 30,
+    total: 0,
+    episodes: [],
+  }
 
   constructor(props) {
     super(props);
-
-    let {lc} = helpers.localize(this)
-
-    this.state = {
-      page: 1,
-      per_page: 30,
-      populated: false,
-      total: null,
-      episodes: [],
-      lc
-    }
-
   }
 
-
-  componentDidMount() {
-    this._isMounted = true
-    this.updateEpisodes(this.props);
-  }
-
-
-  componentWillUnmount() {
-    this._isMounted = false
-  }
-
-
-  componentWillReceiveProps(nextProps) {
-    if(this.props.params.page !==
-        nextProps.params.page){
-      this.updateEpisodes(nextProps)
-    }
-  }
-
-
-
-  updateEpisodes( props ){
-    const { per_page } = this.state
-    const { params } = props
-
-    const page = params.page !== undefined ? parseInt(params.page) : 1;
-
-    feedcastApi
-      .getEpisodes({
-        page,
-        per_page
-      })
-      .then(data => {
-        if ( this._isMounted ){
-          this.setState({
-            page,
-            populated: true,
-            total: data.total,
-            episodes: data.episodes
-          });
-        }
-      })
-  }
-
-
-  cards(){
-    const { episodes, lc } = this.state
-
+  renderEpisodeCards(){
+    let { episodes } = this.props;
     return episodes.length > 0 ?
             episodes.map(e => <EpisodeCard key={e.uuid} episode={e}/>):
-            (<h1>{lc.noEpisodesFound}</h1>)
+            (<h1>No Episode found</h1>)
   }
 
-
+  hasEpisodes() {
+    return this.props.episodes.length > 0;
+  }
 
   render(){
-    const episodes = this.cards();
-    const { lc } = this.state
-    return this.state.populated ? (
+    return this.hasEpisodes() ? (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
           title={`Feedcast | Últimos Episódios`}
@@ -95,14 +53,14 @@ export default class EpisodesList extends Component {
             {property: 'og:title',
             content: `Feedcast | Últimos Episódios`},
           ]} />
-        <h4> {lc.recentEpisodes} </h4>
+        <h4> Recent Episodes </h4>
         <div className="feedcast__episodes-list">
-          {episodes}
+          { this.renderEpisodeCards() }
           <Pagination
             url={`/lastEpisodes/`}
-            page={this.state.page}
-            per_page={this.state.per_page}
-            total={this.state.total}
+            page={this.props.page}
+            per_page={this.props.per_page}
+            total={this.props.total}
             theme="white" />
         </div>
       </div>

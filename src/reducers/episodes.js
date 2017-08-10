@@ -9,8 +9,24 @@ const initialState = {
 
 export default function episodes(state=initialState, action) {
   switch (action.type) {
+    case actions.EPISODES_FETCH_ALL:
+      return {
+        ...state,
+        page: action.payload.page,
+      };
     case actions.EPISODES_FETCH_SUCCESS:
-      return action.payload;
+      let { episodes, total } = action.payload;
+      return {
+        ...state,
+        episodes: episodes,
+        total: parseInt(total || episodes.length),
+      };
+
+    case actions.EPISODES_FOR_PAGE:
+      return {
+        ...state,
+        page: action.payload,
+      };
 
     default:
       return state;

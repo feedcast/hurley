@@ -5,7 +5,7 @@ import * as actions from 'app/actions/episodes';
 
 function* requestEpisodes({ payload }) {
   try {
-    const episodes = yield call(feedcast.getEpisodes, payload.episode);
+    const episodes = yield call(feedcast.getEpisodes, payload);
     console.log(episodes)
     yield put(actions.requestEpisodesSuccess(episodes));
   } catch (error) {
