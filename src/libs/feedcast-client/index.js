@@ -1,4 +1,4 @@
-const API_URL = process.env.FEEDCAST_API_HOST;
+const API_URL = process.env.REACT_APP_API_HOST;
 
 class FeedcastApi {
   getChannels({page = 1, per_page = 24}){

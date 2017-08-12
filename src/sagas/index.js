@@ -1,8 +1,10 @@
 import { fork, all } from 'redux-saga/effects'
-import feedcast from './feedcast';
+import episodes from './episodes';
+import channels from './channels';
 
 export default function* root() {
   yield all([
-    fork(feedcast),
+    fork(episodes),
+    fork(channels),
   ])
 }

@@ -7,7 +7,7 @@ import './styles/index.sass';
 import registerServiceWorker from './scripts/registerServiceWorker';
 
 import Page from './pages/Page';
-import ChannelList from './pages/channelList';
+import ChannelList from './pages/channels';
 import Category from './pages/category';
 import Channel from './pages/channel';
 import Home from './pages/home';

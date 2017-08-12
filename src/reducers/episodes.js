@@ -5,6 +5,7 @@ const initialState = {
   page: 1,
   per_page: 30,
   total: 0,
+  isFetching: false,
 }
 
 export default function episodes(state=initialState, action) {
@@ -12,6 +13,7 @@ export default function episodes(state=initialState, action) {
     case actions.EPISODES_FETCH_ALL:
       return {
         ...state,
+        isFetching: true,
         page: action.payload.page,
       };
 
@@ -19,6 +21,7 @@ export default function episodes(state=initialState, action) {
       let { episodes, total } = action.payload;
       return {
         ...state,
+        isFetching: false,
         episodes: episodes,
         total: parseInt(total || episodes.length),
       };
