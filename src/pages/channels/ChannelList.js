@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import 'app/styles/channelList.sass';
 
-import feedcastApi from 'feedcast-client';
 import helpers from 'app/scripts/helpers'
 
 import Pagination from 'app/components/Pagination'

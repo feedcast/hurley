@@ -5,7 +5,6 @@ import {
   requestAllEpisodes,
   requestMoreEpisodes
 } from 'app/actions/episodes';
-import feedcastApi from 'feedcast-client';
 
 import helpers from 'app/scripts/helpers'
 import Helmet from 'react-helmet';

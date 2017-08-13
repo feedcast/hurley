@@ -19,7 +19,6 @@ class ChannelListContainer extends PureComponent {
   }
 
   render() {
-    debugger
     const page = parseInt(this.props.params.page || "1");
     if (page !== this.props.page) {
       this.request(page);
@@ -35,5 +34,5 @@ class ChannelListContainer extends PureComponent {
 
 export { ChannelList };
 
-const mapStateToProps = ({ channels }) => channels;
+const mapStateToProps = (state) => state.channels;
 export default connect(mapStateToProps)(ChannelListContainer);

@@ -26,6 +26,14 @@ export default function channels(state=initialState, action) {
         total: parseInt(total || channels.length),
       };
 
+    case actions.CHANNELS_INFO_FETCH_SUCCESS:
+      const channel = action.payload;
+      return {
+        ...state,
+        isFetching: false,
+        channels: [ channel ], // Shame, its should has its own reducer for channel info
+      };
+
     default:
       return state;
   }

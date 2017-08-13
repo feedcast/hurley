@@ -2,11 +2,22 @@ import { call, put, takeEvery } from 'redux-saga/effects'
 
 import * as actions from 'app/actions/channels';
 
-function* requestEpisodes({ payload }) {
+function* requestChannels({ payload }) {
   try {
-    const episodes = yield call(actions.asyncFetchChannels, payload);
-    console.log(episodes)
-    yield put(actions.requestChannelsSuccess(episodes));
+    const data = yield call(actions.asyncFetchChannels, payload);
+    console.log(data)
+    yield put(actions.requestChannelsSuccess(data));
+  } catch (error) {
+    console.log(error);
+    yield put(actions.requestChannelsFail(error));
+  }
+}
+
+function* requestChannelInfo({ payload }) {
+  try {
+    const data = yield call(actions.asyncFetchChannels, payload);
+    console.log(data)
+    yield put(actions.requestChannelInfoSuccess(data));
   } catch (error) {
     console.log(error);
     yield put(actions.requestChannelsFail(error));
@@ -14,5 +25,6 @@ function* requestEpisodes({ payload }) {
 }
 
 export default function* feedcastSaga() {
-  yield takeEvery(actions.CHANNELS_REQUESTED, requestEpisodes);
+  yield takeEvery(actions.CHANNELS_REQUESTED, requestChannels);
+  yield takeEvery(actions.CHANNELS_INFO_REQUESTED, requestChannelInfo);
 }
