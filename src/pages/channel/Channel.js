@@ -55,7 +55,7 @@ class Channel extends Component {
             </div>
           </div>
         </div>
-        <ChannelEpisodes data={{uuid, page}}/>
+        <ChannelEpisodes {...this.props} />
       </div>
     );
   }

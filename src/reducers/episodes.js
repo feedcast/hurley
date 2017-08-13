@@ -25,6 +25,13 @@ export default function episodes(state=initialState, action) {
         page: action.payload.page,
       };
 
+    case actions.EPISODES_FETCH_FOR_CHANNEL:
+      return {
+        ...state,
+        isFetching: true,
+        page: action.payload.page,
+      };
+
     case actions.EPISODES_FETCH_SUCCESS:
       let { payload } = action;
 

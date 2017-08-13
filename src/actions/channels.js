@@ -22,10 +22,10 @@ export function requestChannels({ page, perPage }) {
   };
 }
 
-export function requestChannelInfo(channelID) {
+export function requestChannelInfo(channelID, page=1) {
   return {
     type: CHANNELS_INFO_REQUESTED,
-    payload: { uuid: channelID }
+    payload: { uuid: channelID, page }
   };
 }
 

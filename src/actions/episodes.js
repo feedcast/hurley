@@ -6,6 +6,7 @@ export const EPISODES_FETCH_MORE = 'EPISODES_FETCH_MORE';
 export const EPISODES_FETCH_SUCCESS = 'EPISODES_FETCH_SUCCESS';
 export const EPISODES_FETCH_FAIL = 'EPISODES_FETCH_FAIL';
 export const EPISODES_FOR_PAGE = 'EPISODES_FOR_PAGE';
+export const EPISODES_FETCH_FOR_CHANNEL = 'EPISODES_FETCH_FOR_CHANNEL';
 
 export function requestAllEpisodes(params) {
   return {
@@ -37,9 +38,15 @@ export function requestMoreEpisodes(params) {
   }
 }
 
-export function changeEpisodesForPage(page) {
+export function requestEpisodesForPage(page) {
   return {
     type: EPISODES_FOR_PAGE, payload: page
+  }
+}
+
+export function requestEpisodesForChannel(params) {
+  return {
+    type: EPISODES_FETCH_FOR_CHANNEL, payload: params
   }
 }
 

@@ -14,7 +14,19 @@ function* requestEpisodes({ payload }) {
   }
 }
 
+function* requestEpisodesForChannel({ payload }) {
+  try {
+    const episodes = yield call(feedcast.getChannelEpisodes, payload);
+    console.log(episodes)
+    yield put(actions.requestEpisodesSuccess(episodes));
+  } catch (error) {
+    console.log(error);
+    yield put(actions.requestEpisodesFail(error));
+  }
+}
+
 export default function* feedcastSaga() {
   yield takeEvery(actions.EPISODES_FETCH_ALL, requestEpisodes);
   yield takeEvery(actions.EPISODES_FETCH_MORE, requestEpisodes);
+  yield takeEvery(actions.EPISODES_FETCH_FOR_CHANNEL, requestEpisodesForChannel);
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers'
 import { playEpisode } from 'app/actions/player';
 
 class ChannelEpisode extends Component {

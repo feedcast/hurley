@@ -17,6 +17,13 @@ export default function channels(state=initialState, action) {
         page: action.payload.page,
       };
 
+    case actions.CHANNELS_INFO_REQUESTED:
+      return {
+        ...state,
+        isFetching: true,
+        page: action.payload.page,
+      };
+
     case actions.CHANNELS_FETCH_SUCCESS:
       let { channels, total } = action.payload;
       return {
