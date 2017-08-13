@@ -15,14 +15,14 @@ export default class EpisodesList extends PureComponent {
 
   static propTypes = {
     page: PropTypes.number.isRequired,
-    perPage: PropTypes.number.isRequired,
+    per_page: PropTypes.number.isRequired,
     total: PropTypes.number,
     episodes: PropTypes.array,
   }
 
   static defaultProps = {
     page: 1,
-    perPage: 30,
+    per_page: 20,
     total: 0,
     episodes: [],
   }

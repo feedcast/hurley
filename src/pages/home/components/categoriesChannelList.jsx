@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import ChannelCard from './channelCard'
-import helpers from './../../scripts/helpers'
+import ChannelCard from './ChannelCard'
+import helpers from 'app/scripts/helpers'
 
 export default class CategoriesChannelList extends Component {
 

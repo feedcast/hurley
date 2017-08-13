@@ -48,7 +48,7 @@ describe('EpisodesList', () => {
         }
       ],
       page: 1,
-      perPage: 130,
+      per_page: 130,
       total: 1000,
     }
 

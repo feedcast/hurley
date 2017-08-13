@@ -16,4 +16,5 @@ function* requestEpisodes({ payload }) {
 
 export default function* feedcastSaga() {
   yield takeEvery(actions.EPISODES_FETCH_ALL, requestEpisodes);
+  yield takeEvery(actions.EPISODES_FETCH_MORE, requestEpisodes);
 }

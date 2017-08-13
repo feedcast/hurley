@@ -3,9 +3,9 @@ import * as actions from 'app/actions/episodes';
 const initialState = {
   episodes: [],
   page: 1,
-  per_page: 30,
   total: 0,
   isFetching: false,
+  isMore: false,
 }
 
 export default function episodes(state=initialState, action) {
@@ -17,13 +17,26 @@ export default function episodes(state=initialState, action) {
         page: action.payload.page,
       };
 
+    case actions.EPISODES_FETCH_MORE:
+      return {
+        ...state,
+        isFetching: true,
+        isMore: true,
+        page: action.payload.page,
+      };
+
     case actions.EPISODES_FETCH_SUCCESS:
-      let { episodes, total } = action.payload;
+      let { payload } = action;
+
+      const episodeState = state.isMore ?
+        [].concat(state.episodes, payload.episodes) : payload.episodes;
+
       return {
         ...state,
         isFetching: false,
-        episodes: episodes,
-        total: parseInt(total || episodes.length),
+        isMore: false,
+        episodes: episodeState,
+        total: parseInt(payload.total || episodeState.length),
       };
 
     case actions.EPISODES_FOR_PAGE:

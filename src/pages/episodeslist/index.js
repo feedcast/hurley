@@ -8,6 +8,10 @@ import FeedcastLoader from 'app/components/FeedcastLoader';
 import EpisodesList from './EpisodesList';
 
 class EpisodesListContainer extends PureComponent {
+  static defaultProps = {
+    per_page: 20,
+  }
+
   componentDidMount() {
     this.fetchData(this.props.page);
   }
@@ -15,7 +19,7 @@ class EpisodesListContainer extends PureComponent {
   fetchData(page) {
     this.props.dispatch(requestAllEpisodes({
       page: page,
-      perPage: this.props.perPage,
+      per_page: this.props.per_page,
     }));
   }
 

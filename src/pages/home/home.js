@@ -6,9 +6,9 @@ import helpers from 'app/scripts/helpers'
 
 import Page from 'app/pages/Page';
 import FeedcastLoader from 'app/components/FeedcastLoader'
-import Episodes from 'app/components/home/episodes'
-import CategoriesSidebar from 'app/components/home/categoriesSidebar'
-import CategoriesChannelList from 'app/components/home/categoriesChannelList'
+import Episodes from './components/Episodes'
+import CategoriesSidebar from './components/categoriesSidebar'
+import CategoriesChannelList from './components/categoriesChannelList'
 import 'app/styles/home.sass'
 
 
