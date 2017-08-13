@@ -47,7 +47,57 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
     <div
       className="feedcast__pagination feedcast__pagination--white"
     >
-      
+      <div
+        className="feedcast__pagination-wrapper"
+      >
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            <i
+              className="fa fa-angle-double-left"
+            />
+          </button>
+        </a>
+        <a
+          className="active"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            1
+          </button>
+        </a>
+        <a
+          className=""
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            2
+          </button>
+        </a>
+        <a
+          className=""
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            8
+          </button>
+        </a>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            <i
+              className="fa fa-angle-double-right"
+            />
+          </button>
+        </a>
+      </div>
     </div>
   </div>
 </div>
