@@ -4,10 +4,8 @@ import Helmet from 'react-helmet';
 import feedcastApi from 'feedcast-client';
 import helpers from 'app/scripts/helpers'
 
-import Page from 'app/pages/Page';
 import FeedcastLoader from 'app/components/FeedcastLoader'
 import Episodes from './components/Episodes'
-import CategoriesSidebar from './components/categoriesSidebar'
 import CategoriesChannelList from './components/categoriesChannelList'
 import 'app/styles/home.sass'
 
@@ -25,8 +23,6 @@ class Home extends Component {
     }
   }
 
-
-
   componentDidMount() {
     this._isMounted = true
     feedcastApi
@@ -38,7 +34,6 @@ class Home extends Component {
         })
     })
   }
-
 
   componentWillUnmount(){
     this._isMounted = false

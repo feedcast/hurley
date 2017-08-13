@@ -56,6 +56,7 @@ export default class ChannelCard extends Component {
         src={image_url}
         className="feedcast__channel-img"
         onError={()=>this.setState({imageStatus: false})}
+        alt=""
       />
     ) : (
       <div className="feedcast__channel-thumbnail">

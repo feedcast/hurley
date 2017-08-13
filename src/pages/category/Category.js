@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 
 import Helmet from 'react-helmet';
 import ChannelCard from 'app/components/ChannelCard'
-import FeedcastLoader from 'app/components/FeedcastLoader'
-import feedcastApi from 'feedcast-client';
-import helpers from 'app/scripts/helpers'
 
 class Category extends Component {
 

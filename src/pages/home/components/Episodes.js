@@ -6,8 +6,6 @@ import {
   requestMoreEpisodes
 } from 'app/actions/episodes';
 
-import helpers from 'app/scripts/helpers'
-import Helmet from 'react-helmet';
 import EpisodeCard from 'app/components/EpisodeCard';
 
 import 'app/styles/EpisodesList.sass'
@@ -21,7 +19,6 @@ export class Episodes extends Component {
   }
 
   render(){
-    const { lc } = this.props
     const episodes = this.cards();
     const loadMoreBtn = (
       <button onClick={() => this.props.onLoadMore()}>

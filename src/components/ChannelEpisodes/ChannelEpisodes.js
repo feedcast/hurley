@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
-import feedcastApi from 'feedcast-client';
 
-import helpers from 'app/scripts/helpers'
 import ChannelEpisode from './ChannelEpisode'
 import Pagination from 'app/components/Pagination'
 
@@ -19,11 +16,14 @@ class ChannelEpisodes extends Component {
   }
 
   listEpisodes(){
-    let list = this.props.episodes.map( (i, n) =>
-      <ChannelEpisode key={n} episode={i}/> )
-    return this.props.episodes.length > 0 ? list : '';
-  }
+    if (this.props.episodes.length === 0) {
+      return null
+    }
 
+    return this.props.episodes.map(
+      (episode, idx) => <ChannelEpisode key={idx} episode={episode}/>
+    )
+  }
 
   render(){
     const list = this.listEpisodes();

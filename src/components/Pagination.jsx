@@ -4,10 +4,6 @@ import { Link } from 'react-router'
 import './../styles/Pagination.sass'
 
 class Pagination extends Component {
-  constructor(props) {
-    super(props);
-  }
-
 
   getPaginationButtons(){
     let { url, total, per_page, page} = this.props;
@@ -31,7 +27,7 @@ class Pagination extends Component {
         <Link
           key={i}
           to={`${url}${i}`}
-          className={i == page ? 'active':''}>
+          className={i === page ? 'active':''}>
           <button>{i}</button>
         </Link>
       ))

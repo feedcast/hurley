@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { requestChannelInfo } from 'app/actions/channels';
-import { requestEpisodesForChannel } from 'app/actions/episodes';
 import FeedcastLoader from 'app/components/FeedcastLoader';
 import Channel from './Channel';
 

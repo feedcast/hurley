@@ -17,14 +17,6 @@ class ChannelEpisode extends Component {
     }
   }
 
-  componentWillUnmount(){
-    this._isMounted = false
-  }
-
-  componentDidMount() {
-    this._isMounted = true
-  }
-
   playEpisode(episode){
     this.props.dispatch(playEpisode(episode));
   }

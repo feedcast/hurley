@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import Helmet from 'react-helmet';
 import 'app/styles/channelList.sass';
 
-import helpers from 'app/scripts/helpers'
-
 import Pagination from 'app/components/Pagination'
 import ChannelCard from 'app/components/ChannelCard'
-import FeedcastLoader from 'app/components/FeedcastLoader'
 
 
 class ChannelList extends Component {

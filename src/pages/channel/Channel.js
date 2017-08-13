@@ -6,7 +6,6 @@ import helpers from 'app/scripts/helpers'
 
 import 'app/styles/channel.sass'
 import ChannelEpisodes from 'app/components/ChannelEpisodes'
-import FeedcastLoader from 'app/components/FeedcastLoader'
 
 
 class Channel extends Component {
@@ -24,14 +23,10 @@ class Channel extends Component {
     }
 
     const {
-      categories,
       description,
       image_url,
       title,
-      uuid,
     } = this.props.channel;
-
-    const { page } = this.props.params
 
     const metaTitle = this.props.channel ? `| ${title}` : ``
 
@@ -45,7 +40,7 @@ class Channel extends Component {
           ]} />
         <div className="feedcast__channelInfo">
           <div className="feedcast__channelInfo-header">
-            <img className="feedcast__channelInfo-img" src={image_url}/>
+            <img className="feedcast__channelInfo-img" alt={title} src={image_url}/>
             <h1 className="feedcast__channelInfo-title">{title}</h1>
           </div>
           <div className="feedcast__channelInfo-body">

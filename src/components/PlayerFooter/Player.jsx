@@ -158,9 +158,8 @@ class PlayerFooter extends Component {
 
   webPlayer(){
 
-    const {episodes, episode} = this.props;
+    const {episode} = this.props;
     const playingUuid = episode? episode.uui: null;
-    const currentEpisode = episodes[playingUuid];
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
@@ -214,7 +213,7 @@ class PlayerFooter extends Component {
   }
 
   mobilePlayer(){
-    const {episodes, playingUuid} = this.state
+    const {playingUuid} = this.state
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>

@@ -7,7 +7,7 @@ import { Channel } from 'app/pages/channel';
 describe('Channel', () => {
   describe('when has no data', () => {
     it("renders the no episode", () => {
-      const component = renderer.create(<Channel />);
+      const component = renderer.create(withStore(<Channel />));
       expect(component).toMatchSnapshot();
     })
   });

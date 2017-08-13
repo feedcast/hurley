@@ -12,7 +12,7 @@ describe('ChannelEpisodes', () => {
     })
   });
 
-  describe('when has a list of category', () => {
+  describe('when has a list of episodes', () => {
     const state = {
       episodes: [
         {
