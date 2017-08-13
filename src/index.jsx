@@ -31,7 +31,7 @@ function AppRouter() {
           <Route path=":page"></Route>
         </Route>
         <Route path="/category" component={Category}>
-          <Route path=":page"></Route>
+          <Route path=":slug"></Route>
         </Route>
         <Route path="/lastEpisodes" component={EpisodesList}>
           <Route path=":page"></Route>
