@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -6,7 +6,7 @@ import { requestChannels } from 'app/actions/channels';
 import FeedcastLoader from 'app/components/FeedcastLoader';
 import ChannelList from './ChannelList';
 
-class ChannelListContainer extends PureComponent {
+class ChannelListContainer extends Component {
   componentDidMount() {
     this.request(this.props.page);
   }

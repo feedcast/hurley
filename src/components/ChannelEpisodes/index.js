@@ -26,11 +26,10 @@ class ChannelEpisodesContainer extends Component {
 
   componentDidMount() {
     const { page = '1' } = this.props.params;
-    if (page != this.props.page)
-      this.props.dispatch(requestEpisodesForChannel({
-        uuid: this.props.channel.uuid,
-        page: parseInt(page),
-      }));
+    this.props.dispatch(requestEpisodesForChannel({
+      uuid: this.props.channel.uuid,
+      page: parseInt(page),
+    }));
   }
 
   render() {
