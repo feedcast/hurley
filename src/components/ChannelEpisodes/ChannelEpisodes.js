@@ -21,7 +21,11 @@ class ChannelEpisodes extends Component {
     }
 
     return this.props.episodes.map(
-      (episode, idx) => <ChannelEpisode key={idx} episode={episode}/>
+      (episode, idx) =>
+        <ChannelEpisode
+          key={idx}
+          episodes={this.props.episodes}
+          episode={episode} />
     )
   }
 

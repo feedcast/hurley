@@ -29,9 +29,15 @@ export default class EpisodesList extends PureComponent {
 
   renderEpisodeCards(){
     let { episodes } = this.props;
-    return episodes.length > 0 ?
-            episodes.map(e => <EpisodeCard key={e.uuid} episode={e}/>):
-            (<h1>No Episode found</h1>)
+    return episodes.length === 0 ? (<h1>No Episode found</h1>) :
+      episodes.map((e) => {
+        return (
+          <EpisodeCard
+            key={e.uuid}
+            episodes={this.props.episodes}
+            episode={e} />
+        )
+      })
   }
 
   render(){

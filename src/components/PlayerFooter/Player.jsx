@@ -10,11 +10,11 @@ class PlayerFooter extends Component {
 
   static propTypes = {
     episode: PropTypes.object,
-    episodes: PropTypes.array,
+    episodes: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
-    episode: null,
+    episode: {},
     episodes: [],
   }
 
@@ -25,7 +25,6 @@ class PlayerFooter extends Component {
 
     this.state = {
       episodes : [],
-      playingUuid : null,
       isPaused: this.audioPlayer.paused,
       canPlay: false,
       loadedData: false,
@@ -92,23 +91,21 @@ class PlayerFooter extends Component {
 
   bindEvents(){
     //Player changing state
-    this.audioPlayer.onplay = e => this.onPlay(e)
-    this.audioPlayer.onpause = e => this.onPause(e)
-    this.audioPlayer.oncanplay = e => this.onCanPlay(e)
-    this.audioPlayer.onloadeddata = e => this.onLoadedData(e)
+    this.audioPlayer.onplay = e => this.onPlay(e);
+    this.audioPlayer.onpause = e => this.onPause(e);
+    this.audioPlayer.oncanplay = e => this.onCanPlay(e);
+    this.audioPlayer.onloadeddata = e => this.onLoadedData(e);
+    this.audioPlayer.onended = e => this.props.events.onEpisodeEnd();
 
-    this.audioPlayer.ontimeupdate = e => this.onTimeUpdate(e)
+    this.audioPlayer.ontimeupdate = e => this.onTimeUpdate(e);
 
 
-    this.audioPlayer.onabort = e => this._onAbort(e)
-    this.audioPlayer.onerror = e => this._onError(e)
+    this.audioPlayer.onabort = e => this._onAbort(e);
+    this.audioPlayer.onerror = e => this._onError(e);
   }
 
   playEpisode(episode){
-    if (!episode) return;
-
-    let episodes = this.state.episodes;
-    episodes[episode.uuid] = episode;
+    if (!episode.audio) return;
 
     if (this.audioPlayer.src !== episode.audio.url) {
       this.audioPlayer.src = episode.audio.url;
@@ -158,8 +155,7 @@ class PlayerFooter extends Component {
 
   webPlayer(){
 
-    const {episode} = this.props;
-    const playingUuid = episode? episode.uui: null;
+    const playingUuid = this.props.episode? this.props.episode.uui: null;
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
@@ -213,7 +209,7 @@ class PlayerFooter extends Component {
   }
 
   mobilePlayer(){
-    const {playingUuid} = this.state
+    const playingUuid = this.state.episode.uuid;
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
@@ -230,7 +226,7 @@ class PlayerFooter extends Component {
   }
 
   render(){
-    if (!this.props.episode) { return null; }
+    if (!this.props.episode || !this.props.episode.audio) { return null; }
 
     this.playEpisode(this.props.episode);
     return this.webPlayer()
