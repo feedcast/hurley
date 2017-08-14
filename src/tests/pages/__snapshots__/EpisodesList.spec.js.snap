@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
+<div
+  className="feedcast__last-episodes feedcast__section"
+>
+  <h4>
+     Recent Episodes 
+  </h4>
+  <div
+    className="feedcast__episodes-list"
+  >
+    <div
+      className="feedcast__episode-card-wrapper"
+    >
+      <div
+        className="feedcast__episode-card"
+        onClick={[Function]}
+        style={
+          Object {
+            "background": "url(https://img.feedcast.io/http%3A%2F%2Fi.imgur.com%2FmYRfJk7.png/300/300)",
+          }
+        }
+      >
+        <span
+          className="feedcast__episode-duration"
+        >
+          00:12:40
+        </span>
+      </div>
+      <h3
+        onClick={[Function]}
+      >
+         
+        Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
+         
+      </h3>
+      <h5>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Pensando RPG
+        </a>
+      </h5>
+    </div>
+    <div
+      className="feedcast__pagination feedcast__pagination--white"
+    >
+      <div
+        className="feedcast__pagination-wrapper"
+      >
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            <i
+              className="fa fa-angle-double-left"
+            />
+          </button>
+        </a>
+        <a
+          className="active"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            1
+          </button>
+        </a>
+        <a
+          className=""
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            2
+          </button>
+        </a>
+        <a
+          className=""
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            8
+          </button>
+        </a>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          <button>
+            <i
+              className="fa fa-angle-double-right"
+            />
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`EpisodesList when has no data renders the no episode 1`] = `
+<div
+  className="feedcast__last-episodes feedcast__section"
+>
+  <h4>
+     Recent Episodes 
+  </h4>
+  <div
+    className="feedcast__episodes-list"
+  >
+    <h1>
+      No Episode found
+    </h1>
+    <div
+      className="feedcast__pagination feedcast__pagination--white"
+    >
+      
+    </div>
+  </div>
+</div>
+`;
