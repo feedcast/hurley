@@ -105,7 +105,7 @@ class Helpers extends EventEmitter {
 }
 
 const helpers = new Helpers();
-helpers.setMaxListeners(100)
+helpers.setMaxListeners(0)
 window.helpers = helpers
 
 export default helpers
