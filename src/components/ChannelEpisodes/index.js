@@ -24,15 +24,16 @@ class ChannelEpisodesContainer extends Component {
     per_page: 20,
   }
 
-  render() {
-    const page = parseInt(this.props.params.page || "1", 10);
-    if (page !== this.props.page)
+  componentDidMount() {
+    const { page = '1' } = this.props.params;
+    if (page != this.props.page)
       this.props.dispatch(requestEpisodesForChannel({
         uuid: this.props.channel.uuid,
-        page: page,
-      })
-    );
+        page: parseInt(page),
+      }));
+  }
 
+  render() {
     if (this.props.isFetching) {
       return <FeedcastLoader />;
     }

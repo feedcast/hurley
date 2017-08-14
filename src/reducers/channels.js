@@ -2,7 +2,7 @@ import * as actions from 'app/actions/channels';
 
 const initialState = {
   channels: [],
-  page: 1,
+  page: 0,
   per_page: 30,
   total: 0,
   isFetching: false,

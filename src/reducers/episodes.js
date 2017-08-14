@@ -2,7 +2,7 @@ import * as actions from 'app/actions/episodes';
 
 const initialState = {
   episodes: [],
-  page: 1,
+  page: 0,
   total: 0,
   isFetching: false,
   isMore: false,

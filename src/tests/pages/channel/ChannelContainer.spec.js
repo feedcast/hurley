@@ -5,7 +5,10 @@ import { withStore } from 'app/tests/helpers';
 import Channel from 'app/pages/channel';
 
 describe('Channel', () => {
-  const state = { channels: {} };
+  const state = {
+    channels: {},
+    params: {},
+  };
 
   describe('when has no data', () => {
     it("renders the no episode", () => {
@@ -39,6 +42,7 @@ describe('Channel', () => {
           categories: [],
         }
       ],
+      params: {},
       page: 1,
       perPage: 130,
       total: 1000,
