@@ -13,7 +13,7 @@ class ChannelEpisodesContainer extends Component {
     per_page: PropTypes.number,
     episode: PropTypes.object,
     episodes: PropTypes.array,
-    isFetching: PropTypes.boolean,
+    isFetching: PropTypes.bool,
   }
 
   static defaultProps = {
