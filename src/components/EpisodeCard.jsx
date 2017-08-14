@@ -9,8 +9,10 @@ import './../styles/EpisodeCard.sass'
 
 class EpisodeCard extends Component {
 
-  playEpisode(episode){
-    this.props.dispatch(playEpisode(episode));
+  playEpisode(){
+    this.props.dispatch(
+      playEpisode(this.props.episode, this.props.episodes)
+    );
   }
 
   render(){
@@ -21,13 +23,13 @@ class EpisodeCard extends Component {
         className="feedcast__episode-card-wrapper">
         <div className="feedcast__episode-card"
           style={{ background }}
-          onClick={() => this.playEpisode(episode)}>
+          onClick={() => this.playEpisode()}>
           <span
             className="feedcast__episode-duration">
             {helpers.secondsToHms(episode.audio.duration)}
           </span>
         </div>
-        <h3 onClick={() => this.playEpisode(episode)}> {episode.title} </h3>
+        <h3 onClick={() => this.playEpisode()}> {episode.title} </h3>
         <h5>
           <Link to={`/channel/${episode.channel.uuid}/`}>{episode.channel.title}</Link>
         </h5>

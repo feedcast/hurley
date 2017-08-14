@@ -17,8 +17,10 @@ class ChannelEpisode extends Component {
     }
   }
 
-  playEpisode(episode){
-    this.props.dispatch(playEpisode(episode));
+  playEpisode(){
+    this.props.dispatch(
+      playEpisode(this.props.episode, this.props.episodes)
+    );
   }
 
   render(){
@@ -47,7 +49,7 @@ class ChannelEpisode extends Component {
       <div className="feedcast__channelEpisode">
         <div className="feedcast__channelEpisode-button-wrapper">
           <button
-            onClick={() => this.playEpisode(this.props.episode)}
+            onClick={() => this.playEpisode()}
             className="feedcast__channelEpisode-play-button">
             <i className="fa fa-play"></i>
           </button>
