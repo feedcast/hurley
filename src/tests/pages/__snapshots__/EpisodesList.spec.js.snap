@@ -8,41 +8,45 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
      Recent Episodes 
   </h4>
   <div
-    className="feedcast__episodes-list"
+    className="feedcast__episodes-block"
   >
     <div
-      className="feedcast__episode-card-wrapper"
+      className="feedcast__episodes-list"
     >
       <div
-        className="feedcast__episode-card"
-        onClick={[Function]}
-        style={
-          Object {
-            "background": "url(https://img.feedcast.io/http%3A%2F%2Fi.imgur.com%2FmYRfJk7.png/300/300)",
-          }
-        }
+        className="feedcast__episode-card-wrapper"
       >
-        <span
-          className="feedcast__episode-duration"
-        >
-          00:12:40
-        </span>
-      </div>
-      <h3
-        onClick={[Function]}
-      >
-         
-        Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
-         
-      </h3>
-      <h5>
-        <a
+        <div
+          className="feedcast__episode-card"
           onClick={[Function]}
-          style={Object {}}
+          style={
+            Object {
+              "background": "url(https://img.feedcast.io/http%3A%2F%2Fi.imgur.com%2FmYRfJk7.png/300/300)",
+            }
+          }
         >
-          Pensando RPG
-        </a>
-      </h5>
+          <span
+            className="feedcast__episode-duration"
+          >
+            00:12:40
+          </span>
+        </div>
+        <h3
+          onClick={[Function]}
+        >
+           
+          Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
+           
+        </h3>
+        <h5>
+          <a
+            onClick={[Function]}
+            style={Object {}}
+          >
+            Pensando RPG
+          </a>
+        </h5>
+      </div>
     </div>
     <div
       className="feedcast__pagination feedcast__pagination--white"
@@ -111,11 +115,8 @@ exports[`EpisodesList when has no data renders the no episode 1`] = `
      Recent Episodes 
   </h4>
   <div
-    className="feedcast__episodes-list"
+    className="feedcast__episodes-block"
   >
-    <h1>
-      No Episode found
-    </h1>
     <div
       className="feedcast__pagination feedcast__pagination--white"
     >

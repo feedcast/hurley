@@ -5,7 +5,7 @@ import helpers from 'app/scripts/helpers';
 import Helmet from 'react-helmet';
 
 import Pagination from 'app/components/Pagination';
-import EpisodeCard from 'app/components/EpisodeCard';
+import { EpisodeCardList } from 'app/components/EpisodeCard';
 
 import 'app/styles/EpisodesList.sass';
 
@@ -27,19 +27,6 @@ export default class EpisodesList extends PureComponent {
     episodes: [],
   }
 
-  renderEpisodeCards(){
-    let { episodes } = this.props;
-    return episodes.length === 0 ? (<h1>No Episode found</h1>) :
-      episodes.map((e) => {
-        return (
-          <EpisodeCard
-            key={e.uuid}
-            episodes={this.props.episodes}
-            episode={e} />
-        )
-      })
-  }
-
   render(){
     return (
       <div className="feedcast__last-episodes feedcast__section">
@@ -50,8 +37,8 @@ export default class EpisodesList extends PureComponent {
             content: `Feedcast | Últimos Episódios`},
           ]} />
         <h4> Recent Episodes </h4>
-        <div className="feedcast__episodes-list">
-          { this.renderEpisodeCards() }
+        <div className="feedcast__episodes-block">
+          <EpisodeCardList episodes={ this.props.episodes } />
           <Pagination
             url={`/lastEpisodes/`}
             page={this.props.page}

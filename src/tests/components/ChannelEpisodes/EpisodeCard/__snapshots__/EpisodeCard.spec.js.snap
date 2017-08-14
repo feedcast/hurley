@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EpisodeCardList when has a list of episodes render the category 1`] = `
+<div
+  className="feedcast__episodes-list"
+>
+  <div
+    className="feedcast__episode-card-wrapper"
+  >
+    <div
+      className="feedcast__episode-card"
+      onClick={[Function]}
+      style={
+        Object {
+          "background": "url(http://foo/img.svg)",
+        }
+      }
+    >
+      <span
+        className="feedcast__episode-duration"
+      >
+        00:12:40
+      </span>
+    </div>
+    <h3
+      onClick={[Function]}
+    >
+       
+      Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
+       
+    </h3>
+    <h5>
+      <a
+        onClick={[Function]}
+        style={Object {}}
+      />
+    </h5>
+  </div>
+</div>
+`;
+
+exports[`EpisodeCardList when has no data renders the no episodes 1`] = `null`;

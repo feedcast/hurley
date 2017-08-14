@@ -161,7 +161,7 @@ class PlayerFooter extends Component {
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
           <div className="feedcast__playerFooter-top">
-            <h5>{this.props.title}</h5>
+            <h5>{this.props.episode.title}</h5>
           </div>
           <div className="feedcast__playerFooter-bottom">
             <button

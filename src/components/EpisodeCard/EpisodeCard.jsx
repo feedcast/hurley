@@ -1,13 +1,14 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { playEpisode } from 'app/actions/player';
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers'
 import { Link } from 'react-router'
-import './../styles/EpisodeCard.sass'
+import 'app/styles/EpisodeCard.sass'
 
 
-class EpisodeCard extends Component {
+class EpisodeCard extends PureComponent {
 
   playEpisode(){
     this.props.dispatch(
