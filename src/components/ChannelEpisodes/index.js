@@ -20,15 +20,25 @@ class ChannelEpisodesContainer extends Component {
     episode: {},
     episodes: [],
     isFetching: true,
-    page: 0,
     per_page: 20,
   }
 
   componentDidMount() {
-    const { page = '1' } = this.props.params;
+    const page = this.props.page;
     this.props.dispatch(requestEpisodesForChannel({
       uuid: this.props.channel.uuid,
       page: parseInt(page),
+    }));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.page === nextProps.page) {
+      return
+    }
+
+    this.props.dispatch(requestEpisodesForChannel({
+      uuid: nextProps.channel.uuid,
+      page: parseInt(nextProps.page),
     }));
   }
 

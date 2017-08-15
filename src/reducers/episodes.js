@@ -2,7 +2,6 @@ import * as actions from 'app/actions/episodes';
 
 const initialState = {
   episodes: [],
-  page: 0,
   total: 0,
   isFetching: false,
   isMore: false,
@@ -14,7 +13,6 @@ export default function episodes(state=initialState, action) {
       return {
         ...state,
         isFetching: true,
-        page: action.payload.page,
       };
 
     case actions.EPISODES_FETCH_MORE:
@@ -22,14 +20,12 @@ export default function episodes(state=initialState, action) {
         ...state,
         isFetching: true,
         isMore: true,
-        page: action.payload.page,
       };
 
     case actions.EPISODES_FETCH_FOR_CHANNEL:
       return {
         ...state,
         isFetching: true,
-        page: action.payload.page,
       };
 
     case actions.EPISODES_FETCH_SUCCESS:
@@ -44,12 +40,6 @@ export default function episodes(state=initialState, action) {
         isMore: false,
         episodes: episodeState,
         total: parseInt(payload.total || episodeState.length),
-      };
-
-    case actions.EPISODES_FOR_PAGE:
-      return {
-        ...state,
-        page: action.payload,
       };
 
     default:
