@@ -9,10 +9,12 @@ import ChannelEpisodes from 'app/components/ChannelEpisodes'
 
 
 class Channel extends Component {
-  renderCategories() {
-    return this.props.channel.categories.map( (i,n) => (
+  renderCategories(categories) {
+    return categories
+      .filter( (i,n)=> n < 3 )
+      .map( (i,n) => (
       <Link key={n} to={`/category/${i.slug}`}>
-        <i className={`fa fa-${i.icon}`}></i> {helpers.translate(i.title)}
+        <i className={`fa fa-${i.icon}`}></i> {i.title}
       </Link>
     ));
   }
@@ -26,6 +28,7 @@ class Channel extends Component {
       description,
       image_url,
       title,
+      categories,
     } = this.props.channel;
 
     const metaTitle = this.props.channel ? "| " + title: '';
@@ -46,7 +49,7 @@ class Channel extends Component {
           <div className="feedcast__channelInfo-body">
             <p className="feedcast__channelInfo-description">{description}</p>
             <div className="feedcast__channelInfo-categories">
-              { this.renderCategories.bind(this) }
+              {this.renderCategories(categories)}
             </div>
           </div>
         </div>
