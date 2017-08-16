@@ -10,14 +10,14 @@ class ChannelContainer extends PureComponent {
   static defaultProps = {
     episodes: [],
     isFetching: true,
-    page: 1,
+    page: 0,
     params: {},
   }
 
   componentDidMount() {
-    const uuid = this.props.params.uuid;
-    if (uuid !== this.props.uuid) {
-      this.fetchData(uuid, this.props.page);
+    const { page = '1', uuid=''} = this.props.params;
+    if (uuid != this.props.uuid || page != this.props.page) {
+      this.fetchData(uuid, page);
     }
   }
 
@@ -26,14 +26,6 @@ class ChannelContainer extends PureComponent {
   }
 
   render() {
-    const page = parseInt(this.props.params.page || '1');
-    if (page !== this.props.page) {
-      this.fetchData(
-        this.props.params.uuid,
-        page,
-      );
-    }
-
     if (this.props.isFetching) {
       return <FeedcastLoader />;
     }

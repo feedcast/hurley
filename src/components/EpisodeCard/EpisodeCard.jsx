@@ -1,16 +1,19 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { playEpisode } from 'app/actions/player';
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers'
 import { Link } from 'react-router'
-import './../styles/EpisodeCard.sass'
+import 'app/styles/EpisodeCard.sass'
 
 
-class EpisodeCard extends Component {
+class EpisodeCard extends PureComponent {
 
-  playEpisode(episode){
-    this.props.dispatch(playEpisode(episode));
+  playEpisode(){
+    this.props.dispatch(
+      playEpisode(this.props.episode, this.props.episodes)
+    );
   }
 
   render(){
@@ -21,13 +24,13 @@ class EpisodeCard extends Component {
         className="feedcast__episode-card-wrapper">
         <div className="feedcast__episode-card"
           style={{ background }}
-          onClick={() => this.playEpisode(episode)}>
+          onClick={() => this.playEpisode()}>
           <span
             className="feedcast__episode-duration">
             {helpers.secondsToHms(episode.audio.duration)}
           </span>
         </div>
-        <h3 onClick={() => this.playEpisode(episode)}> {episode.title} </h3>
+        <h3 onClick={() => this.playEpisode()}> {episode.title} </h3>
         <h5>
           <Link to={`/channel/${episode.channel.uuid}/`}>{episode.channel.title}</Link>
         </h5>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import helpers from './../scripts/helpers'
+import helpers from 'app/scripts/helpers'
 
 export default class ChannelCard extends Component {
 

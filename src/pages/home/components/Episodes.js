@@ -6,20 +6,13 @@ import {
   requestMoreEpisodes
 } from 'app/actions/episodes';
 
-import EpisodeCard from 'app/components/EpisodeCard';
+import { EpisodeCardList } from 'app/components/EpisodeCard';
 
 import 'app/styles/EpisodesList.sass'
 
 export class Episodes extends Component {
 
-  cards(){
-    const { episodes } = this.props;
-    return episodes.length > 0 ?
-            episodes.map((e, i) => <EpisodeCard key={i} episode={e}/>):''
-  }
-
   render(){
-    const episodes = this.cards();
     const loadMoreBtn = (
       <button onClick={() => this.props.onLoadMore()}>
       { this.props.isFetching ? "Loading" : "Load more" }
@@ -30,7 +23,7 @@ export class Episodes extends Component {
       <div className="feedcast__last-episodes">
         <h3> Recents </h3>
         <div className="feedcast__episodes-list">
-          { episodes }
+          <EpisodeCardList episodes={ this.props.episodes } />
           <div className="feedcast__load-more">
             { this.props.episodes.length > 0 ? loadMoreBtn : ''}
           </div>

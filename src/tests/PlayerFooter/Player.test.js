@@ -16,15 +16,25 @@ const VALID_EPISODE = {
 
 describe('Player', () => {
   describe('when has no episode', () => {
-    const component = shallow(<Player />)
+    const state = {
+      episode: {},
+      episodes: [],
+    };
+
+    const component = shallow(<Player {...state}/>)
 
     it('doesnt render', () => {
-      expect(component.find('.feedcast__player-backward')).toHaveLength(0);
+      expect(component.find('.feedcast__playerFooter')).toHaveLength(0);
     });
   });
 
   describe('when has valid episode', () => {
-    const component = shallow(<Player episode={ VALID_EPISODE } />)
+    const state = {
+      episode: VALID_EPISODE,
+      episodes: [],
+    };
+
+    const component = shallow(<Player {...state} />)
 
     it('should contains a backward button', () => {
       expect(component.find('.feedcast__player-backward')).toHaveLength(1);
@@ -41,5 +51,22 @@ describe('Player', () => {
     it('should contains a play/pause button', () => {
       expect(component.find('.feedcast__player-play-pause')).toHaveLength(1);
     });
-  })
+  });
+
+  describe('when episode has ended', () => {
+    const state = {
+      episode: VALID_EPISODE,
+      episodes: [],
+      events: {
+        onEpisodeEnd: jest.fn(),
+      },
+    };
+
+    const component = mount(<Player {...state} />)
+
+    it('call onEpisodeEnd event', () => {
+      component.root.node.audioPlayer.onended();
+      expect(state.events.onEpisodeEnd).toBeCalled();
+    });
+  });
 })

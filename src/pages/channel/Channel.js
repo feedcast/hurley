@@ -28,7 +28,7 @@ class Channel extends Component {
       title,
     } = this.props.channel;
 
-    const metaTitle = this.props.channel ? `| ${title}` : ``
+    const metaTitle = this.props.channel ? "| " + title: '';
 
     return (
       <div className="feedcast__channelPage">
@@ -50,7 +50,10 @@ class Channel extends Component {
             </div>
           </div>
         </div>
-        <ChannelEpisodes {...this.props} />
+        <ChannelEpisodes
+          channel={ this.props.channel }
+          page={ parseInt(this.props.params.page||'1') }
+        />
       </div>
     );
   }
