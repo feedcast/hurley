@@ -1,3 +1,5 @@
 language: node_js
 node_js:
   - "7"
+notifications:
+  slack: feed-cast:AMVxmn8Y5Pw93TOy80zAafLU
