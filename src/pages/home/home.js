@@ -26,7 +26,7 @@ class Home extends Component {
   componentDidMount() {
     this._isMounted = true
     feedcastApi
-    .getCategories()
+    .getCategories({per_page: 50})
     .then( data => {
         this.setState({
           categories : data.categories,

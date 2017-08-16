@@ -33,7 +33,7 @@ class Page extends Component {
   componentDidMount() {
     this._isMounted = true
     feedcastApi
-    .getCategories()
+    .getCategories({per_page: 50, page: 1})
     .then( data => {
         this.setState({
           categories : data.categories,
@@ -102,7 +102,6 @@ class Page extends Component {
           className={`feedcast__sidebar-overlay feedcast__sidebar-overlay--${this.state.showSidebar ? 'show':'hide'}`}></div>
         <div className={`feedcast__sidebar feedcast__sidebar--${this.state.showSidebar ? 'show':'hide'}`}>
           <div className="feedcast__sidebar-wrapper">
-            <h5>{lc.importantLinks}</h5>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/"><i className="fa fa-home"></i> {lc.home}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/channels"><i className="fa fa-rss"></i> {lc.channels}</Link>
