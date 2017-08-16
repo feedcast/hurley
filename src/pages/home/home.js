@@ -5,7 +5,7 @@ import feedcastApi from 'feedcast-client';
 import helpers from 'app/scripts/helpers'
 
 import FeedcastLoader from 'app/components/FeedcastLoader'
-import Episodes from './components/Episodes'
+import LatestEpisodes from './components/LatestEpisodes'
 import CategoriesChannelList from './components/categoriesChannelList'
 import 'app/styles/home.sass'
 
@@ -51,7 +51,7 @@ class Home extends Component {
             content: `Feedcast | ${lc.home}`},
           ]} />
         <div className="feedcast__section">
-          <Episodes params={params}/>
+          <LatestEpisodes page={ params.page || '1' } per_page={ 10 } / >
           <CategoriesChannelList categories={this.state.categories}/>
         </div>
       </div>
