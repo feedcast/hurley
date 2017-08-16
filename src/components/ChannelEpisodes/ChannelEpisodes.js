@@ -35,7 +35,6 @@ class ChannelEpisodes extends Component {
 
     return (
       <div className="feedcast__channelEpisodes">
-        <h1>Episodes</h1>
         {list}
         <Pagination
           url={`/channel/${this.props.channel.uuid}/`}
