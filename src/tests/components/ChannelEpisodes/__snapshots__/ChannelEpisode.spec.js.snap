@@ -4,9 +4,6 @@ exports[`ChannelEpisodes when has a list of episodes render the category 1`] = `
 <div
   className="feedcast__channelEpisodes"
 >
-  <h1>
-    Episodes
-  </h1>
   <div
     className="feedcast__channelEpisode"
   >
@@ -28,17 +25,10 @@ exports[`ChannelEpisodes when has a list of episodes render the category 1`] = `
       <h4>
         Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
       </h4>
-      <p
-        className="feedcast__channelEpisode-summary
-              feedcast__channelEpisode-summary--see-less"
-      >
-        Neste episódio, falo sobre a figura do Bruxo e a sua respectiva classe em Dungeons & Dragons. Aqui, diferencio-o de outras classes mágicas e dou algumas ideias de jogabilidade e interpretação.
-      </p>
-      <button
-        className="feedcast__channelEpisode-btn-see-more"
-        onClick={[Function]}
-      >
-        See more
+      <button>
+        <i
+          className="fa fa-ellipsis-h"
+        />
       </button>
       <span>
         00:12:40
@@ -57,9 +47,6 @@ exports[`ChannelEpisodes when has no data renders the no episode 1`] = `
 <div
   className="feedcast__channelEpisodes"
 >
-  <h1>
-    Episodes
-  </h1>
   <div
     className="feedcast__pagination feedcast__pagination--white"
   >
