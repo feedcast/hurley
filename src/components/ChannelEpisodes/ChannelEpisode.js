@@ -24,26 +24,8 @@ class ChannelEpisode extends Component {
   }
 
   render(){
-    const { lc } = this.state
-    const { title, summary, audio, description } = this.props.episode
-    const descText = summary && summary.length > 0 ? summary : description;
+    const { title, audio } = this.props.episode
 
-    const summaryEl = descText && descText.length > 0 ? (
-      <p className={`feedcast__channelEpisode-summary
-        feedcast__channelEpisode-summary--${ this.state.seeMore
-          ? 'see-more': 'see-less'}`} >
-        {descText}
-      </p>
-    ):'';
-
-    const btnSeeMore = descText && descText.length > 0 ? (
-      <button
-        className="feedcast__channelEpisode-btn-see-more"
-        onClick={()=> this.setState(
-          { seeMore: !this.state.seeMore})}>
-        {this.state.seeMore ? lc.seeLess : lc.seeMore}
-      </button>
-    ) : '';
 
     return (
       <div className="feedcast__channelEpisode">
@@ -56,8 +38,9 @@ class ChannelEpisode extends Component {
         </div>
         <div className="feedcast__channelEpisode-info-wrapper">
           <h4>{title}</h4>
-          {summaryEl}
-          {btnSeeMore}
+          <button>
+            <i className="fa fa-ellipsis-h"></i>
+          </button>
           <span>{helpers.secondsToHms(audio.duration)}</span>
         </div>
       </div>
