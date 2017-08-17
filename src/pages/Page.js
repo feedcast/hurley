@@ -106,10 +106,19 @@ class Page extends Component {
             <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/lastEpisodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/channels"><i className="fa fa-rss"></i> {lc.channels}</Link>
             <h5>{lc.categories}</h5>
-            { this.state.categories.map((c, i)=>(
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} key={i} to={`/category/${c.slug}`}>
-              <i className={`fa fa-${c.icon}`}></i> {helpers.translate(c.title)} <span>{c.channels.length}</span>
-            </Link>))}
+            {
+              this.state.categories
+                .sort((a,b)=>b.channels.length - a.channels.length)
+                .map((c, i)=>(
+                  <Link
+                    onClick={()=>{this.toggleSidebar(false, true)}}
+                    key={i}
+                    to={`/category/${c.slug}`}>
+                    <i className={`fa fa-${c.icon}`}></i>
+                    {` ${helpers.translate(c.title)}`}
+                    <span>{c.channels.length}</span>
+                  </Link>))
+            }
           </div>
         </div>
         <PlayerFooter />
