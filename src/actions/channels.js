@@ -8,7 +8,7 @@ export const CHANNELS_INFO_REQUESTED = 'CHANNELS_INFO_REQUESTED';
 export const CHANNELS_INFO_FETCH_SUCCESS = 'CHANNELS_INFO_FETCH_SUCCESS';
 
 export function asyncFetchChannels(params) {
-  if (params.uuid) {
+  if (params.slug) {
     return feedcast.getChannelInfo(params)
   }
 
@@ -22,10 +22,10 @@ export function requestChannels({ page, perPage }) {
   };
 }
 
-export function requestChannelInfo(channelID, page=1) {
+export function requestChannelInfo(channelSlug, page=1) {
   return {
     type: CHANNELS_INFO_REQUESTED,
-    payload: { uuid: channelID, page }
+    payload: { slug: channelSlug, page }
   };
 }
 

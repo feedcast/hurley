@@ -28,6 +28,7 @@ export default function episodes(state=initialState, action) {
     case actions.EPISODES_FETCH_FOR_CHANNEL:
       return {
         ...state,
+        page: payload.page,
         isFetching: true,
       };
 

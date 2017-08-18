@@ -70,7 +70,7 @@ export default class ChannelCard extends Component {
     let thumb = this.thumbnail(c)
 
     return (
-      <Link key={c.uuid} to={`/channel/${c.uuid}`}>
+      <Link key={c.uuid} to={`/channel/${c.slug}`}>
         <div className="feedcast__channel" id={c.uuid}>
           <div className="feedcast__channel-title">
             <h3>{c.title}</h3>

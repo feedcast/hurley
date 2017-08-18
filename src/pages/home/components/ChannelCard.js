@@ -3,10 +3,10 @@ import { Link } from 'react-router'
 
 export default class ChannelCard extends Component {
   render() {
-    let { title, image_url, uuid } = this.props.channel
+    let { title, image_url, slug } = this.props.channel
     return (
       <div className="feedcast__categories-channel-card">
-        <Link to={`/channel/${uuid}`}>
+        <Link to={`/channel/${slug}`}>
           <img alt={title} src={image_url}/>
           <h5>{title}</h5>
         </Link>

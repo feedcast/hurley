@@ -37,7 +37,7 @@ function AppRouter() {
           <Route path=":page"></Route>
         </Route>
         <Route path="/channel" component={Channel}>
-          <Route path=":uuid">
+          <Route path=":slug">
             <Route path=":page"></Route>
           </Route>
         </Route>

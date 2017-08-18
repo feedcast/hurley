@@ -25,7 +25,7 @@ class ChannelEpisodesContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(requestEpisodesForChannel({
-      uuid: this.props.channel.uuid,
+      slug: this.props.channel.slug,
       page: parseInt(this.props.page),
     }));
   }
@@ -36,7 +36,7 @@ class ChannelEpisodesContainer extends Component {
     }
 
     this.props.dispatch(requestEpisodesForChannel({
-      uuid: nextProps.channel.uuid,
+      slug: nextProps.channel.slug,
       page: parseInt(nextProps.page),
     }));
   }

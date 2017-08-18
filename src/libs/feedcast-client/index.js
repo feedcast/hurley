@@ -88,11 +88,11 @@ class FeedcastApi {
 
 
 
-  getChannelInfo({uuid = null}){
+  getChannelInfo({slug = null}){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      req.open('GET', `${API_URL}/channels/${uuid}`, true);
+      req.open('GET', `${API_URL}/channels/${slug}`, true);
 
       req.onload = () => {
         let result = JSON.parse(req.response)
@@ -109,11 +109,11 @@ class FeedcastApi {
 
 
 
-  getChannelEpisodes({ uuid = null, page = 1, per_page = 10}){
+  getChannelEpisodes({ slug = null, page = 1, per_page = 10}){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
 
-      const url = `${API_URL}/channels/${uuid}/episodes`;
+      const url = `${API_URL}/channels/${slug}/episodes`;
 
       req.open('GET',`${url}?page=${page}&per_page=${per_page}`, true);
 

@@ -15,14 +15,14 @@ class ChannelContainer extends PureComponent {
   }
 
   componentDidMount() {
-    const { page = '1', uuid=''} = this.props.params;
-    if (uuid != this.props.uuid || page != this.props.page) {
-      this.fetchData(uuid, page);
+    const { page = '1', slug=''} = this.props.params;
+    if (slug != this.props.slug || page != this.props.page) {
+      this.fetchData(slug, page);
     }
   }
 
-  fetchData(uuid, page) {
-    this.props.dispatch(requestChannelInfo(uuid, page));
+  fetchData(slug, page) {
+    this.props.dispatch(requestChannelInfo(slug, page));
   }
 
   render() {
