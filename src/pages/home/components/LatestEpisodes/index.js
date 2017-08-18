@@ -9,6 +9,13 @@ import {
 import LatestEpisodes from './LatestEpisodes';
 
 class EpisodesContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      page: this.props.page
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch(requestAllEpisodes({
       page: this.props.page,
@@ -17,10 +24,12 @@ class EpisodesContainer extends Component {
   }
 
   fetchMore(page) {
-    this.props.dispatch(requestMoreEpisodes({
-      page,
-      per_page: 10,
-    }));
+    this.setState({ page }, () => {
+      this.props.dispatch(requestMoreEpisodes({
+        page,
+        per_page: 10,
+      }));
+    })
   }
 
   componentWillReceiveProps(props) {
@@ -34,10 +43,11 @@ class EpisodesContainer extends Component {
   }
 
   render() {
+    const { page } = this.state
     return (
       <LatestEpisodes
         {...this.props}
-        onLoadMore={ () => this.fetchMore(this.props.page + 1) }
+        onLoadMore={ () => this.fetchMore(parseInt(page) + 1) }
       />
     );
   }
