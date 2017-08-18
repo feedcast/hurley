@@ -22,6 +22,7 @@ class PlayerFooter extends Component {
     super(props);
 
     this.audioPlayer = document.createElement('AUDIO')
+    let { lc } = helpers.localize(this)
 
     this.state = {
       episodes : [],
@@ -156,6 +157,7 @@ class PlayerFooter extends Component {
   webPlayer(){
 
     const playingUuid = this.props.episode? this.props.episode.uui: null;
+    const { lc } = this.state
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
