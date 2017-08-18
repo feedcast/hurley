@@ -24,7 +24,8 @@ export default class CategoriesChannelList extends Component {
     let { lc } = this.state
 
     let catEl = categories
-      //.filter(e => e.channels.length >= 5)
+      .filter(e => e.channels.length >= 5)
+      .filter((e,n) => n < 6)
       .map((e, catI) => {
       let tempCards = e.channels
         .filter( (item, index) => index < 5)

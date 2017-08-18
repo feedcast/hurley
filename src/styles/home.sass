@@ -2,6 +2,10 @@
 
 
 .feedcast__home
+  position: relative
+  max-width: 960px
+  left: 50%
+  transform: translateX(-50%)
 
   .feedcast__last-episodes,
   .feedcast__categories-sidebar
@@ -51,6 +55,7 @@
     text-decoration: none
     &:hover
       text-decoration: underline
+      text-decoration-color: $darker-blue
   img
     width: 100px
     height: 100px
