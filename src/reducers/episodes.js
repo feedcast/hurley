@@ -5,13 +5,16 @@ const initialState = {
   total: 0,
   isFetching: false,
   isMore: false,
+  page: 1,
 }
 
 export default function episodes(state=initialState, action) {
+  let { payload } = action;
   switch (action.type) {
     case actions.EPISODES_FETCH_ALL:
       return {
         ...state,
+        page: payload.page,
         isFetching: true,
       };
 
@@ -29,11 +32,8 @@ export default function episodes(state=initialState, action) {
       };
 
     case actions.EPISODES_FETCH_SUCCESS:
-      let { payload } = action;
-
       const episodeState = state.isMore ?
         [].concat(state.episodes, payload.episodes) : payload.episodes;
-
       return {
         ...state,
         isFetching: false,

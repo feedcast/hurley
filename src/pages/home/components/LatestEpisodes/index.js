@@ -16,6 +16,13 @@ class EpisodesContainer extends Component {
     }
   }
 
+  componentWillMount() {
+    this.props.dispatch(requestAllEpisodes({
+      page: 1,
+      per_page: this.props.per_page,
+    }));
+  }
+
   componentDidMount() {
     this.props.dispatch(requestAllEpisodes({
       page: this.props.page,
