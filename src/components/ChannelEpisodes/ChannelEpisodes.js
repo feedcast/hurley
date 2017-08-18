@@ -37,7 +37,7 @@ class ChannelEpisodes extends Component {
       <div className="feedcast__channelEpisodes">
         {list}
         <Pagination
-          url={`/channel/${this.props.channel.slug}/`}
+          url={`/${this.props.channel.slug}/`}
           page={this.props.page}
           per_page={this.props.per_page}
           total={this.props.total}

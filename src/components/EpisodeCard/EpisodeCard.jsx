@@ -32,7 +32,7 @@ class EpisodeCard extends PureComponent {
         </div>
         <h3 onClick={() => this.playEpisode()}> {episode.title} </h3>
         <h5>
-          <Link to={`/channel/${episode.channel.slug}/`}>{episode.channel.title}</Link>
+          <Link to={`/${episode.channel.slug}/`}>{episode.channel.title}</Link>
         </h5>
       </div>
     )
