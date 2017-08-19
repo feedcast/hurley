@@ -28,6 +28,9 @@ export default class EpisodesList extends PureComponent {
   }
 
   render(){
+    const {params} = this.props.match
+    const page = parseInt(params.page)
+
     return (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
@@ -41,7 +44,7 @@ export default class EpisodesList extends PureComponent {
           <EpisodeCardList episodes={ this.props.episodes } />
           <Pagination
             url={`/lastEpisodes/`}
-            page={this.props.page}
+            page={page}
             per_page={this.props.per_page}
             total={this.props.total}
             theme="white" />

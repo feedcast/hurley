@@ -9,7 +9,7 @@ class EpisodesListContainer extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      page: parseInt(this.props.params.page || "1")
+      page: parseInt(this.props.match.params.page || "1")
     }
   }
 
@@ -23,7 +23,7 @@ class EpisodesListContainer extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const page = parseInt(this.props.params.page || "1")
+    const page = parseInt(this.props.match.params.page || "1")
     if(this.state.page !== page){
       this.setState({ page }, () => {
         this.fetchData(page);

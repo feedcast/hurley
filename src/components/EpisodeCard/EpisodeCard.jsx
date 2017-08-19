@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { playEpisode } from 'app/actions/player';
 import helpers from 'app/scripts/helpers'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import 'app/styles/EpisodeCard.sass'
 
 
