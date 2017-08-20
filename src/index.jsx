@@ -49,7 +49,7 @@ function AppRouter() {
             <Route path="/category/:slug" component={Category}></Route>
             <Route path="/lastEpisodes/:page?" component={EpisodesList}></Route>
             <Route exact path="/:slug" component={Channel}></Route>
-            <Route path="/:slug/:page(\d+)" component={Channel}></Route>
+            <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
             <Route path="/:slug/:episode_slug(\w+)" component={Episode}></Route>
             <Route component={NoMatch}/>
           </Switch>
