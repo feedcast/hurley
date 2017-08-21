@@ -59,7 +59,9 @@ class Episode extends Component {
       channel,
     } = this.state
 
-    const html = description.length > 0 ? description : summary
+    const html = description && description.length > 0 ? description : (
+      summary && summary.length > 0 ? summary : ''
+    );
 
     return (
       <div className="feedcast__episode">
