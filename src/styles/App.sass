@@ -16,11 +16,14 @@ html, body
 
 .feedcast__container
   padding: 18px;
+  padding-bottom: 0px;
   box-sizing: border-box;
   position: relative
-  padding-bottom: 120px;
   min-height: calc(100vh - 66px)
   position: relative
+
+.feedcast__container-wrapper
+  min-height: calc(100vh - 205px)
 
 
 .feedcast__logo-wrapper
@@ -156,14 +159,17 @@ html, body
 .feedcast__container.player-active
   padding-bottom: 200px
 .feedcast__container-footer
+  display: inline-block;
   width: 100%;
   height: 100px;
-  position: absolute;
+  position: relative;
   bottom: 0px;
   left: 0px;
   background-color: white ;
+  margin-top: 20px;
+  box-shadow: 18px 0px 0px white, -18px 0px 0px white
   &--active
-    bottom: 80px;
+     margin-bottom: 80px
   p.feedcast__select-language
     position: relative
     i
