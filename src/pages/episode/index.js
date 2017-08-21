@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { playEpisode } from 'app/actions/player';
+
 import feedcastApi from 'feedcast-client'
 import helpers from 'app/scripts/helpers'
 import ReactDisqusComments from 'react-disqus-comments';
 
+import 'app/styles/episode.sass'
 
-export default class Episode extends Component {
+
+class Episode extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -37,6 +42,13 @@ export default class Episode extends Component {
   }
 
 
+  playEpisode(){
+    this.props.dispatch(
+      playEpisode(this.state, this.props.episodes)
+    );
+  }
+
+
   render() {
     const { slug, episode_slug} = this.props.match.params
 
@@ -50,15 +62,22 @@ export default class Episode extends Component {
     const html = description.length > 0 ? description : summary
 
     return (
-      <div>
+      <div className="feedcast__episode">
         <div className="feedcast__section">
-          <h3>{title}</h3>
+          <h3 className="feedcast__episode-title">
+            {title}
+          </h3>
           <p
             className="feedcast__sanitize"
             dangerouslySetInnerHTML={{
               __html: helpers.sanitize(html)
             }}>
           </p>
+          <button
+            onClick={() => this.playEpisode()}
+            className="feedcast__episode-button">
+            <i className="fa fa-play"></i>
+          </button>
         </div>
         <div className="feedcast__section">
           <ReactDisqusComments
@@ -74,3 +93,6 @@ export default class Episode extends Component {
   }
 
 }
+
+
+export default connect()(Episode)
