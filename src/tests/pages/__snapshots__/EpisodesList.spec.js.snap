@@ -31,12 +31,13 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
             00:12:40
           </span>
         </div>
-        <h3
-          onClick={[Function]}
-        >
-           
-          Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
-           
+        <h3>
+          <a
+            href="/pensando-rpg/pensando-rpg-number-081-entenda-a-figura-do-bruxo-warlock/"
+            onClick={[Function]}
+          >
+            Pensando RPG #081 - Entenda a figura do Bruxo (Warlock)
+          </a>
         </h3>
         <h5>
           <a
