@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 import helpers from 'app/scripts/helpers'
@@ -55,7 +55,7 @@ class Channel extends Component {
         </div>
         <ChannelEpisodes
           channel={ this.props.channel }
-          page={ parseInt(this.props.params.page||'1') }
+          page={ parseInt(this.props.match.params.page||'1') }
         />
       </div>
     );

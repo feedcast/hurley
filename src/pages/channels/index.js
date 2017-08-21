@@ -19,7 +19,7 @@ class ChannelListContainer extends Component {
   }
 
   render() {
-    const page = parseInt(this.props.params.page || "1");
+    const page = parseInt(this.props.match.params.page || "1");
     if (page !== this.props.page) {
       this.request(page);
     }

@@ -1,13 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { withStore } from 'app/tests/helpers';
+import { MemoryRouter } from 'react-router-dom'
 
 import { EpisodeCardList } from 'app/components/EpisodeCard';
 
 describe('EpisodeCardList', () => {
   describe('when has no data', () => {
     it("renders the no episodes", () => {
-      const component = renderer.create(<EpisodeCardList />);
+      const component = renderer.create(
+        <MemoryRouter>
+          <EpisodeCardList />
+        </MemoryRouter>
+      );
       expect(component).toMatchSnapshot();
     })
   });
@@ -40,7 +45,11 @@ describe('EpisodeCardList', () => {
     }
 
     it('render the category', () => {
-      const component = renderer.create(withStore(<EpisodeCardList {...state} />));
+      const component = renderer.create(withStore(
+        <MemoryRouter>
+          <EpisodeCardList {...state} />
+        </MemoryRouter>
+      ));
       expect(component).toMatchSnapshot();
     });
   });

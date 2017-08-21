@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { playEpisode } from 'app/actions/player';
 import helpers from 'app/scripts/helpers'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import 'app/styles/EpisodeCard.sass'
 
 
@@ -32,7 +32,7 @@ class EpisodeCard extends PureComponent {
         </div>
         <h3 onClick={() => this.playEpisode()}> {episode.title} </h3>
         <h5>
-          <Link to={`/${episode.channel.slug}/`}>{episode.channel.title}</Link>
+          <Link to={`/${episode.channel.slug}/episodes/`}>{episode.channel.title}</Link>
         </h5>
       </div>
     )

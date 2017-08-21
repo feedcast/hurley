@@ -1,13 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { withStore } from '../helpers';
+import { MemoryRouter } from 'react-router-dom'
 
 import { EpisodesList } from 'app/pages/episodeslist';
 
 describe('EpisodesList', () => {
   describe('when has no data', () => {
     it("renders the no episode", () => {
-      const component = renderer.create(<EpisodesList />);
+      const component = renderer.create(
+        <MemoryRouter initialEntries={[`/pensando-rpg/episodes/1`]}>
+          <EpisodesList />
+        </MemoryRouter>
+      );
       expect(component).toMatchSnapshot();
     })
   });
@@ -53,7 +58,11 @@ describe('EpisodesList', () => {
     }
 
     it('render the episodes', () => {
-      const component = renderer.create(withStore(<EpisodesList {...state} />));
+      const component = renderer.create(withStore(
+        <MemoryRouter initialEntries={[`/pensando-rpg/episodes/1`]}>
+          <EpisodesList {...state} />
+        </MemoryRouter>
+      ));
       expect(component).toMatchSnapshot();
     });
   });

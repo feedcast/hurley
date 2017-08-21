@@ -1,6 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from "react-router"
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch
+} from 'react-router-dom'
+
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 import './styles/index.sass';
@@ -12,6 +19,7 @@ import Category from './pages/category';
 import Channel from './pages/channel';
 import Home from './pages/home';
 import EpisodesList from './pages/episodeslist';
+import Episode from './pages/episode';
 import store from './store';
 
 ReactGA.initialize(process.env.REACT_APP_GA);
@@ -21,25 +29,31 @@ function logPageView() {
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
 
+
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>No match for <code>{location.pathname}</code></h3>
+  </div>
+)
+
+
+
 function AppRouter() {
   return (
   <Provider store={store}>
-    <Router onUpdate={(e) => { window.scrollTo(0, 0); logPageView(e)} } history={ browserHistory }>
-      <Route path="/" component={Page}>
-        <IndexRoute component={Home} />
-        <Route path="/channels" component={ChannelList}>
-          <Route path=":page"></Route>
-        </Route>
-        <Route path="/category" component={Category}>
-          <Route path=":slug"></Route>
-        </Route>
-        <Route path="/lastEpisodes" component={EpisodesList}>
-          <Route path=":page"></Route>
-        </Route>
-        <Route path="/:slug" component={Channel}>
-          <Route path=":page"></Route>
-        </Route>
-      </Route>
+    <Router onUpdate={(e) => { window.scrollTo(0, 0); logPageView(e)} }>
+      <Page>
+          <Switch>
+            <Route exact path="/" component={Home}></Route>
+            <Route path="/channels/:page?" component={ChannelList}></Route>
+            <Route path="/category/:slug" component={Category}></Route>
+            <Route path="/lastEpisodes/:page?" component={EpisodesList}></Route>
+            <Route exact path="/:slug" component={Channel}></Route>
+            <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
+            <Route path="/:slug/:episode_slug" component={Episode}></Route>
+            <Route component={NoMatch}/>
+          </Switch>
+      </Page>
     </Router>
   </Provider>
   )

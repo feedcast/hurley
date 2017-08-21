@@ -40,7 +40,7 @@ class Home extends Component {
   }
 
   render() {
-    const {params} = this.props
+    const {params} = this.props.match
     const {lc} = this.state
     return this.state.populated ? (
       <div className="feedcast__home">

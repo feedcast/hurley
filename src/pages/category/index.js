@@ -24,8 +24,8 @@ class CategoryContainer extends PureComponent {
     }
 
     const category = this.props.categories[0] || {};
-    if (category.slug !== this.props.params.slug) {
-      this.fetchData(this.props.params.slug);
+    if (category.slug !== this.props.match.params.slug) {
+      this.fetchData(this.props.match.params.slug);
     }
 
     return <Category {...this.props} category={this.props.categories[0]} />;

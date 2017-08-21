@@ -132,6 +132,25 @@ class FeedcastApi {
   }
 
 
+  getEpisode({ slug = null, episode_slug = null}){
+    return new Promise((complete, reject) => {
+      const req = new XMLHttpRequest();
+
+      const url = `${API_URL}/episodes/${slug}/${episode_slug}`;
+      req.open('GET',url , true);
+
+      req.onload = () => {
+        let result = JSON.parse(req.response);
+        complete(result);
+      };
+
+      req.onerror = () => {
+        reject(req.statusText);
+      };
+
+      req.send();
+    })
+  }
 
 
 }
