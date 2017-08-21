@@ -28,6 +28,7 @@ export default class CategoriesChannelList extends Component {
       .filter((e,n) => n < 6)
       .map((e, catI) => {
       let tempCards = e.channels
+        .filter(c => c.listed)
         .filter( (item, index) => index < 5)
         .map((ec, i) => (<ChannelCard key={i} channel={ec}/>))
         return (
