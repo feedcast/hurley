@@ -28,16 +28,28 @@ $lines-to-show: 2
     margin-top: 5px
     margin-bottom: 0px
 
+    a
+      color: $link-blue
+      text-decoration: none
+      &:focus,
+      &:visited
+        color: $link-blue !important
+      &:hover
+        color: $link-blue !important
+        text-decoration: underline !important
+
+
   h5
     margin: 0px
     font-weight: lighter
     a
+      color: #666
       text-decoration: none
       &:focus,
       &:visited
         color: #333 !important
       &:hover
-        color: $darker-blue !important
+        color: $link-blue !important
         text-decoration: underline !important
 
 .feedcast__episode-card
@@ -52,6 +64,25 @@ $lines-to-show: 2
   border-radius: 0px;
   border: 1px solid #dedede
   box-sizing: border-box
+
+  &:hover
+    &:before
+      display: inline-block
+      line-height: 50px
+      font-size: 50px
+      font-family: FontAwesome;
+      content: "\f144";
+      width: 50px
+      height: 50px
+      color: white
+      border-radius: 50%
+      background-color: rgba(22,122,198,.5)
+      text-align: center
+      position: relative
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
 
 .feedcast__episode-duration
   position: absolute

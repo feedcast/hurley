@@ -30,7 +30,11 @@ class EpisodeCard extends PureComponent {
             {helpers.secondsToHms(episode.audio.duration)}
           </span>
         </div>
-        <h3 onClick={() => this.playEpisode()}> {episode.title} </h3>
+        <h3>
+          <Link to={`/${episode.channel.slug}/${episode.slug}/`}>
+            {episode.title}
+          </Link>
+        </h3>
         <h5>
           <Link to={`/${episode.channel.slug}/episodes/`}>{episode.channel.title}</Link>
         </h5>
