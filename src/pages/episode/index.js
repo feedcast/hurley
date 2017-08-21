@@ -44,7 +44,7 @@ class Episode extends Component {
 
   playEpisode(){
     this.props.dispatch(
-      playEpisode(this.state, this.props.episodes)
+      playEpisode(this.state, [])
     );
   }
 
