@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { withStore } from 'app/tests/helpers';
+import { MemoryRouter, StaticRouter } from 'react-router-dom'
 
 import Channel from 'app/pages/channel';
 
@@ -12,7 +13,11 @@ describe('Channel', () => {
 
   describe('when has no data', () => {
     it("renders the no episode", () => {
-      const component = renderer.create(withStore(<Channel />, state));
+      const component = renderer.create(withStore(
+        <MemoryRouter>
+          <Channel />
+        </MemoryRouter>
+      , state));
       expect(component).toMatchSnapshot();
     })
   });
@@ -21,7 +26,11 @@ describe('Channel', () => {
     const state = { channels: { isFetching: true } };
 
     it("renders the loader", () => {
-      const component = renderer.create(withStore(<Channel />, state));
+      const component = renderer.create(withStore(
+        <MemoryRouter>
+          <Channel />
+        </MemoryRouter>
+      , state));
       expect(component).toMatchSnapshot();
     })
   });
@@ -51,7 +60,11 @@ describe('Channel', () => {
     const state = { channels };
 
     it('render the channels', () => {
-      const component = renderer.create(withStore(withStore(<Channel />, state)));
+      const component = renderer.create(withStore(withStore(
+      <MemoryRouter>
+        <Channel />
+      </MemoryRouter>
+      , state)));
       expect(component).toMatchSnapshot();
     });
   });

@@ -31,8 +31,8 @@ exports[`EpisodeCardList when has a list of episodes render the category 1`] = `
     </h3>
     <h5>
       <a
+        href="/undefined/episodes/"
         onClick={[Function]}
-        style={Object {}}
       />
     </h5>
   </div>

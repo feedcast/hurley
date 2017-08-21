@@ -15,7 +15,7 @@ class ChannelContainer extends PureComponent {
   }
 
   componentDidMount() {
-    const { page = '1', slug=''} = this.props.match.params;
+    const { page = '1', slug=''} = this.props.match ? this.props.match.params : this.props
     if (slug != this.props.slug || page != this.match.params.props.page) {
       this.fetchData(slug, page);
     }

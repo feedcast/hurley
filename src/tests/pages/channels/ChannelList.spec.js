@@ -1,13 +1,18 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { withStore } from 'app/tests/helpers';
+import { MemoryRouter } from 'react-router-dom'
 
 import { ChannelList } from 'app/pages/channels';
 
 describe('ChannelList', () => {
   describe('when has no data', () => {
     it("renders the no episode", () => {
-      const component = renderer.create(<ChannelList />);
+      const component = renderer.create(
+        <MemoryRouter>
+          <ChannelList />
+        </MemoryRouter>
+      );
       expect(component).toMatchSnapshot();
     })
   });
@@ -44,7 +49,11 @@ describe('ChannelList', () => {
     }
 
     it('render the channels', () => {
-      const component = renderer.create(withStore(<ChannelList {...state} />));
+      const component = renderer.create(withStore(
+        <MemoryRouter>
+        <ChannelList {...state} />
+        </MemoryRouter>
+      ));
       expect(component).toMatchSnapshot();
     });
   });

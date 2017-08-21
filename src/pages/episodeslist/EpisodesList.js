@@ -28,8 +28,8 @@ export default class EpisodesList extends PureComponent {
   }
 
   render(){
-    const {params} = this.props.match
-    const page = parseInt(params.page)
+    let { page } = this.props.match ? this.props.match.params : this.props
+    page = parseInt(page)
 
     return (
       <div className="feedcast__last-episodes feedcast__section">

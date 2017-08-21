@@ -40,8 +40,8 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </h3>
         <h5>
           <a
+            href="/pensando-rpg/episodes/"
             onClick={[Function]}
-            style={Object {}}
           >
             Pensando RPG
           </a>
@@ -55,8 +55,8 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         className="feedcast__pagination-wrapper"
       >
         <a
+          href="/lastEpisodes/1"
           onClick={[Function]}
-          style={Object {}}
         >
           <button>
             <i
@@ -66,8 +66,8 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className="active"
+          href="/lastEpisodes/1"
           onClick={[Function]}
-          style={Object {}}
         >
           <button>
             1
@@ -75,8 +75,8 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className=""
+          href="/lastEpisodes/2"
           onClick={[Function]}
-          style={Object {}}
         >
           <button>
             2
@@ -84,16 +84,16 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className=""
+          href="/lastEpisodes/8"
           onClick={[Function]}
-          style={Object {}}
         >
           <button>
             8
           </button>
         </a>
         <a
+          href="/lastEpisodes/2"
           onClick={[Function]}
-          style={Object {}}
         >
           <button>
             <i

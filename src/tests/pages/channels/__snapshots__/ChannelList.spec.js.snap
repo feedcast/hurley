@@ -5,8 +5,8 @@ exports[`ChannelList when has a list of channels render the channels 1`] = `
   className="feedcast__channel-list"
 >
   <a
+    href="/pensando-rpg/episodes"
     onClick={[Function]}
-    style={Object {}}
   >
     <div
       className="feedcast__channel"
