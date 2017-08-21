@@ -37,6 +37,7 @@
     "promise": "7.1.1",
     "react": "^15.6.1",
     "react-dev-utils": "^3.0.2",
+    "react-disqus-comments": "^1.0.3",
     "react-dom": "^15.6.1",
     "react-error-overlay": "^1.0.9",
     "react-ga": "^2.2.0",
