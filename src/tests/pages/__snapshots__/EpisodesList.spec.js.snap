@@ -41,7 +41,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </h3>
         <h5>
           <a
-            href="/pensando-rpg/episodes/"
+            href="/pensando-rpg/"
             onClick={[Function]}
           >
             Pensando RPG
