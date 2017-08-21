@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 import helpers from 'app/scripts/helpers'
 import { playEpisode } from 'app/actions/player';
@@ -24,7 +25,11 @@ class ChannelEpisode extends Component {
   }
 
   render(){
-    const { title, audio } = this.props.episode
+    const { title,
+            audio,
+            slug,
+            channel : c
+          } = this.props.episode
 
 
     return (
@@ -37,7 +42,7 @@ class ChannelEpisode extends Component {
           </button>
         </div>
         <div className="feedcast__channelEpisode-info-wrapper">
-          <h4>{title}</h4>
+          <Link to={`/${c.slug}/${slug}`}><h4>{title}</h4></Link>
           <button>
             <i className="fa fa-ellipsis-h"></i>
           </button>
