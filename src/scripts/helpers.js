@@ -1,6 +1,7 @@
 import EventEmitter from 'events'
 import dictionary from './helpers/dictionary'
 import Cookies from 'cookies-js'
+import sanitizeHtml from 'sanitize-html';
 
 
 class Helpers extends EventEmitter {
@@ -21,6 +22,22 @@ class Helpers extends EventEmitter {
     var s = Math.floor(d % 3600 % 60);
 
     return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
+  }
+
+
+  sanitize(html){
+    return sanitizeHtml(html, {
+      allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
+      allowedAttributes: {
+        'a': [ 'href', 'target', 'rel' ]
+      },
+      transformTags: {
+        'a': sanitizeHtml.simpleTransform('a', {
+          target: '_blank',
+          rel: 'noopener noreferrer',
+        }, true),
+      }
+    });
   }
 
 

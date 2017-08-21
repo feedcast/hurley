@@ -47,7 +47,12 @@ class Channel extends Component {
             <h1 className="feedcast__channelInfo-title">{title}</h1>
           </div>
           <div className="feedcast__channelInfo-body">
-            <p className="feedcast__channelInfo-description">{description}</p>
+            <p
+              className="feedcast__sanitize feedcast__channelInfo-description"
+              dangerouslySetInnerHTML={{
+                __html: helpers.sanitize(description)
+              }}>
+            </p>
             <div className="feedcast__channelInfo-categories">
               {this.renderCategories(categories)}
             </div>

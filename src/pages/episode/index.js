@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import feedcastApi from 'feedcast-client'
+import helpers from 'app/scripts/helpers'
 import ReactDisqusComments from 'react-disqus-comments';
 
 
@@ -46,11 +47,18 @@ export default class Episode extends Component {
       channel,
     } = this.state
 
+    const html = description.length > 0 ? description : summary
+
     return (
       <div>
         <div className="feedcast__section">
           <h3>{title}</h3>
-          <p>{summary.length > 0 ? summary : description }</p>
+          <p
+            className="feedcast__sanitize"
+            dangerouslySetInnerHTML={{
+              __html: helpers.sanitize(html)
+            }}>
+          </p>
         </div>
         <div className="feedcast__section">
           <ReactDisqusComments
