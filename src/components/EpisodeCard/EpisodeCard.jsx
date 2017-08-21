@@ -36,7 +36,7 @@ class EpisodeCard extends PureComponent {
           </Link>
         </h3>
         <h5>
-          <Link to={`/${episode.channel.slug}/episodes/`}>{episode.channel.title}</Link>
+          <Link to={`/${episode.channel.slug}/`}>{episode.channel.title}</Link>
         </h5>
       </div>
     )
