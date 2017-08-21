@@ -51,7 +51,7 @@ class Home extends Component {
             content: `Feedcast | ${lc.home}`},
           ]} />
         <div className="feedcast__section">
-          <LatestEpisodes page={ params.page || '1' } per_page={ 10 } / >
+          <LatestEpisodes page={ params.page || '1' } per_page={ 12 } / >
           <CategoriesChannelList categories={this.state.categories}/>
         </div>
       </div>

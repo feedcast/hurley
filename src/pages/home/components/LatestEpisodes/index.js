@@ -34,7 +34,7 @@ class EpisodesContainer extends Component {
     this.setState({ page }, () => {
       this.props.dispatch(requestMoreEpisodes({
         page,
-        per_page: 10,
+        per_page: 12,
       }));
     })
   }
