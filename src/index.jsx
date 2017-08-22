@@ -44,7 +44,7 @@ function AppRouter() {
             <Route exact path="/" component={Home}></Route>
             <Route path="/channels/:page?" component={ChannelList}></Route>
             <Route path="/category/:slug" component={Category}></Route>
-            <Route path="/lastEpisodes/:page?" component={EpisodesList}></Route>
+            <Route path="/episodes/:page?" component={EpisodesList}></Route>
             <Route exact path="/:slug" component={Channel}></Route>
             <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
             <Route path="/:slug/:episode_slug" component={Episode}></Route>

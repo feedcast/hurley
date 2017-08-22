@@ -56,7 +56,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         className="feedcast__pagination-wrapper"
       >
         <a
-          href="/lastEpisodes/1"
+          href="/episodes/1"
           onClick={[Function]}
         >
           <button>
@@ -67,7 +67,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className="active"
-          href="/lastEpisodes/1"
+          href="/episodes/1"
           onClick={[Function]}
         >
           <button>
@@ -76,7 +76,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className=""
-          href="/lastEpisodes/2"
+          href="/episodes/2"
           onClick={[Function]}
         >
           <button>
@@ -85,7 +85,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
         </a>
         <a
           className=""
-          href="/lastEpisodes/8"
+          href="/episodes/8"
           onClick={[Function]}
         >
           <button>
@@ -93,7 +93,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
           </button>
         </a>
         <a
-          href="/lastEpisodes/2"
+          href="/episodes/2"
           onClick={[Function]}
         >
           <button>

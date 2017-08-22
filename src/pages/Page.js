@@ -85,7 +85,7 @@ export default class Page extends Component {
         <div className={`feedcast__sidebar feedcast__sidebar--${this.state.showSidebar ? 'show':'hide'}`}>
           <div className="feedcast__sidebar-wrapper">
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/"><i className="fa fa-home"></i> {lc.home}</Link>
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/lastEpisodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/episodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/channels"><i className="fa fa-rss"></i> {lc.channels}</Link>
             <h5>{lc.categories}</h5>
             {

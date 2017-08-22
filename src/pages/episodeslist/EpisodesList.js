@@ -43,7 +43,7 @@ export default class EpisodesList extends PureComponent {
         <div className="feedcast__episodes-block">
           <EpisodeCardList episodes={ this.props.episodes } />
           <Pagination
-            url={`/lastEpisodes/`}
+            url={`/episodes/`}
             page={page}
             per_page={this.props.per_page}
             total={this.props.total}
