@@ -4,36 +4,26 @@
 
 A ReactJS based client listen podcast on all browsers.
 
-## Installation
+## Setup
 
-Download and install the dependencies:
+To install the dependencies run:
 
 ```sh
-git clone git@github.com:feedcast/Hurley.git
-cd Hurley
-npm install
+make install
 ```
 
-## Development
-
-Open the player folder at your favorite IDE and run:
+To run the project:
 
 ```sh
-npm start
+make start
 ```
 
-To build the production js/css run:
+To run the tests:
 
 ```sh
-npm run build
-```
-
-## Tests
-
-```sh
-npm run test
+make test
 ```
 
 ## Support
 
-Please [open an issue](https://github.com/feedcast/Hurley/issues/new) for support.
+Please [open an issue](https://github.com/feedcast/hurley/issues/new) for support.
