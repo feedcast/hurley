@@ -7,7 +7,6 @@ import FeedcastLoader from 'app/components/FeedcastLoader';
 import ChannelEpisodes from './ChannelEpisodes';
 
 class ChannelEpisodesContainer extends Component {
-
   static propTypes = {
     page: PropTypes.number,
     per_page: PropTypes.number,

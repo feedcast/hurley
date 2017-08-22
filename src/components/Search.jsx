@@ -4,7 +4,6 @@ import helpers from './../scripts/helpers'
 import './../styles/search.sass';
 
 class Search extends Component {
-
   constructor(props) {
     super(props);
     let { lc } = helpers.localize(this)

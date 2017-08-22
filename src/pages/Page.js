@@ -13,10 +13,6 @@ import Search from 'app/components/Search';
 import PlayerFooter from 'app/components/PlayerFooter';
 import Footer from './footer'
 
-
-
-
-
 export default class Page extends Component {
   constructor(props) {
     super(props);
@@ -112,4 +108,3 @@ export default class Page extends Component {
     );
   }
 }
-

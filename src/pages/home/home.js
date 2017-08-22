@@ -9,7 +9,6 @@ import LatestEpisodes from './components/LatestEpisodes'
 import CategoriesChannelList from './components/categoriesChannelList'
 import 'app/styles/home.sass'
 
-
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -57,8 +56,6 @@ class Home extends Component {
       </div>
     ) : (<FeedcastLoader />);
   }
-
 }
-
 
 export default Home;

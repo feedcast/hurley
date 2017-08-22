@@ -6,7 +6,6 @@ import FeedcastLoader from 'app/components/FeedcastLoader';
 import Channel from './Channel';
 
 class ChannelContainer extends PureComponent {
-
   static defaultProps = {
     episodes: [],
     isFetching: true,

@@ -8,7 +8,6 @@ import ReactDisqusComments from 'react-disqus-comments';
 
 import 'app/styles/episode.sass'
 
-
 class Episode extends Component {
   constructor(props) {
     super(props);
@@ -36,18 +35,15 @@ class Episode extends Component {
       })
   }
 
-
   handleNewComment(comment) {
     console.log(comment.text);
   }
-
 
   playEpisode(){
     this.props.dispatch(
       playEpisode(this.state, [])
     );
   }
-
 
   render() {
     const { slug, episode_slug} = this.props.match.params
@@ -93,8 +89,6 @@ class Episode extends Component {
       </div>
     )
   }
-
 }
-
 
 export default connect()(Episode)

@@ -6,7 +6,6 @@ import helpers from 'app/scripts/helpers'
 import { playEpisode } from 'app/actions/player';
 
 class ChannelEpisode extends Component {
-
   constructor(){
     super();
 
@@ -52,6 +51,5 @@ class ChannelEpisode extends Component {
     )
   }
 }
-
 
 export default connect()(ChannelEpisode)

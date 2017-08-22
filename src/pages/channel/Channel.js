@@ -7,7 +7,6 @@ import helpers from 'app/scripts/helpers'
 import 'app/styles/channel.sass'
 import ChannelEpisodes from 'app/components/ChannelEpisodes'
 
-
 class Channel extends Component {
   renderCategories(categories) {
     return categories

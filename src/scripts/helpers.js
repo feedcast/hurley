@@ -5,14 +5,12 @@ import sanitizeHtml from 'sanitize-html';
 
 
 class Helpers extends EventEmitter {
-
   constructor(props) {
     super(props);
 
     this.userLang = navigator.language || navigator.userLanguage;
     this.language = {}
   }
-
 
   secondsToHms(d) {
     d = Number(d);
@@ -23,7 +21,6 @@ class Helpers extends EventEmitter {
 
     return ('0' + h).slice(-2) + ":" + ('0' + m).slice(-2) + ":" + ('0' + s).slice(-2);
   }
-
 
   sanitize(html){
     return sanitizeHtml(html, {
@@ -39,7 +36,6 @@ class Helpers extends EventEmitter {
       }
     });
   }
-
 
   testImage(url, timeoutT) {
     return new Promise(function (resolve, reject) {
@@ -69,13 +65,10 @@ class Helpers extends EventEmitter {
     return check;
   }
 
-
   setLanguage(lang){
     this.emit('set-language', lang)
     Cookies.set('feedcast-language', lang)
   }
-
-
 
   localize(ReactDOM){
     this.on('set-language', lang => {
@@ -89,8 +82,6 @@ class Helpers extends EventEmitter {
     }
     return this.getWords(this.userLang);
   }
-
-
 
   getWords(lang){
     let dc = dictionary,
@@ -107,7 +98,7 @@ class Helpers extends EventEmitter {
     let dc = dictionary,
         dcKeys = Object.keys(dc);
 
-    for( let i in dcKeys ){
+    for(let i in dcKeys){
       let {words} = dc[dcKeys[i]],
           wordsList = Object.keys(words)
       for(let ii in wordsList){
@@ -118,7 +109,6 @@ class Helpers extends EventEmitter {
     }
     return wordString
   }
-
 }
 
 const helpers = new Helpers();

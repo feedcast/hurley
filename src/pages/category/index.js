@@ -7,7 +7,6 @@ import FeedcastLoader from 'app/components/FeedcastLoader';
 import Category from './Category';
 
 class CategoryContainer extends PureComponent {
-
   static defaultProps = {
     categories: [],
     isFetching: true,

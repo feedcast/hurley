@@ -3,7 +3,6 @@ import ChannelCard from './ChannelCard'
 import helpers from 'app/scripts/helpers'
 
 export default class CategoriesChannelList extends Component {
-
   constructor(props) {
     super(props);
     let { lc } = helpers.localize(this)
@@ -19,7 +18,6 @@ export default class CategoriesChannelList extends Component {
   }
 
   render(){
-
     let { categories } = this.props
     let { lc } = this.state
 

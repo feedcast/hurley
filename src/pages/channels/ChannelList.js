@@ -6,7 +6,6 @@ import 'app/styles/channelList.sass';
 import Pagination from 'app/components/Pagination'
 import ChannelCard from 'app/components/ChannelCard'
 
-
 class ChannelList extends Component {
   static propTypes = {
     channels: PropTypes.array.isRequired,

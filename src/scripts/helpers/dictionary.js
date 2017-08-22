@@ -1,5 +1,4 @@
 const dictionary = {
-
   //English
   ['en'] : {
     lang:'en',
@@ -35,9 +34,6 @@ const dictionary = {
     }
   },
 
-
-
-
   //Portuguese
   ['pt'] : {
     lang:'pt',
@@ -72,10 +68,6 @@ const dictionary = {
       moviesAndTV: 'Cinema e TV',
     }
   }
-
-
 }
-
-
 
 export default dictionary

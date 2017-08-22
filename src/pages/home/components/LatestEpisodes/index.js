@@ -60,7 +60,6 @@ class EpisodesContainer extends Component {
   }
 }
 
-
 export { LatestEpisodes };
 const mapStateToProps = (state) => { return state.episodes; };
 export default connect(mapStateToProps)(EpisodesContainer);

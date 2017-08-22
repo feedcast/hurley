@@ -32,7 +32,6 @@ class ChannelEpisodes extends Component {
   render(){
     const list = this.listEpisodes();
 
-
     return (
       <div className="feedcast__channelEpisodes">
         {list}
@@ -46,6 +45,5 @@ class ChannelEpisodes extends Component {
     )
   }
 }
-
 
 export default ChannelEpisodes

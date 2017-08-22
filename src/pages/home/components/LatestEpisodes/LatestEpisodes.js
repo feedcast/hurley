@@ -4,7 +4,6 @@ import { EpisodeCardList } from 'app/components/EpisodeCard';
 import 'app/styles/EpisodesList.sass'
 
 export default class LatestEpisodes extends Component {
-
   render(){
     const loadMoreBtn = (
       <button onClick={() => this.props.onLoadMore()}>

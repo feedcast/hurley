@@ -7,9 +7,7 @@ import helpers from 'app/scripts/helpers'
 import { Link } from 'react-router-dom'
 import 'app/styles/EpisodeCard.sass'
 
-
 class EpisodeCard extends PureComponent {
-
   playEpisode(){
     this.props.dispatch(
       playEpisode(this.props.episode, this.props.episodes)

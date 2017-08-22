@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default class CategoriesSidebar extends React.Component {
-
   render(){
     return (
       <div className="feedcast__categories-sidebar">

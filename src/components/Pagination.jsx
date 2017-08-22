@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import './../styles/Pagination.sass'
 
 class Pagination extends Component {
-
   getPaginationButtons(){
     let { url, total, per_page, page} = this.props;
     let totalPages = parseInt(total / per_page);
@@ -13,7 +12,6 @@ class Pagination extends Component {
       totalPages++;
 
     let pages = []
-
 
     pages[1] = 1
     pages[page - 1] = page - 1
@@ -53,9 +51,7 @@ class Pagination extends Component {
     ) : ''
   }
 
-
   render(){
-
     const paginateBtns = this.getPaginationButtons();
     const theme = this.props.theme ? this.props.theme : 'blue'
 
@@ -66,6 +62,5 @@ class Pagination extends Component {
     )
   }
 }
-
 
 export default Pagination

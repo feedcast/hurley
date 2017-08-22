@@ -10,7 +10,6 @@ import * as actions from 'app/actions/player'
 let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
-
   static propTypes = {
     episode: PropTypes.object,
     episodes: PropTypes.array.isRequired,
@@ -20,7 +19,6 @@ class PlayerFooter extends Component {
     episode: {},
     episodes: [],
   }
-
 
   constructor(props) {
     super(props);
@@ -34,8 +32,6 @@ class PlayerFooter extends Component {
 
     this.bindEvents()
   }
-
-
 
   bindEvents(){
     //Player changing state
@@ -67,19 +63,13 @@ class PlayerFooter extends Component {
     }
   }
 
-
-
   forwardTime(){
     this.audioPlayer.currentTime += 15
   }
 
-
-
   backwardTime(){
     this.audioPlayer.currentTime -= 15
   }
-
-
 
   changeRate(val){
     let {playbackRate : r } = this.props
@@ -92,15 +82,10 @@ class PlayerFooter extends Component {
     this.props.dispatch(actions.changePlaybackRate(newRate));
   }
 
-
-
   getPerc(){
     let {duration, currentTime} = this.audioPlayer
     return ( currentTime * 100 ) / duration
   }
-
-
-
 
   handleTimeClick(event){
     if(!this.props.canPlay)
@@ -119,11 +104,7 @@ class PlayerFooter extends Component {
     this.audioPlayer.currentTime =  (percent * duration) / 100
   }
 
-
-
-
   webPlayer(){
-
     const playingUuid = this.props.episode? this.props.episode.uui: null;
     const { lc } = this.state
     const { episode : e,

@@ -5,7 +5,6 @@ import Helmet from 'react-helmet';
 import ChannelCard from 'app/components/ChannelCard'
 
 class Category extends Component {
-
   static propTypes = {
     category: PropTypes.object.isRequired,
   }

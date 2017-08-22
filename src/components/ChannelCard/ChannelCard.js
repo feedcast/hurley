@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import helpers from 'app/scripts/helpers'
 
 export default class ChannelCard extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -13,12 +12,10 @@ export default class ChannelCard extends Component {
     }
   }
 
-
   componentDidMount() {
     this._isMounted = true
     this.checkImage(this.props)
   }
-
 
   componentWillReceiveProps(nextProps) {
     if(this.props.data.image_url !==
@@ -27,11 +24,9 @@ export default class ChannelCard extends Component {
     }
   }
 
-
   componentWillUnmount(){
     this._isMounted = false
   }
-
 
   checkImage(props){
     let c = props.data
@@ -39,16 +34,15 @@ export default class ChannelCard extends Component {
       .testImage(c.image_url, 10000)
       .then(e => {
         if(this._isMounted)
-        this.setState({
-          imageStatus: true });
+          this.setState({
+            imageStatus: true });
       })
       .catch(e => {
         if(this._isMounted)
-        this.setState({
-          imageStatus: false });
+          this.setState({
+            imageStatus: false });
       })
   }
-
 
   thumbnail({image_url}){
     return this.state.imageStatus ? (
@@ -81,5 +75,4 @@ export default class ChannelCard extends Component {
       </Link>
     )
   }
-
 }
