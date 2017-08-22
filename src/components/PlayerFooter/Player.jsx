@@ -174,6 +174,9 @@ class PlayerFooter extends Component {
                 `${this.props.currentTime} / ${this.props.duration}`}
               </span>
             </div>
+            <Link className="feedcast__player-run-queue" to="/queue">
+              <i className="fa fa-indent"></i>
+            </Link>
             <button
               className="feedcast__player-playback-rate"
               onClick={ e => this.changeRate() }>
