@@ -5,6 +5,10 @@ default: install
 install:
 	npm i
 
+.PHONY: setup
+setup:
+	cp .env.sample .env.local
+
 .PHONY: start
 start:
 	npm start

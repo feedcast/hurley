@@ -12,6 +12,14 @@ To install the dependencies run:
 make install
 ```
 
+To setup the environment run:
+
+```sh
+make setup
+```
+
+> Remember to read the [environment](#environment) section.
+
 To run the project:
 
 ```sh
@@ -23,6 +31,12 @@ To run the tests:
 ```sh
 make test
 ```
+
+### Environment
+> Variables to configure the build
+
+* `REACT_APP_API_HOST` - URL for [feedcast/scott](https://github.com/feedcast/scott) running instance.
+* `REACT_APP_GA` - Key for Google Analytics
 
 ## Support
 
