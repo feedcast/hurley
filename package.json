@@ -1,6 +1,6 @@
 {
-  "name": "feedweb",
-  "version": "0.1.0",
+  "name": "hurley",
+  "version": "0.0.0",
   "private": true,
   "engines": {
     "node": "v7.3.0"
