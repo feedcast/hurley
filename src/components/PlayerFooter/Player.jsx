@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 import helpers from 'app/scripts/helpers'
 import 'app/styles/PlayerFooter.sass'
@@ -125,12 +126,19 @@ class PlayerFooter extends Component {
 
     const playingUuid = this.props.episode? this.props.episode.uui: null;
     const { lc } = this.state
+    const { episode : e,
+            ...props
+          } = this.props
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
           <div className="feedcast__playerFooter-top">
-            <h5>{this.props.episode.title}</h5>
+            <h5>
+              <Link to={`/${e.channel.slug}`}> {e.channel.title} </Link>
+              <i className="fa fa-angle-double-right"></i>
+              <Link to={`/${e.channel.slug}/${e.slug}`}> {e.title} </Link>
+            </h5>
           </div>
           <div className="feedcast__playerFooter-bottom">
             <button

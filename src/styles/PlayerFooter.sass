@@ -97,6 +97,15 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    a
+      color: $link-blue
+      text-decoration: none
+      &:focus,
+      &:visited
+        color: $link-blue !important
+      &:hover
+        color: $link-blue !important
+        text-decoration: underline !important
 
 
 @media(min-width: 500px)
