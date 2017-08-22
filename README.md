@@ -34,8 +34,6 @@ npm run build
 npm run test
 ```
 
-Feel free to remove any sections that aren't applicable to your project.
-
 ## Support
 
 Please [open an issue](https://github.com/feedcast/Hurley/issues/new) for support.
