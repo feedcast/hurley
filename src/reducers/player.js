@@ -31,6 +31,20 @@ export default function player(state=initialState, action) {
         episode: next,
       };
 
+    case actions.PLAYER_CHANGE_PLAYBACK_RATE:
+    case actions.PLAYER_ON_LOADED_DATA:
+    case actions.PLAYER_ON_TIME_UPDATE:
+    case actions.PLAYER_ON_CAN_PLAY:
+    case actions.PLAYER_ON_PAUSE:
+    case actions.PLAYER_ON_ABORT:
+    case actions.PLAYER_ON_ERROR:
+    case actions.PLAYER_ON_PLAY:
+      const { ...options } = action.payload
+      return {
+        ...state,
+        ...options
+      }
+
     default:
       return state;
   }

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import helpers from 'app/scripts/helpers'
 import 'app/styles/PlayerFooter.sass'
 
+import * as actions from 'app/actions/player'
+
 let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
@@ -18,6 +20,7 @@ class PlayerFooter extends Component {
     episodes: [],
   }
 
+
   constructor(props) {
     super(props);
 
@@ -25,85 +28,34 @@ class PlayerFooter extends Component {
     let { lc } = helpers.localize(this)
 
     this.state = {
-      episodes : [],
-      isPaused: this.audioPlayer.paused,
-      canPlay: false,
-      loadedData: false,
-      isError: false,
-      duration: '00:00:00',
-      currentTime:'00:00:00',
-      title:'',
-      playbackRate: 1,
       lc
     }
 
     this.bindEvents()
   }
 
-  onPlay(){
-    this.setState({isPaused: false})
-  }
-
-  onPause(){
-    this.setState({isPaused: true})
-  }
-
-  onCanPlay(){
-    this.setState({canPlay: true, isError: false})
-  }
-
-  onLoadedData(){
-    this.setState({loadedData: true, isError: false})
-  }
-
-  onTimeUpdate(){
-    if(this.state.loadedData){
-      this.setState({
-        duration: helpers.secondsToHms(this.audioPlayer.duration),
-        currentTime: helpers.secondsToHms(this.audioPlayer.currentTime)
-      });
-    }
-  }
-
-
-  _onAbort(){
-    const abt = {
-      canPlay: false,
-      isPaused: true,
-      isError: false,
-      loadedData: false
-    }
-    this.setState(abt)
-  }
-
-
-
-  _onError(){
-    const err = {
-      canPlay: false,
-      isPaused: false,
-      isError: true,
-      loadedData: true
-    }
-    this.setState(err)
-  }
-
 
 
   bindEvents(){
     //Player changing state
-    this.audioPlayer.onplay = e => this.onPlay(e);
-    this.audioPlayer.onpause = e => this.onPause(e);
-    this.audioPlayer.oncanplay = e => this.onCanPlay(e);
-    this.audioPlayer.onloadeddata = e => this.onLoadedData(e);
+    this.audioPlayer.onloadeddata = e => this.props.dispatch(actions.onLoadedData());
+    this.audioPlayer.oncanplay = e => this.props.dispatch(actions.onCanPlay());
+    this.audioPlayer.onpause = e => this.props.dispatch(actions.onPause());
     this.audioPlayer.onended = e => this.props.events.onEpisodeEnd();
+    this.audioPlayer.onplay = e => this.props.dispatch(actions.onPlay());
 
-    this.audioPlayer.ontimeupdate = e => this.onTimeUpdate(e);
+    this.audioPlayer.ontimeupdate = e => {
+      if(this.props.loadedData)
+        this.props.dispatch(
+          actions.onTimeUpdate(this.audioPlayer)
+        );
+    }
 
-
-    this.audioPlayer.onabort = e => this._onAbort(e);
-    this.audioPlayer.onerror = e => this._onError(e);
+    this.audioPlayer.onabort = e => this.props.dispatch(actions.onAbort());
+    this.audioPlayer.onerror = e => this.props.dispatch(actions.onError());
   }
+
+
 
   playEpisode(episode){
     if (!episode.audio) return;
@@ -114,31 +66,43 @@ class PlayerFooter extends Component {
     }
   }
 
+
+
   forwardTime(){
     this.audioPlayer.currentTime += 15
   }
+
+
 
   backwardTime(){
     this.audioPlayer.currentTime -= 15
   }
 
+
+
   changeRate(val){
-    let {playbackRate : r } = this.state
+    let {playbackRate : r } = this.props
     let newRate = r >= 2? 1 : r+.5
 
     if(typeof val !== 'undefined')
       newRate = val
 
     this.audioPlayer.playbackRate = newRate
+    this.props.dispatch(actions.changePlaybackRate(newRate));
   }
+
+
 
   getPerc(){
     let {duration, currentTime} = this.audioPlayer
     return ( currentTime * 100 ) / duration
   }
 
+
+
+
   handleTimeClick(event){
-    if(!this.state.canPlay)
+    if(!this.props.canPlay)
       return false;
 
     let { clientX : x } = event
@@ -153,6 +117,9 @@ class PlayerFooter extends Component {
 
     this.audioPlayer.currentTime =  (percent * duration) / 100
   }
+
+
+
 
   webPlayer(){
 
@@ -173,11 +140,11 @@ class PlayerFooter extends Component {
             </button>
             <button
               className="feedcast__player-play-pause"
-              onClick={e=>{this.audioPlayer[`${this.state.isPaused?'play':'pause'}`]()}}>
-              {this.state.loadedData === false ? (
+              onClick={e=>{this.audioPlayer[`${this.props.isPaused?'play':'pause'}`]()}}>
+              {this.props.loadedData === false ? (
                 <i className="fa fa-spinner fa-pulse fa-fw"></i>
               ):(
-                <i className={`fa fa-${this.state.isPaused?'play':'pause'}`}></i>
+                <i className={`fa fa-${this.props.isPaused?'play':'pause'}`}></i>
               )}
             </button>
             <button
@@ -186,7 +153,7 @@ class PlayerFooter extends Component {
               <i className="fa fa-forward"></i>
             </button>
             <div
-              className={`feedcast__player-time ${this.state.isError ? 'feedcast__player-time--error':''}`}
+              className={`feedcast__player-time ${this.props.isError ? 'feedcast__player-time--error':''}`}
               onClick={ e => { this.handleTimeClick(e)} }>
               <div
                 style={{
@@ -195,32 +162,15 @@ class PlayerFooter extends Component {
                 className="feedcast__player-time-bar">
               </div>
               <span>
-                { this.state.isError ? lc.failLoadMedia :
-                `${this.state.currentTime} / ${this.state.duration}`}
+                { this.props.isError ? lc.failLoadMedia :
+                `${this.props.currentTime} / ${this.props.duration}`}
               </span>
             </div>
             <button
               className="feedcast__player-playback-rate"
               onClick={ e => this.changeRate() }>
-              {parseFloat(this.state.playbackRate).toFixed(1)}x
+              {parseFloat(this.props.playbackRate).toFixed(1)}x
             </button>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  mobilePlayer(){
-    const playingUuid = this.state.episode.uuid;
-
-    return (
-      <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
-        <div className="feedcast__playerFooter">
-          <div className="feedcast__playerFooter-top">
-            <h5>{this.state.title}</h5>
-          </div>
-          <div className="feedcast__playerFooter-bottom">
-            <audio ref={ (el) => { this.audioPlayer = el } } controls></audio>
           </div>
         </div>
       </div>
