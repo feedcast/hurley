@@ -15,19 +15,22 @@ const initialState = {
 }
 
 export default function player(state=initialState, action) {
+  let {
+    playedEpisodes : p,
+    episode : e,
+    episodes : eps
+  } = state
   switch (action.type) {
     case actions.PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES:
-      let { playedEpisodes : pe, episode : ep } = state
-      pe.push(ep)
+      p.push(e)
       return {
         ...state,
-        playedEpisodes: pe.filter(e => e.uuid !== action.payload.episode.uuid),
+        playedEpisodes: p.filter(i => i.uuid !== action.payload.episode.uuid),
         episode: action.payload.episode
       }
-    case actions.PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES:
-      let { playedEpisodes : p, episode : epi, episodes : eps } = state
 
-      p.push(epi)
+    case actions.PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES:
+      p.push(e)
 
       let uuidIndex = null, episodesTemp = [];
 
@@ -43,12 +46,14 @@ export default function player(state=initialState, action) {
           episodesTemp.push(eps[i])
         }
       }
+
       return {
         ...state,
         playedEpisodes: p,
         episode: action.payload.episode,
         episodes: episodesTemp,
       }
+
     case actions.PLAYER_PLAY_EPISODE:
       const { episode, episodes } = action.payload;
       return {
@@ -59,12 +64,11 @@ export default function player(state=initialState, action) {
 
     case actions.PLAYER_PLAY_EPISODE_NEXT:
       const next = action.payload.episodes.shift();
-      let { playedEpisodes, episode : e } = state
-      playedEpisodes.push(e)
+      p.push(e)
 
       return {
         ...state,
-        playedEpisodes,
+        playedEpisodes: p,
         episodes: action.payload.episodes,
         episode: next,
       };
