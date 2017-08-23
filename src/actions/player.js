@@ -20,6 +20,13 @@ export function playEpisode(episode, episodes) {
   }
 }
 
+export function playQueueEpisode(episode, action) {
+  return {
+    type: action,
+    payload: { episode },
+  }
+}
+
 export function playEpisodeNext(episodes) {
   return {
     type: PLAYER_PLAY_EPISODE_NEXT,

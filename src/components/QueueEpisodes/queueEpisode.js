@@ -1,15 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import helpers from 'app/scripts/helpers'
 
-import { playEpisode } from 'app/actions/player';
+import * as actions from 'app/actions/player'
 
-export default class QueueEpisode extends Component {
+class QueueEpisode extends Component {
 
   playEpisode(){
-    this.props.dispatch(
-      playEpisode(this.props.episode, this.props.episodes)
-    );
+    const {action} = this.props
+
+    switch(action){
+      case actions.PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES:
+      case actions.PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES:
+        this.props.dispatch(
+          actions.playQueueEpisode(this.props.episode, action)
+        );
+      break;
+      case actions.PLAYER_PLAY_EPISODE:
+        this.props.dispatch(
+          actions.playEpisode(this.props.episode, this.props.episodes)
+        );
+      break;
+    }
   }
 
   render(){
@@ -47,3 +60,5 @@ export default class QueueEpisode extends Component {
     )
   }
 }
+
+export default connect()(QueueEpisode);
