@@ -12,6 +12,8 @@
 
     .feedcast__queueEpisode-info-wrapper button
       visibility: visible
+  &--playing
+    background-color: #f0f0f0
 
 .feedcast__queueEpisode-button-wrapper
   display: inline-block;
@@ -101,3 +103,12 @@
   text-decoration: underline;
   color: $lighter-blue;
   cursor: pointer;
+
+.feedcast__playing-status
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: $darker-blue;
+  font-size: 23px;
+  line-height: 25px;
+  text-align: center;

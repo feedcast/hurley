@@ -3,6 +3,7 @@ import * as actions from 'app/actions/player';
 const initialState = {
   episode: null,
   episodes: [],
+  playedEpisodes: [],
   isPaused: true,
   canPlay: false,
   loadedData: false,
@@ -25,8 +26,12 @@ export default function player(state=initialState, action) {
 
     case actions.PLAYER_PLAY_EPISODE_NEXT:
       const next = action.payload.episodes.shift();
+      let { playedEpisodes, episode : e } = state
+      playedEpisodes.push(e)
+
       return {
         ...state,
+        playedEpisodes,
         episodes: action.payload.episodes,
         episode: next,
       };

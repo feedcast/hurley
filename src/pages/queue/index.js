@@ -8,7 +8,7 @@ class Queue extends Component {
   render(){
     return (
       <div className="feedcast__section feedcast__queue">
-        <QueueEpisodes episode={this.props.episode} episodes={this.props.episodes}/>
+        <QueueEpisodes {...this.props} />
       </div>
     )
   }

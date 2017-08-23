@@ -14,21 +14,27 @@ export default class QueueEpisode extends Component {
 
   render(){
     const {
+      uuid,
       title,
       audio,
       slug,
       channel : c
     } = this.props.episode
 
+    const isActive = uuid === this.props.active.uuid
 
     return (
-      <div className="feedcast__queueEpisode">
+      <div className={`feedcast__queueEpisode feedcast__queueEpisode--${isActive? 'playing':'not-playing'}`}>
         <div className="feedcast__queueEpisode-button-wrapper">
-          <button
-            onClick={() => this.playEpisode()}
-            className="feedcast__queueEpisode-play-button">
-            <i className="fa fa-play"></i>
-          </button>
+          { isActive ? (
+            <i className="fa fa-headphones feedcast__playing-status"></i>
+          ):(
+            <button
+              onClick={() => this.playEpisode()}
+              className="feedcast__queueEpisode-play-button">
+              <i className="fa fa-play"></i>
+            </button>
+          )}
         </div>
         <div className="feedcast__queueEpisode-info-wrapper">
           <Link to={`/${c.slug}/${slug}`}><h4>{title}</h4></Link>

@@ -63,6 +63,7 @@ class PlayerFooter extends Component {
 
     if (this.audioPlayer.src !== episode.audio.url) {
       this.audioPlayer.src = episode.audio.url;
+      this.audioPlayer.playbackRate = this.props.playbackRate
       this.audioPlayer.play();
     }
   }
