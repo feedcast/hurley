@@ -24,10 +24,12 @@ import store from './store';
 
 ReactGA.initialize(process.env.REACT_APP_GA);
 
-function logPageView() {
-  ReactGA.set({ page: window.location.pathname + window.location.search });
-  ReactGA.pageview(window.location.pathname + window.location.search);
-}
+const logPageView = () => {
+    window.scrollTo(0, 0);
+    ReactGA.set({ page: window.location.pathname + window.location.search });
+    ReactGA.pageview(window.location.pathname + window.location.search);
+    return null;
+};
 
 const NoMatch = ({ location }) => (
   <div>
@@ -38,8 +40,9 @@ const NoMatch = ({ location }) => (
 function AppRouter() {
   return (
   <Provider store={store}>
-    <Router onUpdate={(e) => { window.scrollTo(0, 0); logPageView(e)} }>
+    <Router>
       <Page>
+          <Route path="/" component={logPageView}></Route>
           <Switch>
             <Route exact path="/" component={Home}></Route>
             <Route path="/channels/:page?" component={ChannelList}></Route>
