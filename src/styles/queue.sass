@@ -1,0 +1,145 @@
+@import 'constants'
+
+
+.feedcast__queueEpisode-info-wrapper a
+  color: $link-blue
+  &:hover h4
+    text-decoration: underline
+
+.feedcast__queueEpisode
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 1px solid $lighter-gray;
+  transition: ease all 1s
+
+  &:last-child
+    border-bottom: 0px
+
+  &:hover
+    background-color: #f0f0f0
+
+    .feedcast__queueEpisode-info-wrapper button
+      visibility: visible
+  &--playing
+    background-color: $lighter-blue
+    a, i
+      color: white
+    .feedcast__queueEpisode-info-wrapper span
+      background-color: transparent
+      border: 1px solid white
+      color: white
+    &:hover
+      background-color: $darker-blue
+
+
+.feedcast__queueEpisode-button-wrapper
+  display: inline-block;
+
+
+.feedcast__queueEpisode-button-wrapper
+  width: 50px;
+  padding-left: 10px;
+  float: left;
+  box-sizing: border-box;
+
+
+.feedcast__queueEpisode-button-wrapper button
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 0px;
+  background-color: $lighter-blue;
+  border: 1px solid $lighter-blue;
+  color: white;
+  font-size: 10px;
+  cursor: pointer;
+  transition: .4s ease all;
+
+.feedcast__queueEpisode-button-wrapper button:hover
+  background-color: $darker-blue;
+  color: white;
+
+
+
+.feedcast__queueEpisode-info-wrapper
+  display: inline-block;
+  width: calc(100% - 50px)
+  box-sizing: border-box;
+
+.feedcast__queueEpisode-summary
+  margin-bottom: 0px;
+
+.feedcast__queueEpisode-summary--see-less
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+
+
+.feedcast__queueEpisode-info-wrapper h4
+  margin: 0px;
+  width: calc(100% - 150px);
+  display: inline-block
+  font-weight: lighter
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1em;
+  transform: translateY(3px);
+
+
+.feedcast__queueEpisode-info-wrapper button
+  visibility: hidden
+  border: 0px
+  background-color: transparent
+  display: inline-block
+  width: 30px
+  padding: 0px
+  margin: 0px
+  margin-right: 20px
+  height: 24px
+  line-height: 24px
+  cursor: pointer
+  i
+    text-align: center
+    display: block
+
+.feedcast__queueEpisode-info-wrapper span
+  color: $darker-gray;
+  border: 1px solid $darker-gray;
+  background-color: transparent;
+  padding: 0px 5px;
+  font-weight: lighter;
+  border-radius: 3px;
+  width: 80px;
+  text-align: center
+  display: inline-block
+
+.feedcast__queueEpisode-btn-see-more
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: $lighter-blue;
+  cursor: pointer;
+
+.feedcast__playing-status
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: $darker-blue;
+  font-size: 23px;
+  line-height: 25px;
+  text-align: center;
+
+@media(max-width: 500px)
+  .feedcast__queueEpisode-info-wrapper span
+    font-size: 12px
+    width: 60px
+    height: 22px
+    line-height: 22px
+  .feedcast__queueEpisode-info-wrapper button
+    visibility: visible
+    margin-right: 5px
+  .feedcast__queueEpisode-info-wrapper h4
+    margin: 0px;
+    width: calc(100% - 110px);

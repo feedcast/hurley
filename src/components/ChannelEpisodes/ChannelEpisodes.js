@@ -33,8 +33,10 @@ class ChannelEpisodes extends Component {
     const list = this.listEpisodes();
 
     return (
-      <div className="feedcast__channelEpisodes">
-        {list}
+      <div className="feedcast__section">
+        <div className="feedcast__channelEpisodes">
+          {list}
+        </div>
         <Pagination
           url={`/${this.props.channel.slug}/episodes/`}
           page={this.props.page}

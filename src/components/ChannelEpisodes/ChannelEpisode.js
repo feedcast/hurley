@@ -19,7 +19,7 @@ class ChannelEpisode extends Component {
 
   playEpisode(){
     this.props.dispatch(
-      playEpisode(this.props.episode, this.props.episodes)
+      playEpisode(this.props.episode, this.props.episodes.filter(i => i.uuid !== this.props.episode.uuid))
     );
   }
 

@@ -2,6 +2,8 @@ import helpers from 'app/scripts/helpers'
 
 export const PLAYER_PLAY_EPISODE = 'PLAYER_PLAY_EPISODE';
 export const PLAYER_PLAY_EPISODE_NEXT = 'PLAYER_PLAY_EPISODE_NEXT';
+export const PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES = 'PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES';
+export const PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES = 'PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES';
 export const PLAYER_CHANGE_PLAYBACK_RATE = 'PLAYER_CHANGE_PLAYBACK_RATE';
 export const PLAYER_ON_LOADED_DATA = 'PLAYER_ON_LOADED_DATA';
 export const PLAYER_ON_TIME_UPDATE = 'PLAYER_ON_TIME_UPDATE';
@@ -15,6 +17,13 @@ export function playEpisode(episode, episodes) {
   return {
     type: PLAYER_PLAY_EPISODE,
     payload: { episode, episodes },
+  }
+}
+
+export function playQueueEpisode(episode, action) {
+  return {
+    type: action,
+    payload: { episode },
   }
 }
 

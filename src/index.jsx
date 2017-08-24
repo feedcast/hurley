@@ -20,6 +20,7 @@ import Channel from './pages/channel';
 import Home from './pages/home';
 import EpisodesList from './pages/episodeslist';
 import Episode from './pages/episode';
+import Queue from './pages/queue';
 import store from './store';
 
 ReactGA.initialize(process.env.REACT_APP_GA);
@@ -45,6 +46,7 @@ function AppRouter() {
           <Route path="/" component={logPageView}></Route>
           <Switch>
             <Route exact path="/" component={Home}></Route>
+            <Route path="/queue/" component={Queue}></Route>
             <Route path="/channels/:page?" component={ChannelList}></Route>
             <Route path="/category/:slug" component={Category}></Route>
             <Route path="/episodes/:page?" component={EpisodesList}></Route>

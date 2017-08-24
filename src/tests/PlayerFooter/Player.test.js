@@ -42,8 +42,10 @@ const VALID_EPISODE = {
 describe('Player', () => {
   describe('when has no episode', () => {
     const state = {
+      playedEpisodes: [],
       episode: {},
       episodes: [],
+      playbackRate: 1,
     };
 
     const component = shallow(<Player {...state}/>)
@@ -55,8 +57,10 @@ describe('Player', () => {
 
   describe('when has valid episode', () => {
     const state = {
+      playedEpisodes: [],
       episode: VALID_EPISODE,
       episodes: [],
+      playbackRate: 1,
     };
 
     const component = shallow(<Player {...state} />)
@@ -80,11 +84,13 @@ describe('Player', () => {
 
   describe('when episode has ended', () => {
     const state = {
+      playedEpisodes: [],
       episode: VALID_EPISODE,
       episodes: [],
       events: {
         onEpisodeEnd: jest.fn(),
       },
+      playbackRate: 1,
     };
 
     const component = mount(<MemoryRouter><Player {...state} /></MemoryRouter>)

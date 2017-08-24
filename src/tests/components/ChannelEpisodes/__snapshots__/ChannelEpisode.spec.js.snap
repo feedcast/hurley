@@ -2,8 +2,11 @@
 
 exports[`ChannelEpisodes when has a list of episodes render the category 1`] = `
 <div
-  className="feedcast__channelEpisodes"
+  className="feedcast__section"
 >
+  <div
+    className="feedcast__channelEpisodes"
+  />
   <div
     className="feedcast__pagination feedcast__pagination--white"
   >
@@ -14,8 +17,11 @@ exports[`ChannelEpisodes when has a list of episodes render the category 1`] = `
 
 exports[`ChannelEpisodes when has no data renders the no episode 1`] = `
 <div
-  className="feedcast__channelEpisodes"
+  className="feedcast__section"
 >
+  <div
+    className="feedcast__channelEpisodes"
+  />
   <div
     className="feedcast__pagination feedcast__pagination--white"
   >

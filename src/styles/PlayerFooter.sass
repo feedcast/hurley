@@ -21,6 +21,7 @@
     &-forward,
     &-backward,
     &-download,
+    &-run-queue,
     &-playback-rate
       display: inline-block
       box-sizing: border-box
@@ -38,7 +39,7 @@
       text-align: center
       font-size: $ppsize / 3
       border-radius: $ppsize / 2
-    &-forward, &-backward, &-download, &-playback-rate
+    &-forward, &-backward, &-download, &-playback-rate, &-run-queue
       $ppsize : 30px
       line-height: 1em
       height: $ppsize
@@ -59,7 +60,7 @@
       text-align: center
       margin-left: 10px
       position: absolute
-      width: calc(100% - 190px)
+      width: calc(100% - 220px)
       transform: translateY(5px)
       background-color: $darker-gray
       &--error
@@ -80,9 +81,11 @@
       height: 100%
       background-color: $lighter-blue
       z-index: 100
-    &-download, &-playback-rate
+    &-download, &-run-queue, &-playback-rate
       float: right
       transform: translateY(5px)
+    &-run-queue
+      line-height: 30px
 
   audio
     width: 100%;
@@ -112,8 +115,14 @@
       right: 0px
 
 @media(max-width: 360px)
-  .feedcast__player-time span
-    font-size: 9px
+  .feedcast__player
+    &-backward,
+    &-forward
+      display: none !important
+  .feedcast__player-time
+    width: calc(100% - 160px) !important
+    span
+      font-size: 9px
 
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px)
   .feedcast__player-time

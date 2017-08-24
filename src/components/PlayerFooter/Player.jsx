@@ -11,11 +11,13 @@ let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
   static propTypes = {
+    playedEpisodes: PropTypes.array.isRequired,
     episode: PropTypes.object,
     episodes: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
+    playedEpisodes: [],
     episode: {},
     episodes: [],
   }
@@ -59,6 +61,7 @@ class PlayerFooter extends Component {
 
     if (this.audioPlayer.src !== episode.audio.url) {
       this.audioPlayer.src = episode.audio.url;
+      this.audioPlayer.playbackRate = this.props.playbackRate
       this.audioPlayer.play();
     }
   }
@@ -155,6 +158,9 @@ class PlayerFooter extends Component {
                 `${this.props.currentTime} / ${this.props.duration}`}
               </span>
             </div>
+            <Link className="feedcast__player-run-queue" to="/queue">
+              <i className="fa fa-indent"></i>
+            </Link>
             <button
               className="feedcast__player-playback-rate"
               onClick={ e => this.changeRate() }>

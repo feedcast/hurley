@@ -71,12 +71,17 @@
 
 
 .feedcast__channelEpisodes
-  padding: 10px;
   margin-top: 20px;
   box-sizing: border-box;
 
 .feedcast__channelEpisodes .feedcast__pagination
   margin-top: 10px
+
+.feedcast__channelEpisode-info-wrapper a
+  color: $link-blue
+  &:hover h4
+    text-decoration: underline
+
 
 .feedcast__channelEpisode
   padding-bottom: 10px;
@@ -84,11 +89,15 @@
   border-bottom: 1px solid $lighter-gray;
   transition: ease all 1s
 
+
   &:hover
     background-color: #f0f0f0
 
     .feedcast__channelEpisode-info-wrapper button
       visibility: visible
+
+.feedcast__channelEpisodes .feedcast__channelEpisode:last-child
+  border-bottom: 0px
 
 .feedcast__channelEpisode-button-wrapper
   display: inline-block;
@@ -106,9 +115,9 @@
   height: 25px;
   border-radius: 50%;
   border: 0px;
-  background-color: white;
-  border: 1px solid $darker-blue;
-  color: $darker-blue;
+  background-color: $lighter-blue;
+  border: 1px solid $lighter-blue;
+  color: white;
   font-size: 10px;
   cursor: pointer;
   transition: .4s ease all;
@@ -162,9 +171,9 @@
     display: block
 
 .feedcast__channelEpisode-info-wrapper span
-  color: $orange;
-  border: 1px solid $orange;
-  background-color: white;
+  color: $darker-gray;
+  border: 1px solid $darker-gray;
+  background-color: transparent;
   padding: 0px 5px;
   font-weight: lighter;
   border-radius: 3px;
@@ -200,3 +209,15 @@
     width: 100%;
 
 
+@media(max-width: 500px)
+  .feedcast__channelEpisode-info-wrapper span
+    font-size: 12px
+    width: 60px
+    height: 22px
+    line-height: 22px
+  .feedcast__channelEpisode-info-wrapper button
+    visibility: visible
+    margin-right: 5px
+  .feedcast__channelEpisode-info-wrapper h4
+    margin: 0px;
+    width: calc(100% - 110px);
