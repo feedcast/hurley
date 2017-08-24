@@ -12,11 +12,13 @@ let lc = helpers.language.words;
 class PlayerFooter extends Component {
 
   static propTypes = {
+    playedEpisodes: PropTypes.array.isRequired,
     episode: PropTypes.object,
     episodes: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
+    playedEpisodes: [],
     episode: {},
     episodes: [],
   }
