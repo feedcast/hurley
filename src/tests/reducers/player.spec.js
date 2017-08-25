@@ -26,9 +26,9 @@ describe("Player reducer", () => {
       };
 
       expect(player(state, newState)).toEqual({
-          playedEpisodes: [],
+          playedEpisodes: [{ uuid: 'foo' }],
           episode: { uuid: 'playing' },
-          episodes: [{ uuid: 'new' }],
+          episodes: [{ uuid: 'bar' }],
       });
     });
   });
