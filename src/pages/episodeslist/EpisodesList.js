@@ -9,9 +9,13 @@ import { EpisodeCardList } from 'app/components/EpisodeCard';
 
 import 'app/styles/EpisodesList.sass';
 
-let lc = helpers.language.words;
 
 export default class EpisodesList extends PureComponent {
+  constructor(props) {
+    super(props);
+    let { lc } = helpers.localize(this)
+    this.state = {lc}
+  }
 
   static propTypes = {
     page: PropTypes.number.isRequired,
@@ -28,16 +32,17 @@ export default class EpisodesList extends PureComponent {
   }
 
   render(){
+    let { lc } = this.state
     let { page } = this.props.match ? this.props.match.params : this.props
     page = parseInt(page)
 
     return (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
-          title={`Feedcast | Últimos Episódios`}
+          title={`Feedcast | ${lc.lastEpisodes}`}
           meta={[
             {property: 'og:title',
-            content: `Feedcast | Últimos Episódios`},
+            content: `Feedcast | ${lc.lastEpisodes}`},
           ]} />
         <h4> Recent Episodes </h4>
         <div className="feedcast__episodes-block">

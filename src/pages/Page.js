@@ -77,7 +77,7 @@ export default class Page extends Component {
           <div className="feedcast__container-wrapper">
             {this.props.children}
           </div>
-          <Footer />
+          <Footer lc={lc} />
         </div>
         <div
           onClick={()=>{this.toggleSidebar(false)}}
