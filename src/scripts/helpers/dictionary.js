@@ -46,6 +46,9 @@ const dictionary = {
       sexuality: 'Sexuality',
       society: 'Society',
       politics: 'Politics',
+      queue: 'Queue',
+      addToQueue: 'Add to Queue',
+      download: 'Download',
     }
   },
 
@@ -96,6 +99,9 @@ const dictionary = {
       sexuality: 'Sexualidade',
       society: 'Sociedade',
       politics: 'Política',
+      queue: 'Fila de execução',
+      addToQueue: 'Adicionar à fila',
+      download: 'Baixar',
     }
   }
 }

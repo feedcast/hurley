@@ -34,7 +34,7 @@ class QueueEpisode extends Component {
       channel : c
     } = this.props.episode
 
-    const isActive = uuid === this.props.active.uuid
+    const isActive = this.props.active && uuid === this.props.active.uuid
 
     return (
       <div className={`feedcast__queueEpisode feedcast__queueEpisode--${isActive? 'playing':'not-playing'}`}>

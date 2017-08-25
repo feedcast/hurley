@@ -84,6 +84,7 @@ export default class Page extends Component {
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/"><i className="fa fa-home"></i> {lc.home}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/episodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
             <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/channels"><i className="fa fa-rss"></i> {lc.channels}</Link>
+            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/queue"><i className="fa fa-indent"></i> {lc.queue}</Link>
             <h5>{lc.categories}</h5>
             {
               this.state.categories

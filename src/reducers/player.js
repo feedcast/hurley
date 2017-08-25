@@ -21,8 +21,14 @@ export default function player(state=initialState, action) {
     episodes : eps
   } = state
   switch (action.type) {
+    case actions.PLAYER_ADD_TO_QUEUE:
+      eps.push(action.payload.episode)
+      return {
+        ...state,
+        episodes: eps
+      }
     case actions.PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES:
-      p.push(e)
+      if(e !== null) p.push(e);
       return {
         ...state,
         playedEpisodes: p.filter(i => i.uuid !== action.payload.episode.uuid),
@@ -30,7 +36,7 @@ export default function player(state=initialState, action) {
       }
 
     case actions.PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES:
-      p.push(e)
+      if(e !== null) p.push(e);
 
       let uuidIndex = null, episodesTemp = [];
 
@@ -56,15 +62,22 @@ export default function player(state=initialState, action) {
 
     case actions.PLAYER_PLAY_EPISODE:
       const { episode, episodes } = action.payload;
+      if(eps.length === 0){
+        eps = episodes
+      }
+      if(e !== null){
+        p.push(e)
+      }
       return {
         ...state,
-        episodes,
+        playedEpisodes: p,
+        episodes: eps,
         episode,
       };
 
     case actions.PLAYER_PLAY_EPISODE_NEXT:
       const next = action.payload.episodes.shift();
-      p.push(e)
+      if(e !== null) p.push(e);
 
       return {
         ...state,
