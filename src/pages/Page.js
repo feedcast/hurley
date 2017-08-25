@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from  'react-redux';
 import { Link } from 'react-router-dom';
 import logo from 'app/images/logo.svg';
 
@@ -7,9 +6,7 @@ import 'app/styles/App.sass';
 
 import feedcastApi from 'feedcast-client';
 import helpers from 'app/scripts/helpers'
-import dictionary from 'app/scripts/helpers/dictionary'
 
-import Search from 'app/components/Search';
 import PlayerFooter from 'app/components/PlayerFooter';
 import Footer from './footer'
 
