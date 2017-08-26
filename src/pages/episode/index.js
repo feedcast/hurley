@@ -8,6 +8,8 @@ import ReactDisqusComments from 'react-disqus-comments';
 
 import 'app/styles/episode.sass'
 
+const DISQUS_SHORTNAME = process.env.REACT_APP_DISQUS_SHORTNAME;
+
 class Episode extends Component {
   constructor(props) {
     super(props);
@@ -79,7 +81,7 @@ class Episode extends Component {
         </div>
         <div className="feedcast__section">
           <ReactDisqusComments
-            shortname="feedcast"
+            shortname={DISQUS_SHORTNAME}
             identifier={`${slug}/${episode_slug}`}
             title={title}
             url={window.location.href}

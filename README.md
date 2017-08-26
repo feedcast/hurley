@@ -37,6 +37,7 @@ make test
 
 * `REACT_APP_API_HOST` - URL for [feedcast/scott](https://github.com/feedcast/scott) running instance.
 * `REACT_APP_GA` - Key for Google Analytics
+* `REACT_APP_DISQUS_SHORTNAME` - A shortname is the unique identifier assigned to a Disqus site
 
 ## Support
 
