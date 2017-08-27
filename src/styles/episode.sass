@@ -1,20 +1,95 @@
 @import 'constants'
+@import 'mixins'
 
-.feedcast__episode
-  &-button
-    width: 50px
-    height: 50px
-    border: 0px
-    border-radius: 50%
-    background: white
-    border: 1px solid $lighter-blue
-    color: $lighter-blue
+.feedcast__episode-header
+  position: relative
+  min-height: 500px
+  overflow: hidden
+  margin-bottom: 0px
+
+  .feedcast__episode-overlay
+    background: rgba(0,0,0,.5)
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+
+  .feedcast__episode-bg
+    position: absolute
+    top: 0px
+    left: 0px
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center center
+    +filter(blur, 10px)
+
+  .feedcast__episode-channel
+    background-position: center center
+    transform: translate(-100%, -50%)
+    width: calc(100% / 2.5)
+    height: calc(100% / 1.5)
+    background-size: cover
+    position: absolute
+    left: 50%
+    top: 50%
     cursor: pointer
-    display: inline-block
-    text-align: center
-    margin: 0px
-    margin-right: 10px
-    line-height: 50px
-    &:hover
-      background-color: $lighter-blue
+    &:hover button
+      transform: translate(-50%, -50%) scale(1.5)
+
+  .feedcast__episode-info
+    position: absolute
+    left: 50%
+    top: 50%
+    width: calc(100% / 2.3)
+    transform: translateY(-50%) translateX(10px)
+    color: white
+    h3, h5
+      margin: 8px 10px
+    h5 a
+      text-decoration: none
       color: white
+      &:hover
+        text-decoration: underline
+
+.feedcast__episode-button
+  width: 100px
+  height: 100px
+  border: 0px
+  background: rgba(0,0,0,.3)
+  border-radius: 50%
+  color: white
+  cursor: pointer
+  display: inline-block
+  text-align: center
+  margin: 0px
+  line-height: 100px
+  font-size: 90px
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+
+@media(max-width: 600px)
+  .feedcast__episode-header
+    min-height: 500px
+
+  .feedcast__episode-channel
+    background-position: center center
+    top: 50% !important
+    left: 50% !important
+    transform: translate(-50%, -80%) !important
+    width: calc(100% / 2) !important
+    height: calc(100% / 2.5) !important
+    background-size: cover
+
+  .feedcast__episode-info
+    position: absolute
+    left: 50%
+    top: 50%
+    width: calc(100% / 1.2) !important
+    transform: translate(-50%, 50%) !important
+    text-align: center !important
