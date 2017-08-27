@@ -73,7 +73,7 @@
   transform: translate(-50%, -50%)
 
 
-@media(max-width: 600px)
+@media(max-width: 600px), (max-device-width: 600px)
   .feedcast__episode-header
     min-height: 500px
 
@@ -93,3 +93,7 @@
     width: calc(100% / 1.2) !important
     transform: translate(-50%, 50%) !important
     text-align: center !important
+
+  .feedcast__episode-channel
+    &:hover button
+      transform: translate(-50%, -50%) scale(1) !important

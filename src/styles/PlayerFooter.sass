@@ -108,13 +108,13 @@
         color: $link-blue !important
         text-decoration: underline !important
 
-@media(min-width: 500px)
+@media(min-width: 500px), (min-device-width: 500px)
   .feedcast--sidebar-active
     .feedcast__footer
       width: calc(100% - 230px)
       right: 0px
 
-@media(max-width: 360px)
+@media(max-width: 360px), (max-device-width: 360px)
   .feedcast__player
     &-backward,
     &-forward
