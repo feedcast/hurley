@@ -21,6 +21,9 @@ class Footer extends Component {
           <a href="https://facebook.com/feedcast" target="_blank">
             <i className="fa fa-facebook"></i>
           </a>
+          <a href="https://twitter.com/feedcast_io" target="_blank">
+            <i className="fa fa-twitter"></i>
+          </a>
           <a href="https://github.com/feedcast" target="_blank">
             <i className="fa fa-github"></i>
           </a>
