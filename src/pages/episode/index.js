@@ -8,7 +8,7 @@ import ReactDisqusComments from 'react-disqus-comments';
 
 import 'app/styles/episode.sass'
 
-const DISQUS_SHORTNAME = process.env.REACT_APP_DISQUS_SHORTNAME;
+const DISQUS_SHORTNAME = process.env.REACT_APP_DISQUS_SHORTNAME || 'default';
 
 class Episode extends Component {
   constructor(props) {
