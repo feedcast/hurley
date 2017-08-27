@@ -21,12 +21,23 @@ export default function player(state=initialState, action) {
     episodes : eps
   } = state
   switch (action.type) {
+
+
+    /**
+     * Add episode to next episodes array
+     */
     case actions.PLAYER_ADD_TO_QUEUE:
       eps.push(action.payload.episode)
       return {
         ...state,
         episodes: eps
       }
+
+
+
+    /**
+     * Play an episode from played episodes
+     */
     case actions.PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES:
       if(e !== null) p.push(e);
       return {
@@ -35,6 +46,10 @@ export default function player(state=initialState, action) {
         episode: action.payload.episode
       }
 
+
+    /**
+     * Play an episode from next episodes
+     */
     case actions.PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES:
       if(e !== null) p.push(e);
 
@@ -60,21 +75,33 @@ export default function player(state=initialState, action) {
         episodes: episodesTemp,
       }
 
+
+    /**
+     * Play an episode and add episodes to the queue
+     */
     case actions.PLAYER_PLAY_EPISODE:
       const { episode, episodes } = action.payload;
-      if(eps.length === 0){
-        eps = episodes
-      }
-      if(e !== null){
-        p.push(e)
-      }
+
+      if(eps.length === 0)
+        eps = episodes;
+
+      if(e !== null &&
+        episode.uuid !== e.uuid)
+        p.push(e);
+
+      let filt = (list, e) => list.filter(i => i.uuid !== e.uuid)
+
       return {
         ...state,
-        playedEpisodes: p,
-        episodes: eps,
+        playedEpisodes: filt(p, episode),
+        episodes: filt(eps, episode),
         episode,
       };
 
+
+    /**
+     * Play next episode from episodes list
+     */
     case actions.PLAYER_PLAY_EPISODE_NEXT:
       const next = action.payload.episodes.shift();
       if(e !== null) p.push(e);
@@ -86,6 +113,10 @@ export default function player(state=initialState, action) {
         episode: next,
       };
 
+
+    /**
+     * Player events
+     */
     case actions.PLAYER_CHANGE_PLAYBACK_RATE:
     case actions.PLAYER_ON_LOADED_DATA:
     case actions.PLAYER_ON_TIME_UPDATE:
