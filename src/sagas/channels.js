@@ -5,7 +5,6 @@ import * as actions from 'app/actions/channels';
 function* requestChannels({ payload }) {
   try {
     const data = yield call(actions.asyncFetchChannels, payload);
-    console.log(data)
     yield put(actions.requestChannelsSuccess(data));
   } catch (error) {
     console.log(error);
@@ -16,7 +15,6 @@ function* requestChannels({ payload }) {
 function* requestChannelInfo({ payload }) {
   try {
     const data = yield call(actions.asyncFetchChannels, payload);
-    console.log(data)
     yield put(actions.requestChannelInfoSuccess(data));
   } catch (error) {
     console.log(error);

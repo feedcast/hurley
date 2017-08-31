@@ -5,7 +5,6 @@ import * as actions from 'app/actions/categories';
 function* requestCategories({ payload }) {
   try {
     const data = yield call(actions.asyncFetchCategories, payload);
-    console.log(data)
     yield put(actions.requestCategoriesSuccess(data));
   } catch (error) {
     console.log(error);
@@ -16,7 +15,6 @@ function* requestCategories({ payload }) {
 function* requestCategoryInfo({ payload }) {
   try {
     const data = yield call(actions.asyncFetchCategories, payload);
-    console.log(data)
     yield put(actions.requestChannelInfoSuccess(data));
   } catch (error) {
     console.log(error);
