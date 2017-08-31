@@ -61,7 +61,6 @@ class Episode extends Component {
     const html = description && description.length > 0 ? description : (
       summary && summary.length > 0 ? summary : ''
     );
-    console.log(description, summary)
 
     return (
       <div className="feedcast__episode">
