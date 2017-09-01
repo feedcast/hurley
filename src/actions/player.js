@@ -1,4 +1,5 @@
 import helpers from 'app/scripts/helpers'
+import feedcastApi from 'feedcast-client';
 
 export const PLAYER_ADD_TO_QUEUE = 'PLAYER_ADD_TO_QUEUE';
 export const PLAYER_CHANGE_PLAYBACK_RATE = 'PLAYER_CHANGE_PLAYBACK_RATE';
@@ -13,6 +14,28 @@ export const PLAYER_PLAY_EPISODE = 'PLAYER_PLAY_EPISODE';
 export const PLAYER_PLAY_EPISODE_NEXT = 'PLAYER_PLAY_EPISODE_NEXT';
 export const PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES = 'PLAYER_PLAY_EPISODE_FROM_NEXT_EPISODES';
 export const PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES = 'PLAYER_PLAY_EPISODE_FROM_PLAYED_EPISODES';
+export const PLAYER_REQUEST_MORE_EPISODES = 'PLAYER_REQUEST_MORE_EPISODES';
+export const PLAYER_EPISODES_FETCH_SUCCESS = 'PLAYER_EPISODES_FETCH_SUCCESS';
+export const PLAYER_EPISODES_FETCH_FAIL = 'PLAYER_EPISODES_FETCH_FAIL';
+
+export function requestEpisodesSuccess(data) {
+  return {
+    type: PLAYER_EPISODES_FETCH_SUCCESS, payload: data
+  }
+}
+
+export function requestEpisodesFail(error) {
+  return {
+    type: PLAYER_EPISODES_FETCH_FAIL, payload: { error }
+  }
+}
+
+export function requestMoreEpisodes(episode) {
+    return {
+      type: PLAYER_REQUEST_MORE_EPISODES,
+      payload: { episode },
+    }
+}
 
 export function addToQueue(episode) {
   return {
@@ -20,7 +43,6 @@ export function addToQueue(episode) {
     payload: { episode },
   }
 }
-
 
 export function playEpisode(episode, episodes) {
   return {

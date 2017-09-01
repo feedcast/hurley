@@ -22,6 +22,15 @@ export default function player(state=initialState, action) {
   } = state
   switch (action.type) {
 
+    /**
+     * Add new episodes to next episodes array
+     */
+    case actions.PLAYER_EPISODES_FETCH_SUCCESS:
+    return {
+      ...state,
+      episodes: action.payload.episodes
+    }
+
 
     /**
      * Add episode to next episodes array
