@@ -50,6 +50,7 @@ const dictionary = {
       addToQueue: 'Add to Queue',
       download: 'Download',
       noEpisodesQueue: 'No episodes added to the execution queue!',
+      feedback: 'Feedback',
     }
   },
 
@@ -104,6 +105,7 @@ const dictionary = {
       addToQueue: 'Adicionar à fila',
       download: 'Baixar',
       noEpisodesQueue: 'Nenhum episódio adicionado à fila de execução!',
+      feedback: 'Sugestões',
     }
   }
 }
