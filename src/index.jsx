@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 import './styles/index.sass';
 import registerServiceWorker from './scripts/registerServiceWorker';
+import rollbarClient from './scripts/rollbar'
 
 import Page from './pages/Page';
 import ChannelList from './pages/channels';
@@ -23,6 +24,16 @@ import Queue from './pages/queue';
 import store from './store';
 
 ReactGA.initialize(process.env.REACT_APP_GA);
+
+rollbarClient({
+    accessToken: process.env.REACT_APP_ROLLBAR_ACCESS_TOKEN,
+    captureUncaught: true,
+    captureUnhandledRejections: true,
+    payload: {
+        environment: process.env.NODE_ENV || 'development'
+    }
+});
+
 
 const logPageView = () => {
     window.scrollTo(0, 0);

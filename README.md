@@ -39,6 +39,7 @@ make test
 * `REACT_APP_GA` - Key for Google Analytics
 * `REACT_APP_DISQUS_SHORTNAME` - A shortname is the unique identifier assigned to a Disqus site
 * `REACT_APP_FEEDBACK_FORM_URL` - Link to feedback form
+* `REACT_APP_ROLLBAR_ACCESS_TOKEN` - Rollbar post_client_item access token
 
 ## Support
 
