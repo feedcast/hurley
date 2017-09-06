@@ -19,7 +19,7 @@ class ChannelEpisodesContainer extends Component {
     episode: {},
     episodes: [],
     isFetching: true,
-    per_page: 20,
+    per_page: 10,
   }
 
   componentDidMount() {
