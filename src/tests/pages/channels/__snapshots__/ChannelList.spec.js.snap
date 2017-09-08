@@ -32,7 +32,7 @@ exports[`ChannelList when has a list of channels render the channels 1`] = `
     </div>
   </a>
   <div
-    className="feedcast__pagination feedcast__pagination--blue"
+    className="feedcast__pagination feedcast__pagination--pink"
   >
     
   </div>
@@ -44,7 +44,7 @@ exports[`ChannelList when has no data renders the no episode 1`] = `
   className="feedcast__channel-list"
 >
   <div
-    className="feedcast__pagination feedcast__pagination--blue"
+    className="feedcast__pagination feedcast__pagination--pink"
   >
     
   </div>

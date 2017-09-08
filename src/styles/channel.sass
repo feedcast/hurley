@@ -8,7 +8,14 @@
   padding: 10px;
   box-sizing: border-box;
   border-bottom: 1px solid $lighter-gray2;
-  background-color: $darker-blue;
+  background: rgba(249,159,50,1);
+  background: -moz-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(249,159,50,1)), color-stop(100%, rgba(233,40,85,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: linear-gradient(135deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f99f32', endColorstr='#e92855', GradientType=1 );
   height: 100px;
   position: relative;
 
@@ -36,14 +43,12 @@
   width: 100px;
   height: 100px;
   display: block;
-  background-color: $lighter-blue;
-  color: white;
+  background-color: white;
+  color: $colorb;
   font-family: FontAwesome;
   font-size: 60px;
   text-align: center;
   line-height: 100px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
 
 .feedcast__channelInfo-title
   color: white;
@@ -58,7 +63,7 @@
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 7px;
-  background-color: $orange;
+  background-color: $colora;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
@@ -78,7 +83,7 @@
   margin-top: 10px
 
 .feedcast__channelEpisode-info-wrapper a
-  color: $link-blue
+  color: #666
   &:hover h4
     text-decoration: underline
 
@@ -115,8 +120,7 @@
   height: 25px;
   border-radius: 50%;
   border: 0px;
-  background-color: $lighter-blue;
-  border: 1px solid $lighter-blue;
+  background-color: $colord;
   color: white;
   font-size: 10px;
   cursor: pointer;
@@ -166,17 +170,17 @@
   height: 24px
   line-height: 24px
   cursor: pointer
+  color: #666
   i
     text-align: center
     display: block
 
 .feedcast__channelEpisode-info-wrapper span
-  color: $darker-gray;
-  border: 1px solid $darker-gray;
+  color: $colora;
+  border: 1px solid $colora;
   background-color: transparent;
   padding: 0px 5px;
   font-weight: lighter;
-  border-radius: 3px;
   width: 80px;
   text-align: center
   display: inline-block
@@ -185,7 +189,7 @@
   background-color: transparent;
   border: none;
   text-decoration: underline;
-  color: $lighter-blue;
+  color: $colorb;
   cursor: pointer;
 
 .feedcast__channelPage

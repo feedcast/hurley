@@ -31,7 +31,14 @@ html, body
 
 .feedcast__logo
   height: 30px;
-  background-color: $lighter-blue;
+  background: rgba(249,159,50,1);
+  background: -moz-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(249,159,50,1)), color-stop(100%, rgba(233,40,85,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  background: linear-gradient(135deg, rgba(249,159,50,1) 0%, rgba(233,40,85,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f99f32', endColorstr='#e92855', GradientType=1 );
   padding: 5px;
   border-radius: 5px;
   display: inline-block;
@@ -54,12 +61,12 @@ html, body
   border: none
   display: inline-block
   float: left
-  color: $lighter-blue
+  color: $colora
   height: 40px
   width: 40px
   transform: translatex(-10px)
   line-height: 40px
-  font-size: 25px
+  font-size: 20px
   cursor: pointer
 
 
@@ -78,7 +85,7 @@ html, body
     background-color: #fff;
 
   &::-webkit-scrollbar
-    width: 10px;
+    width: 3px;
     background-color: #F5F5F5;
 
   &::-webkit-scrollbar-thumb
@@ -87,6 +94,7 @@ html, body
   &:hover
     &::-webkit-scrollbar-thumb
       background-color: #ccc !important;
+      opacity: 0.2 !important
 
 .feedcast__sidebar
   position: fixed
@@ -99,9 +107,15 @@ html, body
   &--hide
     transform: translateX(-230px)
 
+  i
+    width: 18px
+    text-align: center
+    padding: 2px 0px
+    box-sizing: border-box
+
   h5
     width: 100%
-    color: $darker-blue
+    color: $colorb
     border-top: 1px solid $lighter-gray
     margin: 0px
     padding: 10px
@@ -114,11 +128,15 @@ html, body
     color: $darker-gray;
     box-sizing: border-box
     font-size: 12px
+    border-left: 2px solid white
     span
       float: right
       color: #ccc
-    &:hover
-      background-color: #fafafa
+    &:hover:not(.active)
+      border-left: 2px solid $colora
+    &.active
+      border-left: 2px solid $colorb
+      background: #fafafa
 
 
 

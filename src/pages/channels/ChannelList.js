@@ -33,6 +33,7 @@ class ChannelList extends Component {
         { this.listChannels() }
         <Pagination
           url="/channels/"
+          theme="pink"
           page={this.props.page}
           total={this.props.total}
           per_page={this.props.per_page}/>

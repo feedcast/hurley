@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from 'app/images/logo.svg';
 
 import 'app/styles/App.sass';
@@ -68,9 +68,9 @@ export default class Page extends Component {
             className="feedcast__sidebar-toggle">
             <i className="fa fa-bars"></i>
           </button>
-          <Link to="/" className="feedcast__logo-wrapper">
+          <NavLink to="/" className="feedcast__logo-wrapper">
             <img src={logo} className="feedcast__logo" alt="logo" />
-          </Link>
+          </NavLink>
         </div>
         <div className={`feedcast__container feedcast__sidebar--${this.state.showSidebar?'active':'inactive'}`}>
           <div className="feedcast__container-wrapper">
@@ -83,24 +83,24 @@ export default class Page extends Component {
           className={`feedcast__sidebar-overlay feedcast__sidebar-overlay--${this.state.showSidebar ? 'show':'hide'}`}></div>
         <div className={`feedcast__sidebar feedcast__sidebar--${this.state.showSidebar ? 'show':'hide'}`}>
           <div className="feedcast__sidebar-wrapper">
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/"><i className="fa fa-home"></i> {lc.home}</Link>
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/episodes"><i className="fa fa-history"></i> {lc.episodes}</Link>
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/channels"><i className="fa fa-rss"></i> {lc.channels}</Link>
-            <Link onClick={()=>{this.toggleSidebar(false, true)}} to="/queue"><i className="fa fa-indent"></i> {lc.queue}</Link>
+            <NavLink exact onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/"><i className="fa fa-home"></i> {lc.home}</NavLink>
+            <NavLink onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/episodes"><i className="fa fa-history"></i> {lc.episodes}</NavLink>
+            <NavLink onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/channels"><i className="fa fa-rss"></i> {lc.channels}</NavLink>
+            <NavLink onClick={()=>{this.toggleSidebar(false, true)}} activeClassName="active" to="/queue"><i className="fa fa-indent"></i> {lc.queue}</NavLink>
             <a href={FORM_LINK} target="_blank"><i className="fa fa-comments-o"></i> {lc.feedback}</a>
             <h5>{lc.categories}</h5>
             {
               this.state.categories
                 .sort((a,b)=>b.channels.length - a.channels.length)
                 .map((c, i)=>(
-                  <Link
+                  <NavLink
                     onClick={()=>{this.toggleSidebar(false, true)}}
                     key={i}
                     to={`/category/${c.slug}`}>
                     <i className={`fa fa-${c.icon}`}></i>
                     {` ${helpers.translate(c.title)}`}
                     <span>{c.channels.length}</span>
-                  </Link>))
+                  </NavLink>))
             }
           </div>
         </div>
