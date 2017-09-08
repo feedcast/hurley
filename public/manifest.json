@@ -1,9 +1,9 @@
 {
   "short_name": "Feedcast",
-  "name": "Feedcast | Descubra e Compartilhe Podcasts",
+  "name": "Feedcast",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "icon_feedcast.png",
       "sizes": "192x192",
       "type": "image/png"
     }
