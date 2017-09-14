@@ -2,9 +2,6 @@
 
 exports[`Category when has a list of category render the category 1`] = `
 <div>
-  <h1>
-     
-  </h1>
   <div
     className="feedcast__channel-list feedcast__channel-list--byCategory"
   />
@@ -13,9 +10,6 @@ exports[`Category when has a list of category render the category 1`] = `
 
 exports[`Category when has no data renders the no episode 1`] = `
 <div>
-  <h1>
-     
-  </h1>
   <div
     className="feedcast__channel-list feedcast__channel-list--byCategory"
   />

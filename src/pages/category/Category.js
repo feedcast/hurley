@@ -32,7 +32,7 @@ class Category extends Component {
             {property: 'og:title',
             content: `Feedcast ${ this.props.category.title }`},
           ]} />
-        <h1>{this.props.title} </h1>
+        { this.props.title ? (<h1>this.props.title</h1>) : null }
         <div className="feedcast__channel-list feedcast__channel-list--byCategory">
           {channelList}
         </div>
