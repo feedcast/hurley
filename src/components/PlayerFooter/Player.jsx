@@ -117,55 +117,69 @@ class PlayerFooter extends Component {
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>
         <div className="feedcast__playerFooter">
-          <div className="feedcast__playerFooter-top">
-            <h5>
-              <Link to={`/${e.channel.slug}`}> {e.channel.title} </Link>
-              <i className="fa fa-angle-double-right"></i>
-              <Link to={`/${e.channel.slug}/${e.slug}`}> {e.title} </Link>
-            </h5>
+          <div className="feedcast__playerFooter-left">
+            <div className="feedcast__player-channel-image">
+              <Link to={`/${e.channel.slug}/${e.slug}`}>
+                <img src={`${e.channel.image_url}`} alt={`${e.channel.title}`} />
+              </Link>
+            </div>
+            <div className="feedcast__player-channel-info">
+              <h5>
+                <Link to={`/${e.channel.slug}/${e.slug}`}> {e.title} </Link>
+              </h5>
+              <h5>
+                <Link to={`/${e.channel.slug}`}> {e.channel.title} </Link>
+              </h5>
+            </div>
           </div>
-          <div className="feedcast__playerFooter-bottom">
-            <button
-              className="feedcast__player-backward"
-              onClick={e=>{this.backwardTime()}}>
-              <i className="fa fa-backward"></i>
-            </button>
-            <button
-              className="feedcast__player-play-pause"
-              onClick={e=>{this.audioPlayer[`${this.props.isPaused?'play':'pause'}`]()}}>
-              {this.props.loadedData === false ? (
-                <i className="fa fa-spinner fa-pulse fa-fw"></i>
-              ):(
-                <i className={`fa fa-${this.props.isPaused?'play':'pause'}`}></i>
-              )}
-            </button>
-            <button
-              className="feedcast__player-forward"
-              onClick={e=>{this.forwardTime()}}>
-              <i className="fa fa-forward"></i>
-            </button>
-            <div
-              className={`feedcast__player-time ${this.props.isError ? 'feedcast__player-time--error':''}`}
-              onClick={ e => { this.handleTimeClick(e)} }>
+          <div className="feedcast__playerFooter-center">
+            <div className="feedcast__player-button-wrapper">
+              <button
+                className="feedcast__player-backward"
+                onClick={e=>{this.backwardTime()}}>
+                <i className="fa fa-backward"></i>
+              </button>
+              <button
+                className="feedcast__player-play-pause"
+                onClick={e=>{this.audioPlayer[`${this.props.isPaused?'play':'pause'}`]()}}>
+                {this.props.loadedData === false ? (
+                  <i className="fa fa-spinner fa-pulse fa-fw"></i>
+                ):(
+                  <i className={`fa fa-${this.props.isPaused?'play':'pause'}`}></i>
+                )}
+              </button>
+              <button
+                className="feedcast__player-forward"
+                onClick={e=>{this.forwardTime()}}>
+                <i className="fa fa-forward"></i>
+              </button>
+              <Link className="feedcast__player-run-queue" to="/queue">
+                <i className="fa fa-indent"></i>
+              </Link>
+              <button
+                className="feedcast__player-playback-rate"
+                onClick={ e => this.changeRate() }>
+                {parseFloat(this.props.playbackRate).toFixed(1)}x
+              </button>
+            </div>
+            <div className="feedcast__time-wrapper">
+              <span className="feedcast__current-time">
+                { this.props.isError ? '' : `${this.props.currentTime}`}
+              </span>
               <div
-                style={{
-                  width: `${this.getPerc()}%`
-                }}
-                className="feedcast__player-time-bar">
+                className={`feedcast__player-time ${this.props.isError ? 'feedcast__player-time--error':''}`}
+                onClick={ e => { this.handleTimeClick(e)} }>
+                <div
+                  style={{
+                    width: `${this.getPerc()}%`
+                  }}
+                  className="feedcast__player-time-bar">
+                </div>
               </div>
-              <span>
-                { this.props.isError ? lc.failLoadMedia :
-                `${this.props.currentTime} / ${this.props.duration}`}
+              <span className="feedcast__duration">
+                { this.props.isError ? '' : `${this.props.duration}`}
               </span>
             </div>
-            <Link className="feedcast__player-run-queue" to="/queue">
-              <i className="fa fa-indent"></i>
-            </Link>
-            <button
-              className="feedcast__player-playback-rate"
-              onClick={ e => this.changeRate() }>
-              {parseFloat(this.props.playbackRate).toFixed(1)}x
-            </button>
           </div>
         </div>
       </div>

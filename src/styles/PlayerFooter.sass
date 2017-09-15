@@ -3,8 +3,8 @@
 .feedcast__footer
   position: fixed;
   width: 100%;
-  height: 80px;
-  background-color: #fafafa;
+  height: 90px;
+  background-color: white;
   padding: 0px 10px;
   box-sizing: border-box;
   border-top: 1px solid $lighter-gray;
@@ -13,23 +13,61 @@
     bottom: 0px;
 
   &--hide
-    bottom: -80px;
+    bottom: -90px;
+
+    height: 100%
 
 .feedcast__playerFooter
+  &-left
+    padding-top: 10px
+    width: 300px;
+    display: inline-block
+    .feedcast__player-channel-info
+      display: inline-block
+      width: calc(100% - 60px)
+    .feedcast__player-channel-image
+      width: 56px
+      height: 56px
+      display: inline-block
+      float: left
+      margin-right: 4px
+      img
+        margin-top: 5px
+        width: 100%
+  &-center
+    width: calc(100% - 300px)
+    display: inline-block
+
+  .feedcast__player-button-wrapper
+    margin-top: 5px
+    text-align: center
+  .feedcast__time-wrapper
+    position: relative
+    display: inline-block
+    width: calc(100%)
+
+    .feedcast__current-time,
+    .feedcast__duration
+      display: inline-block
+      width: 70px
+      text-align: center
+      font-size: 12px
   .feedcast__player
     &-play-pause,
+    &-run-queue,
     &-forward,
     &-backward,
     &-download,
-    &-run-queue,
     &-playback-rate
       display: inline-block
       box-sizing: border-box
-      border: 1px solid $lighter-blue
+      border: 1px solid $colorb
       cursor: pointer
-      color: $lighter-blue
+      color: $colorb
       margin: 0px 2px
-      background-color: transparent
+      background: white;
+    &-run-queue
+      margin-left: 20px
 
     &-play-pause
       $ppsize : 40px
@@ -54,21 +92,22 @@
       font-size: 12px
       color: white
       font-weight: bolder
-      border: 1px solid $darker-gray
-      height: 30px
+      border: 1px solid white
+      height: 3px
       line-height: 30px
       text-align: center
-      margin-left: 10px
-      position: absolute
-      width: calc(100% - 220px)
-      transform: translateY(5px)
-      background-color: $darker-gray
+      margin: 0px 2px
+      width: calc(100% - 150px)
+      transform: translateY(0px)
+      background-color: #ddd
+      cursor: pointer
       &--error
-        border: 1px solid red
+        background-color: red
       &--error span
         background-color: #fafafa
         color: red
       span
+        display: none
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -79,11 +118,19 @@
     &-time-bar
       position: absolute
       height: 100%
-      background-color: $lighter-blue
+      background-color: $colorb
       z-index: 100
-    &-download, &-run-queue, &-playback-rate
-      float: right
-      transform: translateY(5px)
+      &:after
+        content: ' '
+        display: block
+        position: absolute
+        right: 0px
+        bottom: 0px
+        transform: translate(25%, 25%)
+        height: 10px
+        width: 10px
+        border-radius: 50%
+        background-color: $colorb
     &-run-queue
       line-height: 30px
 
@@ -111,23 +158,16 @@
 @media(min-width: 500px), (min-device-width: 500px)
   .feedcast--sidebar-active
     .feedcast__footer
-      width: calc(100% - 230px)
-      right: 0px
+      z-index: 1000
 
-@media(max-width: 360px), (max-device-width: 360px)
-  .feedcast__player
-    &-backward,
-    &-forward
-      display: none !important
-  .feedcast__player-time
-    width: calc(100% - 160px) !important
-    span
-      font-size: 9px
 
-@media only screen and (min-device-width : 375px) and (max-device-width : 667px)
-  .feedcast__player-time
-    width: calc(100% - 210px) !important
-
-@media only screen and (min-device-width : 414px) and (max-device-width : 736px)
-  .feedcast__player-time
-    width: calc(100% - 210px) !important
+@media(max-width: 620px), (max-device-width: 620px)
+  .feedcast__playerFooter
+    $sizeLeft : 30px
+    &-left
+      padding-top: 10px
+      width: 56px;
+      display: inline-block
+    &-center
+      width: calc(100% - 56px)
+      display: inline-block
