@@ -51,3 +51,10 @@
   -ms-filter: $filter-type+unquote('(#{$filter-amount})')
   -o-filter: $filter-type+unquote('(#{$filter-amount})')
   filter: $filter-type+unquote('(#{$filter-amount})')
+
+=transform($transforms)
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;

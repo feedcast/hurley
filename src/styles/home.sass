@@ -1,11 +1,12 @@
 @import 'constants'
+@import 'mixins'
 
 
 .feedcast__home
   position: relative
   max-width: 960px
   left: 50%
-  transform: translateX(-50%)
+  +transform(translateX(-50%))
 
   .feedcast__last-episodes,
   .feedcast__categories-sidebar
@@ -80,7 +81,7 @@
       font-size: 40px
       text-align: center
       line-height: 100px
-      transform: translate(-2px, -2px)
+      +transform(translate(-2px, -2px))
   h5
     color: $darker-blue
     margin: 0px

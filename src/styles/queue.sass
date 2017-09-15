@@ -1,4 +1,5 @@
 @import 'constants'
+@import 'mixins'
 
 
 .feedcast__queueEpisode-info-wrapper a
@@ -84,7 +85,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1em;
-  transform: translateY(3px);
+  +transform(translateY(3px))
 
 
 .feedcast__queueEpisode-info-wrapper button

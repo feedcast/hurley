@@ -1,4 +1,5 @@
 @import 'constants'
+@import 'mixins'
 
 .feedcast__episodes-list
   display: flex;
@@ -14,13 +15,13 @@
   h5
     position: relative
     left: 50%
-    transform: translateX(-50%)
+    +transform(translateX(-50%))
     display: inline-block
     margin: 5px 0px
   button
     position: relative
     left: 50%
-    transform: translateX(-50%)
+    +transform(translateX(-50%))
     background-color: white
     border: 1px solid $darker-gray
     color: $darker-gray

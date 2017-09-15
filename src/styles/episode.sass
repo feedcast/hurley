@@ -28,7 +28,7 @@
 
   .feedcast__episode-channel
     background-position: center center
-    transform: translate(-100%, -50%)
+    +transform(translate(-100%, -50%))
     width: calc(100% / 2.5)
     height: calc(100% / 1.5)
     background-size: cover
@@ -37,14 +37,14 @@
     top: 50%
     cursor: pointer
     &:hover button
-      transform: translate(-50%, -50%) scale(1.5)
+      +transform(translate(-50%, -50%) scale(1.5))
 
   .feedcast__episode-info
     position: absolute
     left: 50%
     top: 50%
     width: calc(100% / 2.3)
-    transform: translateY(-50%) translateX(10px)
+    +transform(translateY(-50%) translateX(10px))
     color: white
     h3, h5
       margin: 8px 10px
@@ -70,7 +70,7 @@
   position: absolute
   top: 50%
   left: 50%
-  transform: translate(-50%, -50%)
+  +transform(translate(-50%, -50%))
 
 
 @media(max-width: 600px), (max-device-width: 600px)
@@ -81,7 +81,7 @@
     background-position: center center
     top: 50% !important
     left: 50% !important
-    transform: translate(-50%, -80%) !important
+    +transform(translate(-50%, -80%) !important)
     width: calc(100% / 2) !important
     height: calc(100% / 2.5) !important
     background-size: cover
@@ -91,9 +91,9 @@
     left: 50%
     top: 50%
     width: calc(100% / 1.2) !important
-    transform: translate(-50%, 50%) !important
+    +transform(translate(-50%, 50%) !important)
     text-align: center !important
 
   .feedcast__episode-channel
     &:hover button
-      transform: translate(-50%, -50%) scale(1) !important
+      +transform(translate(-50%, -50%) scale(1) !important)

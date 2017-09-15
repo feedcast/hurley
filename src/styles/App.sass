@@ -1,4 +1,5 @@
 @import 'constants'
+@import 'mixins'
 
 *:focus
   outline: 0
@@ -64,7 +65,7 @@ html, body
   color: $colora
   height: 40px
   width: 40px
-  transform: translatex(-10px)
+  +transform(translatex(-10px))
   line-height: 40px
   font-size: 20px
   cursor: pointer
@@ -105,7 +106,7 @@ html, body
   z-index: 500
   width: 230px
   &--hide
-    transform: translateX(-230px)
+    +transform(translateX(-230px))
 
   i
     width: 18px
@@ -152,7 +153,7 @@ html, body
     height: 100vh
     width: 85vw
     &--hide
-      transform: translateX(-85vw)
+      +transform(translateX(-85vw))
 
   .feedcast__sidebar,
   .feedcast__sidebar-overlay
@@ -228,7 +229,7 @@ html, body
   position: relative
   max-width: 960px
   left: 50%
-  transform: translateX(-50%)
+  +transform(translateX(-50%))
 
 .feedcast__section
   background-color: white;
@@ -238,7 +239,7 @@ html, body
   position: relative
   max-width: 960px
   left: 50%
-  transform: translateX(-50%)
+  +transform(translateX(-50%))
 
   h4
     margin-top: 0px
@@ -253,7 +254,7 @@ html, body
     list-style: none
     padding: 0px
     margin: 0px
-    transform: translateX(-100%)
+    +transform(translateX(-100%))
     white-space: nowrap;
     color: $link-blue
 
@@ -294,6 +295,6 @@ html, body
       border-left: 5px solid white
       position: absolute
       bottom: 10px
-      transform: translateX(-1px)
+      +transform(translateX(-1px))
     ul
       display: block

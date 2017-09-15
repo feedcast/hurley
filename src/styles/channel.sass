@@ -1,4 +1,5 @@
 @import 'constants'
+@import 'mixins'
 
 .feedcast__channelInfo,
 .feedcast__channelEpisodes
@@ -35,7 +36,7 @@
   float: left;
   border: 1px solid white;
   position: relative;
-  transform: translateY(20px);
+  +transform(translateY(20px))
 
 .feedcast__channelInfo-img:before
   content: "\f2ce";
@@ -155,7 +156,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 1em;
-  transform: translateY(3px);
+  +transform(translateY(3px))
 
 
 .feedcast__channelEpisode-info-wrapper button
@@ -196,7 +197,7 @@
   position: relative
   max-width: 960px
   left: 50%
-  transform: translateX(-50%)
+  +transform(translateX(-50%))
 
 @media ( min-width: 960px), ( min-device-width: 960px)
   .feedcast__channelPage
