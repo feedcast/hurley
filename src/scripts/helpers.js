@@ -23,8 +23,9 @@ class Helpers extends EventEmitter {
   }
 
   sanitize(html){
-    return sanitizeHtml(html, {
-      allowedTags: [ 'b', 'i', 'em', 'strong', 'a' ],
+    const htmlWithBreaks = html.replace(/\n/g, "<br />");
+    return sanitizeHtml(htmlWithBreaks, {
+      allowedTags: [ 'b', 'i', 'em', 'strong', 'a', 'p', 'br'],
       allowedAttributes: {
         'a': [ 'href', 'target', 'rel' ]
       },
