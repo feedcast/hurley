@@ -7,12 +7,6 @@ exports[`Channel when has a list of channels render the channels 1`] = `
   <div
     className="feedcast__loader--top"
   />
-  <div
-    className="feedcast__loader--middle"
-  />
-  <div
-    className="feedcast__loader--bottom"
-  />
 </div>
 `;
 
@@ -23,12 +17,6 @@ exports[`Channel when has no data renders the no episode 1`] = `
   <div
     className="feedcast__loader--top"
   />
-  <div
-    className="feedcast__loader--middle"
-  />
-  <div
-    className="feedcast__loader--bottom"
-  />
 </div>
 `;
 
@@ -38,12 +26,6 @@ exports[`Channel when is fetching renders the loader 1`] = `
 >
   <div
     className="feedcast__loader--top"
-  />
-  <div
-    className="feedcast__loader--middle"
-  />
-  <div
-    className="feedcast__loader--bottom"
   />
 </div>
 `;
