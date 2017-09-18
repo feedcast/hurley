@@ -42,7 +42,7 @@ class ChannelEpisodesContainer extends Component {
 
   render() {
     if (this.props.isFetching) {
-      return <FeedcastLoader />;
+      return null;
     }
 
     return <ChannelEpisodes {...this.props} />;

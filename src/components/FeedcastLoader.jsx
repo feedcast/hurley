@@ -6,8 +6,6 @@ export default class FeedcastLoader extends Component {
     return (
       <div className="feedcast__loader">
           <div className="feedcast__loader--top"></div>
-          <div className="feedcast__loader--middle"></div>
-          <div className="feedcast__loader--bottom"></div>
       </div>
     )
   }

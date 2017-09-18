@@ -1,47 +1,31 @@
 @import 'constants.sass'
 @import 'mixins.sass'
 
-+keyframes(bgcolor)
++keyframes(barwidth)
   0%
-    background-color: transparent
+    width: 0%;
   50%
-    background-color: $darker-blue
+    width: 50%;
   100%
-    background-color: transparent
+    width: 100%;
 
-$loader-width: 80px
+$loader-width: 100%
 
 .feedcast__loader
-  position: absolute
-  top: 50%
-  left: 50%
-  +transform(translate(-50%, -50%))
+  position: fixed;
+  top: 0px;
+  left: 0;
   width: $loader-width
   display: block
-  border: 1px solid $darker-blue
-  box-sizing: content-border
-  padding: $loader-width / 3
-  border-radius: 50%
-
-  div:not(:first-child)
-    margin-top: $loader-width / 14
 
 .feedcast__loader--top,
-.feedcast__loader--middle,
-.feedcast__loader--bottom
-  height: $loader-width / 4;
-  border-radius: $loader-width / 4;
-  border: 1px solid $darker-blue
-  transition: all 1s ease
-  animation: bgcolor 1s ease
+  background-color: $orange
+  width: 0%;
+  height: 5px;
+  transition: all 10s ease
+  animation: barwidth 20s ease
   animation-iteration-count: infinite
 
 .feedcast__loader--top
-  width: calc(100%)
-  animation-delay: .1s
-.feedcast__loader--middle
-  width: calc(70%)
-  animation-delay: .2s
-.feedcast__loader--bottom
-  width: calc(26%)
-  animation-delay: .3s
+  width: 100%
+  animation-delay: .100s
