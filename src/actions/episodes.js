@@ -67,3 +67,12 @@ export function syncRequestEpisodes(data) {
   }
 }
 
+
+export function asyncFetchEpisodes(params) {
+  return feedcastApi.getEpisodes(params);
+}
+
+export function asyncFetchChannelEpisodes(params) {
+  return feedcastApi.getChannelEpisodes(params);
+}
+

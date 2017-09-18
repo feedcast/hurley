@@ -1,11 +1,11 @@
 import { call, put, takeEvery } from 'redux-saga/effects'
-import feedcast from 'feedcast-client';
+import feedcastApi from 'feedcast-client';
 
 import * as actions from 'app/actions/episodes';
 
 function* requestEpisodes({ payload }) {
   try {
-    const episodes = yield call(feedcast.getEpisodes, payload);
+    const episodes = yield call(actions.asyncFetchEpisodes, payload);
     yield put(actions.requestEpisodesSuccess(episodes));
   } catch (error) {
     console.log(error);
@@ -15,7 +15,7 @@ function* requestEpisodes({ payload }) {
 
 function* requestEpisodesForChannel({ payload }) {
   try {
-    const episodes = yield call(feedcast.getChannelEpisodes, payload);
+    const episodes = yield call(actions.asyncFetchChannelEpisodes, payload);
     yield put(actions.requestEpisodesSuccess(episodes));
   } catch (error) {
     console.log(error);
