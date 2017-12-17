@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home when has categories renders the page 1`] = `
+<div
+  className="feedcast__home"
+>
+  <div
+    className="feedcast__section"
+  >
+    <div
+      className="feedcast__last-episodes"
+    >
+      <h3>
+         Recents 
+      </h3>
+      <div
+        className="feedcast__episodes-list"
+      >
+        <div
+          className="feedcast__load-more"
+        >
+          
+        </div>
+      </div>
+    </div>
+    <div
+      className="feedcast__categories-channel-list"
+    >
+      <h3>
+        You might enjoy
+      </h3>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Home when has no categories renders the spinner 1`] = `
+<div
+  className="feedcast__home"
+>
+  <div
+    className="feedcast__section"
+  >
+    <div
+      className="feedcast__last-episodes"
+    >
+      <h3>
+         Recents 
+      </h3>
+      <div
+        className="feedcast__episodes-list"
+      >
+        <div
+          className="feedcast__load-more"
+        >
+          
+        </div>
+      </div>
+    </div>
+    <div
+      className="feedcast__categories-channel-list"
+    >
+      <h3>
+        You might enjoy
+      </h3>
+    </div>
+  </div>
+</div>
+`;

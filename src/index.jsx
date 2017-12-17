@@ -53,18 +53,18 @@ function AppRouter() {
   <Provider store={store}>
     <Router>
       <Page>
-          <Route path="/" component={logPageView}></Route>
-          <Switch>
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/queue/" component={Queue}></Route>
-            <Route path="/channels/:page?" component={ChannelList}></Route>
-            <Route path="/category/:slug" component={Category}></Route>
-            <Route path="/episodes/:page?" component={EpisodesList}></Route>
-            <Route exact path="/:slug" component={Channel}></Route>
-            <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
-            <Route path="/:slug/:episode_slug" component={Episode}></Route>
-            <Route component={NoMatch}/>
-          </Switch>
+        <Route path="/" component={logPageView}></Route>
+        <Switch>
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/queue/" component={Queue}></Route>
+          <Route path="/channels/:page?" component={ChannelList}></Route>
+          <Route path="/category/:slug" component={Category}></Route>
+          <Route path="/episodes/:page?" component={EpisodesList}></Route>
+          <Route exact path="/:slug" component={Channel}></Route>
+          <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
+          <Route path="/:slug/:episode_slug" component={Episode}></Route>
+          <Route component={NoMatch}/>
+        </Switch>
       </Page>
     </Router>
   </Provider>
