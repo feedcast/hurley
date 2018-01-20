@@ -5,7 +5,7 @@ exports[`EpisodesList when has a list of episodes render the episodes 1`] = `
   className="feedcast__last-episodes feedcast__section"
 >
   <h4>
-     Recent Episodes 
+    episodes.last_episodes
   </h4>
   <div
     className="feedcast__episodes-block"
@@ -113,7 +113,7 @@ exports[`EpisodesList when has no data renders the no episode 1`] = `
   className="feedcast__last-episodes feedcast__section"
 >
   <h4>
-     Recent Episodes 
+    episodes.last_episodes
   </h4>
   <div
     className="feedcast__episodes-block"

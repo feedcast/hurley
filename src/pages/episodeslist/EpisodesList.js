@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import helpers from 'app/scripts/helpers';
 import Helmet from 'react-helmet';
+import { translate } from 'react-i18next';
 
 import Pagination from 'app/components/Pagination';
 import { EpisodeCardList } from 'app/components/EpisodeCard';
@@ -10,11 +11,10 @@ import { EpisodeCardList } from 'app/components/EpisodeCard';
 import 'app/styles/EpisodesList.sass';
 
 
-export default class EpisodesList extends PureComponent {
+export class EpisodesList extends PureComponent {
   constructor(props) {
     super(props);
-    let { lc } = helpers.localize(this)
-    this.state = {lc}
+    this.state = {}
   }
 
   static propTypes = {
@@ -32,19 +32,18 @@ export default class EpisodesList extends PureComponent {
   }
 
   render(){
-    let { lc } = this.state
     let { page } = this.props.match ? this.props.match.params : this.props
     page = parseInt(page || '1')
 
     return (
       <div className="feedcast__last-episodes feedcast__section">
         <Helmet
-          title={`Feedcast | ${lc.lastEpisodes}`}
+          title={`Feedcast | ${this.props.t('episodes.last_episodes')}`}
           meta={[
             {property: 'og:title',
-            content: `Feedcast | ${lc.lastEpisodes}`},
+            content: `Feedcast | ${this.props.t('episodes.last_episodes')}`},
           ]} />
-        <h4> Recent Episodes </h4>
+        <h4>{ this.props.t('episodes.last_episodes') }</h4>
         <div className="feedcast__episodes-block">
           <EpisodeCardList episodes={ this.props.episodes } />
           <Pagination
@@ -58,3 +57,5 @@ export default class EpisodesList extends PureComponent {
     )
   }
 }
+
+export default translate()(EpisodesList);

@@ -1,0 +1,41 @@
+{
+  "common": {
+    "loading": "Carrengando",
+    "load_more": "Mais",
+    "recents": "Recentes",
+    "search-placeholder": "Procure por um canal ou episodio",
+    "feedback": "Feedback"
+  },
+  "player": {
+    "empty-episodes-queue": "Nenhum episodion na fila."
+  },
+  "home": {
+    "title": "Home"
+  },
+  "episodes": {
+    "title": "Episódios",
+    "last_episodes": "Últimos episódios"
+  },
+  "channels": {
+    "title": "Canais",
+    "you_might_enjoy": "Você pode gostar"
+  },
+  "categories": {
+    "title": "Categorias",
+    "nerd": "Nerd",
+    "movies_television": "Filmes & Televisão",
+    "technology": "Tecnologia",
+    "literature": "Literatura",
+    "comedy": "Comédia",
+    "games": "Games",
+    "religion": "Religião",
+    "music": "Música",
+    "education": "Educação",
+    "entrepreneurship": "Emprendedorismo",
+    "storytelling": "Contos",
+    "computer_science": "Ciência da Computação"
+  },
+  "queue": {
+    "title": "Fila"
+  }
+}

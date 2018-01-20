@@ -3,6 +3,13 @@ import dictionary from 'app/scripts/helpers/dictionary'
 import React, { Component } from 'react';
 import { connect } from  'react-redux';
 
+import i18n from 'app/i18n';
+
+const languages = [
+  { code: 'en', title: 'english' },
+  { code: 'pt', title: 'portuguese' }
+]
+
 class Footer extends Component {
   render(){
     return (
@@ -10,10 +17,10 @@ class Footer extends Component {
         <p className="feedcast__select-language">
           <i className="fa fa-globe"></i>
           <select
-            onChange={(e)=>{helpers.setLanguage(e.target.value)}}
+            onChange={(e)=>{i18n.changeLanguage(e.target.value)}}
             value={helpers.language.lang}>
-          {Object.keys(dictionary).map((i, n) => {
-              return (<option key={n} value={i}>{dictionary[i].alias}</option>)
+          {languages.map((language, n) => {
+              return (<option key={n} value={language.code}>{language.title}</option>)
           })}
           </select>
         </p>

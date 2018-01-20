@@ -2,12 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'
 
-import helpers from 'app/scripts/helpers'
 import 'app/styles/PlayerFooter.sass'
 
 import * as actions from 'app/actions/player'
-
-let lc = helpers.language.words;
 
 class PlayerFooter extends Component {
   static propTypes = {
@@ -26,10 +23,8 @@ class PlayerFooter extends Component {
     super(props);
 
     this.audioPlayer = document.createElement('AUDIO')
-    let { lc } = helpers.localize(this)
 
     this.state = {
-      lc
     }
 
     this.bindEvents()
@@ -109,10 +104,7 @@ class PlayerFooter extends Component {
 
   webPlayer(){
     const playingUuid = this.props.episode? this.props.episode.uui: null;
-    const { lc } = this.state
-    const { episode : e,
-            ...props
-          } = this.props
+    const { episode : e } = this.props;
 
     return (
       <div className={`feedcast__footer feedcast__footer--${playingUuid !== null ? 'show':'hide'}`}>

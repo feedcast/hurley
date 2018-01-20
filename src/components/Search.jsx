@@ -1,35 +1,21 @@
 import React, { Component } from 'react';
-import helpers from './../scripts/helpers'
+import { translate } from 'react-i18next';
 
 import './../styles/search.sass';
 
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    let { lc } = helpers.localize(this)
-
-    this.state = { lc }
-  }
-
-  componentWillUnmount(){
-    this._isMounted = false
-  }
-
-  componentDidMount() {
-    this._isMounted = true
-  }
-
-  render() {
-    let { lc } = this.state
-    return (
+export function Search({ t }) {
+  const placeholder = t('commom.search-placeholder');
+  return (
       <div className="feedcast__search">
-        <input type="text" className="feedcast__search-input" placeholder={lc.searchPlaceholder}/>
+        <input type="text"
+          className="feedcast__search-input"
+          placeholder={placeholder} />
+
         <button className="feedcast__search-button">
           <i className="fa fa-search"></i>
         </button>
       </div>
-    );
-  }
+  );
 }
 
-export default Search;
+export default translate()(Search);

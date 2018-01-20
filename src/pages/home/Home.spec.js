@@ -1,24 +1,27 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { withStore } from 'app/tests/helpers';
-import { MemoryRouter } from 'react-router-dom';
 
 import Home from './Home';
 
 describe('Home', () => {
+  let component, props;
+
+  beforeEach(() => {
+    const home = <Home {...props} />;
+    component = renderer.create(withStore(home));
+  });
+
   describe('when has no categories', () => {
-    const state = { categories: [], episodes: [] };
+    const props = { categories: [], episodes: [] };
 
     it("renders the spinner", () => {
-      const home = withStore(<Home />, state)
-      const component = renderer.create(home);
-
       expect(component).toMatchSnapshot();
     })
   });
 
   describe('when has categories', () => {
-    const state = {
+    const props = {
       categories: [
         {
           "uuid": "f577cc20-6f24-0135-26f9-6eaa3e61655f",
@@ -45,9 +48,6 @@ describe('Home', () => {
       ], episodes: [] };
 
     it("renders the page", () => {
-      const home = withStore(<Home {...state} />)
-      const component = renderer.create(home);
-
       expect(component).toMatchSnapshot();
     })
   });
