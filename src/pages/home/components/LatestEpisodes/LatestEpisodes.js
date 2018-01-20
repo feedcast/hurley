@@ -4,20 +4,20 @@ import PropTypes from 'prop-types';
 import { EpisodeCardList } from 'app/components/EpisodeCard';
 import 'app/styles/EpisodesList.sass'
 
-function LatestEpisodes({ episodes, onLoadMore, isFetching }) {
+export function LatestEpisodes({ episodes, onLoadMore, isFetching, t }) {
   const loadMoreBtn = (
     <button onClick={() => onLoadMore()}>
-    { isFetching ? "Loading" : "Load more" }
+      { isFetching ? t('common.loading') : t('common.load_more') }
     </button>
   );
 
   return (
     <div className="feedcast__last-episodes">
-      <h3> Recents </h3>
+      <h3>{ t('common.recents') }</h3>
       <div className="feedcast__episodes-list">
         <EpisodeCardList episodes={ episodes } />
         <div className="feedcast__load-more">
-          { episodes.length > 0 ? loadMoreBtn : ''}
+          { loadMoreBtn }
         </div>
       </div>
     </div>
@@ -32,6 +32,7 @@ LatestEpisodes.defaultProps = {
 LatestEpisodes.propTypes = {
   episodes: PropTypes.array,
   isFetching: PropTypes.bool,
+  t: PropTypes.func,
   onLoadMore: PropTypes.func
 };
 

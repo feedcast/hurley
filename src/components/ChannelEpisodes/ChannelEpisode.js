@@ -9,11 +9,8 @@ class ChannelEpisode extends Component {
   constructor(){
     super();
 
-    let { lc } = helpers.localize(this)
-
     this.state = {
       seeMore: false,
-      lc
     }
   }
 

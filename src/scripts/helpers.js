@@ -71,19 +71,6 @@ class Helpers extends EventEmitter {
     Cookies.set('feedcast-language', lang)
   }
 
-  localize(ReactDOM){
-    this.on('set-language', lang => {
-      if(ReactDOM._isMounted){
-        ReactDOM.setState(this.getWords(lang))
-      }
-    })
-
-    if(typeof Cookies.get('feedcast-language') !== 'undefined'){
-      return this.getWords(Cookies.get('feedcast-language'));
-    }
-    return this.getWords(this.userLang);
-  }
-
   getWords(lang){
     let dc = dictionary,
         dcKeys = Object.keys(dc),

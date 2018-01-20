@@ -49,7 +49,5 @@ class ChannelEpisodesContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => state.episodes;
-
 export { ChannelEpisodes };
-export default connect(mapStateToProps)(ChannelEpisodesContainer);
+export default connect((state) => state.episodes)(ChannelEpisodesContainer);

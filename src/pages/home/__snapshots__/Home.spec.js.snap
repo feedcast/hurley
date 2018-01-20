@@ -11,7 +11,7 @@ exports[`Home when has categories renders the page 1`] = `
       className="feedcast__last-episodes"
     >
       <h3>
-         Recents 
+        common.recents
       </h3>
       <div
         className="feedcast__episodes-list"
@@ -19,7 +19,11 @@ exports[`Home when has categories renders the page 1`] = `
         <div
           className="feedcast__load-more"
         >
-          
+          <button
+            onClick={[Function]}
+          >
+            common.load_more
+          </button>
         </div>
       </div>
     </div>
@@ -27,7 +31,7 @@ exports[`Home when has categories renders the page 1`] = `
       className="feedcast__categories-channel-list"
     >
       <h3>
-        You might enjoy
+        channels.you_might_enjoy
       </h3>
     </div>
   </div>
@@ -45,7 +49,7 @@ exports[`Home when has no categories renders the spinner 1`] = `
       className="feedcast__last-episodes"
     >
       <h3>
-         Recents 
+        common.recents
       </h3>
       <div
         className="feedcast__episodes-list"
@@ -53,7 +57,11 @@ exports[`Home when has no categories renders the spinner 1`] = `
         <div
           className="feedcast__load-more"
         >
-          
+          <button
+            onClick={[Function]}
+          >
+            common.load_more
+          </button>
         </div>
       </div>
     </div>
@@ -61,7 +69,7 @@ exports[`Home when has no categories renders the spinner 1`] = `
       className="feedcast__categories-channel-list"
     >
       <h3>
-        You might enjoy
+        channels.you_might_enjoy
       </h3>
     </div>
   </div>

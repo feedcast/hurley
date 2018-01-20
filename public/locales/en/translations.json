@@ -1,0 +1,29 @@
+{
+  "common": {
+    "loading": "Loading",
+    "load_more": "Load more",
+    "recents": "Recents",
+    "search-placeholder": "Search for a channel or episod",
+    "feedback": "Feedback"
+  },
+  "player": {
+    "empty-episodes-queue": "No episodes added to the execution queue!"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "episodes": {
+    "title": "Episodes",
+    "last_episodes": "Last Episodes"
+  },
+  "channels": {
+    "title": "Channels",
+    "you_might_enjoy": "You might enjoy"
+  },
+  "categories": {
+    "title": "Categories"
+  },
+  "queue": {
+    "title": "Queue"
+  }
+}

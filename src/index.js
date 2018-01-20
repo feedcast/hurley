@@ -22,8 +22,9 @@ import EpisodesList from './pages/episodeslist';
 import Episode from './pages/episode';
 import Queue from './pages/queue';
 import store from './store';
+import { I18nextProvider } from 'react-i18next';
 
-import 'app/i18n';
+import i18n from 'app/i18n';
 
 ReactGA.initialize(process.env.REACT_APP_GA);
 
@@ -35,7 +36,6 @@ rollbarClient({
         environment: process.env.NODE_ENV || 'development'
     }
 });
-
 
 const logPageView = () => {
     console.log("Log", { page: window.location.pathname + window.location.search })
@@ -53,17 +53,17 @@ const NoMatch = ({ location }) => (
 function AppRouter() {
   return (
   <Provider store={store}>
-    <Router>
-      <Page onUpdate={ logPageView } >
+    <Router path="/">
+      <Page>
         <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/queue/" component={Queue} />
-          <Route path="/channels/:page?" component={ChannelList} />
-          <Route path="/category/:slug" component={Category} />
-          <Route path="/episodes/:page?" component={EpisodesList} />
-          <Route exact path="/:slug" component={Channel} />
-          <Route path="/:slug/episodes/:page(\d+)?" component={Channel} />
-          <Route path="/:slug/:episode_slug" component={Episode} />
+          <Route exact path="/" component={Home}></Route>
+          <Route path="/queue/" component={Queue}></Route>
+          <Route path="/channels/:page?" component={ChannelList}></Route>
+          <Route path="/category/:slug" component={Category}></Route>
+          <Route path="/episodes/:page?" component={EpisodesList}></Route>
+          <Route exact path="/:slug" component={Channel}></Route>
+          <Route path="/:slug/episodes/:page(\d+)?" component={Channel}></Route>
+          <Route path="/:slug/:episode_slug" component={Episode}></Route>
           <Route component={NoMatch}/>
         </Switch>
       </Page>
@@ -72,6 +72,10 @@ function AppRouter() {
   )
 }
 
-ReactDOM.render(<AppRouter />, document.getElementById('root'));
+ReactDOM.render(
+ <I18nextProvider i18n={ i18n }>
+   <AppRouter />
+ </I18nextProvider>,
+ document.getElementById('root'));
 
 registerServiceWorker();

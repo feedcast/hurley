@@ -1,8 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import EpisodeCard from './EpisodeCard';
 
-export default function EpisodesCardList({episodes}) {
-  if (!episodes || episodes.length === 0) return null;
+function EpisodeCardList({ episodes }) {
+  if (!episodes.length) {
+    return null;
+  }
 
   return (
     <div className="feedcast__episodes-list">
@@ -17,3 +21,13 @@ export default function EpisodesCardList({episodes}) {
     </div>
   );
 }
+
+EpisodeCardList.defaultProps = {
+  episodes: [],
+};
+
+EpisodeCardList.propTypes = {
+  episodes: PropTypes.array
+};
+
+export default EpisodeCardList;
