@@ -77,17 +77,19 @@
 
 @media(max-width:500px), (max-device-width:500px)
   $channel-list-size : 120px
+  .feedcast__channel-list
+    padding: 8px;
+    display: block;
+
   .feedcast__channel
-    width: $channel-list-size;
+    width: 100%;
 
   .feedcast__channel-img
-    width: $channel-list-size;
-    height: $channel-list-size;
+    width: 100%;
+    height: 100%;
 
   .feedcast__channel-thumbnail
-    width: $channel-list-size;
-    height: $channel-list-size;
-    line-height: $channel-list-size;
+    width: 100%;
 
   .feedcast__channel-title
     font-size: 12px

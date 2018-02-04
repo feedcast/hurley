@@ -1,7 +1,6 @@
 const API_URL = process.env.REACT_APP_API_HOST;
 
 class FeedcastApi {
-
   fetch({ url = null }){
     return new Promise((complete, reject) => {
       const req = new XMLHttpRequest();
@@ -62,8 +61,6 @@ class FeedcastApi {
     const url = `${API_URL}/episodes/${slug}/${episode_slug}/next/${amount}`;
     return this.fetch({ url })
   }
-
-
 }
 
 const feedcastApi = new FeedcastApi();

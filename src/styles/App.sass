@@ -5,6 +5,7 @@
   outline: 0
 
 @media(min-width: 500px), (min-device-width: 500px)
+
   .feedcast__sidebar--active
     width: calc(100% - 230px)
     margin-left: 230px
@@ -26,7 +27,6 @@ html, body
 .feedcast__container-wrapper
   min-height: calc(100vh - 205px)
 
-
 .feedcast__logo-wrapper
   float: left;
 
@@ -46,7 +46,7 @@ html, body
 
 
 .feedcast__header
-  background-color: transparent;
+  background-color: white;
   min-height: 10px;
   padding: 10px;
   color: white;
@@ -56,6 +56,7 @@ html, body
   top: 0px;
   width: 100%;
   z-index: 100;
+  box-shadow: 2px 1px 5px #888888;
 
 .feedcast__sidebar-toggle
   background-color: transparent
@@ -144,6 +145,7 @@ html, body
 @media ( max-width: 500px), ( max-device-width: 500px)
   .feedcast__header
     background-color: white;
+
   .feedcast__sidebar-wrapper
     height: 100vh
     h5
@@ -174,8 +176,13 @@ html, body
     &--hide
       display: none
 
+  .feedcast__container
+    padding: 0px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
 
-
+    h3
+      margin-top: 0;
 
 .feedcast__container.player-active
   padding-bottom: 200px
