@@ -6,6 +6,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
@@ -285,6 +286,25 @@ module.exports = {
     // having to parse `index.html`.
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
+    }),
+    new WebpackPwaManifest({
+      name: 'Feedcast',
+      short_name: 'Feedcast',
+      description: 'The podcast listener',
+      start_url: '/index.html',
+      display: "standalone",
+      theme_color: '#036DA7',
+      background_color: '#DEDEDE',
+      icons: [
+        {
+          src: path.resolve('icon_feedcast.png'),
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        },
+        {
+          src: path.resolve('icon_feedcast.png'),
+          size: '1024x1024' // you can also use the specifications pattern
+        }
+      ]
     }),
     new ServiceWorkerWebpackPlugin({
       entry: paths.appSrc + '/sw.js',

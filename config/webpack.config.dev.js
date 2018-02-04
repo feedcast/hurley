@@ -12,6 +12,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const aliases = require('./aliases');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -245,11 +246,27 @@ module.exports = {
     // makes the discovery automatic so you don't have to restart.
     // See https://github.com/facebookincubator/create-react-app/issues/186
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+    new WebpackPwaManifest({
+      name: 'Feedcast',
+      short_name: 'Feedcast',
+      description: 'The podcast listener',
+      start_url: '/index.html',
+      display: "standalone",
+      theme_color: '#036DA7',
+      background_color: '#DEDEDE',
+      icons: [
+        {
+          src: path.resolve('public/icon_feedcast.png'),
+          sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+        },
+        {
+          src: path.resolve('public/icon_feedcast.png'),
+          size: '1024x1024' // you can also use the specifications pattern
+        }
+      ]
+    }),
     new ServiceWorkerWebpackPlugin({
       entry: paths.appSrc + '/sw.js',
-      options: {
-        debug: true,
-      }
     }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
