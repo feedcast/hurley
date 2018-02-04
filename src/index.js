@@ -10,7 +10,7 @@ import {
 import { Provider } from 'react-redux';
 import ReactGA from 'react-ga';
 import './styles/index.sass';
-import registerServiceWorker from './scripts/registerServiceWorker';
+// import registerServiceWorker from './scripts/registerServiceWorker';
 import rollbarClient from './scripts/rollbar'
 
 import Page from './pages/Page';
@@ -23,8 +23,13 @@ import Episode from './pages/episode';
 import Queue from './pages/queue';
 import store from './store';
 import { I18nextProvider } from 'react-i18next';
+import runtime from 'serviceworker-webpack-plugin/lib/runtime';
 
 import i18n from 'app/i18n';
+
+if ('serviceWorker' in navigator) {
+  const registration = runtime.register();
+}
 
 ReactGA.initialize(process.env.REACT_APP_GA);
 
@@ -77,5 +82,3 @@ ReactDOM.render(
    <AppRouter />
  </I18nextProvider>,
  document.getElementById('root'));
-
-registerServiceWorker();

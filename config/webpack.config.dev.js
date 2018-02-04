@@ -12,6 +12,7 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
 const aliases = require('./aliases');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -244,6 +245,12 @@ module.exports = {
     // makes the discovery automatic so you don't have to restart.
     // See https://github.com/facebookincubator/create-react-app/issues/186
     new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+    new ServiceWorkerWebpackPlugin({
+      entry: paths.appSrc + '/sw.js',
+      options: {
+        debug: true,
+      }
+    }),
     // Moment.js is an extremely popular library that bundles large locale files
     // by default due to how Webpack interprets its code. This is a practical
     // solution that requires the user to opt into importing specific locales.
