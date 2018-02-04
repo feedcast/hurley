@@ -20,23 +20,13 @@ export class Page extends Component {
     super(props);
 
     this.state = {
-      showSidebar: true,
+      showSidebar: false,
     }
   }
 
   //TODO: Change this is too confuse.
-  toggleSidebar(bol, ifMobile){
-    if('boolean' === typeof ifMobile){
-      if(ifMobile && window.innerWidth <= 500){
-        this.setState({ showSidebar: bol })
-      }
-    } else {
-      if(bol && 'boolean' === typeof bol){
-        this.setState({ showSidebar: bol })
-      } else {
-        this.setState({ showSidebar: ! this.state.showSidebar});
-      }
-    }
+  toggleSidebar(fixed){
+    this.setState({ showSidebar: fixed || !this.state.showSidebar});
   }
 
   render() {

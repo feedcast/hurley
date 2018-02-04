@@ -140,50 +140,6 @@ html, body
       border-left: 2px solid $colorb
       background: #fafafa
 
-
-
-@media ( max-width: 500px), ( max-device-width: 500px)
-  .feedcast__header
-    background-color: white;
-
-  .feedcast__sidebar-wrapper
-    height: 100vh
-    h5
-      font-size: 18px
-    a
-      font-size: 14px
-  .feedcast__sidebar
-    top: 0px
-    height: 100vh
-    width: 85vw
-    &--hide
-      +transform(translateX(-85vw))
-
-  .feedcast__sidebar,
-  .feedcast__sidebar-overlay
-    transition: all .2s ease-in-out
-
-  .feedcast__sidebar-overlay
-    position: fixed
-    top: 0px
-    left: 0px
-    height: 100%
-    width: 100%
-    background-color: rgba(0,0,0,.4)
-    z-index: 400
-    &--show
-      display: block
-    &--hide
-      display: none
-
-  .feedcast__container
-    padding: 0px;
-    padding-bottom: 0px;
-    box-sizing: border-box;
-
-    h3
-      margin-top: 0;
-
 .feedcast__container.player-active
   padding-bottom: 200px
 .feedcast__container-footer
@@ -307,3 +263,53 @@ html, body
       +transform(translateX(-1px))
     ul
       display: block
+
+@media ( max-width: 500px), ( max-device-width: 500px)
+  .feedcast__header
+    background-color: white;
+
+  .feedcast__sidebar-wrapper
+    height: 100vh
+    h5
+      font-size: 18px
+    a
+      font-size: 14px
+
+  .feedcast__sidebar
+    top: 0px
+    height: 100vh
+    width: 85vw
+    &--hide
+      +transform(translateX(-85vw))
+
+  .feedcast__sidebar,
+  .feedcast__sidebar-overlay
+    transition: all .2s ease-in-out
+
+  .feedcast__sidebar-overlay
+    position: fixed
+    top: 0px
+    left: 0px
+    height: 100%
+    width: 100%
+    background-color: rgba(0,0,0,.4)
+    z-index: 400
+    &--show
+      display: block
+    &--hide
+      display: none
+
+  .feedcast__container
+    padding: 0px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+
+    h3
+      margin-top: 0;
+
+  .feedcast__last-episodes
+    position: relative
+    left: 0
+    +transform(translateX(0))
+
+
